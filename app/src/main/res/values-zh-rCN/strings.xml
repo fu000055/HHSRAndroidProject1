@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">HHSRAndroidProject1</string>
+    <string name="bus">公交信息</string>
+    <string name="car_charging">汽车充电站</string>
+    <string name="movie_info">电影信息</string>
+    <string name="soccer_game">足球比赛</string>
+
+</resources>
