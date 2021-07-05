@@ -1,0 +1,2 @@
+rootProject.name = "HHSRAndroidProject1"
+include ':app'
