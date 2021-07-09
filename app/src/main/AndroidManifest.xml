@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="algonquin.cst2335.hhsrandroidproject1" >
+    package="algonquin.cst2335.hhsrandroidproject1">
 
     <application
         android:allowBackup="true"
         android:icon="@drawable/app_icon"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/Theme.HHSRAndroidProject1" >
-        <activity android:name=".MainActivity" >
+        android:theme="@style/Theme.HHSRAndroidProject1">
+        <activity android:name=".MovieIfo.MovieInformationActivity"></activity>
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

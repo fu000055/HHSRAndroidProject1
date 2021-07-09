@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReLativelayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#CFF0F4"
+    tools:context=".MovieFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <TextView
+        android:id="@+id/movieFragmentTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#CFF4F4"
+        android:textColor="#3F59B5"
+        android:textSize="30dp"
+        android:textAlignment="center"
+        android:gravity="center_horizontal"/>
+
+    <TextView
+        android:id="@+id/actorFragmentName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/movieFragmentTitle"
+        android:background="#CFF4F1"
+        android:textColor="#3F51B5"
+        android:textSize="20dp" />
+
+    <TextView
+        android:id="@+id/movieFragmentYear"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/actorFragmentName"
+        android:background="#CFF4F1"
+        android:textColor="#3F51B5"
+        android:textSize="20dp"/>
+
+    <TextView
+        android:id="@+id/movieFragmentGenre"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/movieFragmentYear"
+        android:background="#CFF4F1"
+        android:textColor="#3F51B5"
+        android:textSize="20dp"/>
+
+    <ScrollView
+        android:id="@+id/SCROLLER_ID"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_below="@id/movieFragmentGenre"
+        android:background="#CFF4F1"
+        android:fillViewport="true"
+        android:scrollbars="vertical">
+
+        <TextView
+            android:id="@+id/movieDescriptionFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1.0"
+            android:textSize="15dp" />
+    </ScrollView>
+
+    <ListView
+        android:id="@+id/listViewFragmentSong"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/SCROLLER_ID"
+        android:layout_above="@id/movieSaveButton"
+        android:background="#CFF4F1"
+        android:textSize="20dp" />
+
+    <Button
+        android:id="@+id/movieSaveButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:textColor="#CFF4F1"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"/>
+
+</ReLativelayout>
