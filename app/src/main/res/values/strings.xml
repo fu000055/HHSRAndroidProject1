@@ -4,4 +4,23 @@
     <string name="car_charging">Car Charging Station</string>
     <string name="movie_info">Movie Information</string>
     <string name="soccer_game">Soccer Games Api</string>
+
+    <string-array name="soccer_game_news">
+        <item>‘I will carry Inter forever in my heart’ – PSG’s Hakimi says farewell to I Nerazzurri</item>
+        <item>aa</item>
+        <item>bb</item>
+        <item>CC</item>
+    </string-array>
+    <string-array name="soccer_game_description">
+        <item>This is description</item>
+        <item>This is description</item>
+        <item>This is description</item>
+        <item>This is description</item>
+    </string-array>
+    <string-array name="soccer_game_date">
+        <item>20210502</item>
+        <item>20210502</item>
+        <item>20210502</item>
+        <item>20210502</item>
+    </string-array>
 </resources>
