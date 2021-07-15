@@ -1,7 +1,13 @@
 package algonquin.cst2335.hhsrandroidproject1;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Intent;
 import android.os.Bundle;
+import android.widget.ImageView;
+
+import algonquin.cst2335.hhsrandroidproject1.chargingStation.ChargingStation;
+import algonquin.cst2335.hhsrandroidproject1.chargingStation.ChargingStationListFragment;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -9,6 +15,13 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        ImageView chargingStation = findViewById(R.id.charging_station);
+        chargingStation.setOnClickListener(clk ->{
+                Intent goToCharingStation = new Intent(this, ChargingStation.class);
+                startActivity(goToCharingStation);
+        });
+
     }
 
     @Override

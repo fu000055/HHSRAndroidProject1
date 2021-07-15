@@ -5,5 +5,16 @@
     <string name="car_charging">汽车充电站</string>
     <string name="movie_info">电影信息</string>
     <string name="soccer_game">足球比赛</string>
+    <string name="latitudeInput">输入经度</string>
+    <string name="latitude">经度: </string>
+    <string name="longitude">纬度: </string>
+    <string name="longitudeInput">输入纬度</string>
+    <string name="searchButton">搜索</string>
+    <string name="title">地点</string>
+    <string name="phone">电话</string>
+    <string name="loadMap">谷歌地图</string>
+    <string name="add">添加到喜欢列表</string>
+    <string name="listOfFavourites">See List Of Favourite Stations</string>
+    <string name="deleteButton">删除</string>
 
 </resources>
