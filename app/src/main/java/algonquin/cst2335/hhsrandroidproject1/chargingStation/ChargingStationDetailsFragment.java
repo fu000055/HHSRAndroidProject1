@@ -46,8 +46,8 @@ public class ChargingStationDetailsFragment extends Fragment {
         longitude.setText("Longitude is: " + chosenStation.getLongitude());
         phone.setText("Contact Number is:" + chosenStation.getPhone());
 
-        Button closeButton = detailsView.findViewById(R.id.close);
-        closeButton.setOnClickListener( closeClicked -> {
+        ImageView closeView = detailsView.findViewById(R.id.close);
+        closeView.setOnClickListener( closeClicked -> {
             getParentFragmentManager().beginTransaction().remove( this ).commit();
         });
 
