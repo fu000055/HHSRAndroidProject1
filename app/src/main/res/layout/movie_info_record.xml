@@ -9,7 +9,7 @@
         android:id="@+id/sendbutton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Question"
+        android:text="@string/question"
         android:textSize="16sp"
         app:layout_constraintBottom_toTopOf="@+id/receivebutton"
         app:layout_constraintEnd_toEndOf="@+id/receivebutton"
@@ -19,7 +19,7 @@
         android:id="@+id/receivebutton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Feedback"
+        android:text="@string/Feedback"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

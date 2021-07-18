@@ -4,6 +4,18 @@
     <string name="car_charging">Car Charging Station</string>
     <string name="movie_info">Movie Information</string>
     <string name="soccer_game">Soccer Games Api</string>
+
+    <!-- Movie Information App button text -->
+    <string name="Longin">Login</string>
+    <string name="Help">Help</string>
+    <string name="Favorites">Favorites</string>
+    <string name="Detail">Detail</string>
+    <string name="searchTeater">earchTeater</string>
+    <string name="TheaterTel">TheaterTel</string>
+    <string name="delBtn">Delete</string>
+    <string name="Close">Close</string>
+    <string name="question">question</string>
+    <string name="Feedback">feedback</string>
     <!-- TODO: Remove or change this placeholder text -->
 
 </resources>

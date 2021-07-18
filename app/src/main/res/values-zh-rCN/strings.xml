@@ -6,4 +6,23 @@
     <string name="movie_info">电影信息</string>
     <string name="soccer_game">足球比赛</string>
 
+
+    <!-- Movie_database_app  button text -->
+    <string name="Longin">登录</string>
+    <string name="Help">帮助</string>
+    <string name="Favorites">收藏</string>
+    <string name="Detail">细节</string>
+    <!-- Movie_saved.xml button text -->
+    <string name="searchTeater">搜索影院</string>
+    <string name="TheaterTel">影院电话</string>
+    <string name="delBtn">删除</string>
+    <string name="Close">关闭</string>
+    <!-- Movie_info_record.xml button text -->
+    <string name="question">问题</string>
+    <string name="Feedback">反馈</string>
+
+
+
+
+
 </resources>
