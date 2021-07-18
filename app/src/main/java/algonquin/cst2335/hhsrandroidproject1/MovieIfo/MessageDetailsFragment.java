@@ -8,8 +8,11 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
-
 import algonquin.cst2335.hhsrandroidproject1.R;
+
+/**
+ * This class inherits Fragment and displays detailed information
+ */
 
 public class MessageDetailsFragment extends Fragment {
     MessageListFragment.ChatMessage chosenMessage;
@@ -20,6 +23,13 @@ public class MessageDetailsFragment extends Fragment {
         chosenPosition = position;
     }
 
+    /**
+     *
+     * @param inflater
+     * @param container
+     * @param savedInstanceState
+     * @return
+     */
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View detailsView = inflater.inflate(R.layout.movie_detail_layout,container,false);
@@ -36,6 +46,7 @@ public class MessageDetailsFragment extends Fragment {
 
         Button closeButton = detailsView.findViewById(R.id.cloButton);
         closeButton.setOnClickListener(closeClicked ->{
+            getParentFragmentManager().beginTransaction().remove( this ).commit();
 
         });
 

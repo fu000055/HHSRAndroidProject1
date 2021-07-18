@@ -15,43 +15,10 @@ import algonquin.cst2335.hhsrandroidproject1.R;
 
 public class SaveSecondActivity extends AppCompatActivity {
 
-  /*  @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if(requestCode == 2)
-        {
-            if(resultCode == RESULT_OK)
-            {
-                Bitmap thumbnail = data.getParcelableExtra("data");
-//                ImageView profileImage = findViewById(R.id.imageView);
-//                profileImage.setImageBitmap(thumbnail);
-                FileOutputStream fOut = null;
-                try {
-                    fOut = openFileOutput("Picture.png", Context.MODE_PRIVATE);
-                    thumbnail.compress(Bitmap.CompressFormat.PNG, 100, fOut);
-                    fOut.flush();
-                    fOut.close();
-                }catch (FileNotFoundException e) {
-                    e.printStackTrace();
-
-                }catch (IOException e){
-                    e.printStackTrace();
-                }
-            }
-        }
-    }*/
-
-   /* @Override
-    protected void onPause() {
-        super.onPause();
-        SharedPreferences prefs = getSharedPreferences("MyData", Context.MODE_PRIVATE);
-        SharedPreferences.Editor  editor = prefs.edit();
-        EditText editText = findViewById(R.id.editTextPhone);
-        editor.putString("phoneNumber", editText.getText().toString());
-        editor.apply();
-
-    }*/
-
+    /**
+     *
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

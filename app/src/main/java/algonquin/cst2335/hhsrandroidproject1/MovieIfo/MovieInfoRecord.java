@@ -12,6 +12,10 @@ public class MovieInfoRecord extends AppCompatActivity {
     boolean isTablet = false;
     MessageListFragment chatFragment;
 
+    /**
+     *
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

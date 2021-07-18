@@ -13,6 +13,10 @@ public class MyOpenHelper extends SQLiteOpenHelper {
     public static  final  String col_sent_receive = "SendOrReceive";
     public static  final  String col_time_sent = "TimeSent";
 
+    /**
+     *
+     * @param db
+     */
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL("Create table " + TABLE_NAME + "(_id INTEGER PRIMARY KEY AUTOINCREMENT,"
@@ -25,7 +29,12 @@ public class MyOpenHelper extends SQLiteOpenHelper {
         super(context, name, null, version);
     }
 
-
+    /**
+     *
+     * @param db
+     * @param oldVersion
+     * @param newVersion
+     */
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {

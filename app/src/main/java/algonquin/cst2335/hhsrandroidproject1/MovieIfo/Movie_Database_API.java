@@ -22,6 +22,9 @@ import java.io.IOException;
 
 import algonquin.cst2335.hhsrandroidproject1.R;
 
+/**
+ * This class can link the movie information of the network
+ */
 
 public class Movie_Database_API extends AppCompatActivity {
     private static String TAG = "Movie_Database_API";
@@ -30,6 +33,10 @@ public class Movie_Database_API extends AppCompatActivity {
     private ImageButton welBtn;
     private ImageButton advBtn;
 
+    /**     *
+     * Use to connect the activity_movie_database_api.XML
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -72,10 +79,6 @@ public class Movie_Database_API extends AppCompatActivity {
         mer.setText(memberNumber);*/
 
         loginBtn.setOnClickListener((clk) -> {
-            /*SharedPreferences.Editor  editor = prefs.edit();
-            editor.putString("LoginName", et.getText().toString());
-            editor.putInt("Age", 35);
-            editor.apply();*/
 
             Intent nextPage = new Intent(Movie_Database_API.this, SavedMovies.class);
             startActivity(nextPage);
@@ -90,12 +93,6 @@ public class Movie_Database_API extends AppCompatActivity {
             startActivity(nextPage);
 
         });
-
-
-
-
-
-
 
 
         //help button information
@@ -132,40 +129,7 @@ public class Movie_Database_API extends AppCompatActivity {
 
         });
 
-
-        Log.w(TAG,"In onCreate() - Loading Widgets");
-
         }
-
-    @Override
-    protected void onStart() {
-        super.onStart();
-        Log.w(TAG,"In onStart() - The application is now visible on screen");
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        Log.w(TAG,"In onResume() - The application is now responding to user input");
-    }
-
-    @Override
-    protected void onPause() {
-        super.onPause();
-        Log.w(TAG,"In onPause() - The application no longer responds to user input");
-    }
-
-    @Override
-    protected void onStop() {
-        super.onStop();
-        Log.w(TAG,"In onStop() - The application is no longer visible");
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        Log.w(TAG,"In onDestroy() - Any memory used by the application is freed");
-    }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {

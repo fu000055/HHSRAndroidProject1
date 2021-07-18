@@ -36,6 +36,13 @@ public class MessageListFragment extends Fragment {
     SQLiteDatabase db;
     Button send;
 
+    /**
+     *
+     * @param inflater
+     * @param container
+     * @param savedInstanceState
+     * @return
+     */
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
@@ -155,50 +162,11 @@ public class MessageListFragment extends Fragment {
             timeText = itemView.findViewById(R.id.time);
 
             itemView.setOnClickListener(click->{
-               /*
-                AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
-
-                builder.setMessage("Do you want to delete the message: " + messageText.getText())
-
-                        .setTitle("Qustions:")
-
-                        .setPositiveButton("Yes",(dialog,cl)->{
-                            position = getAbsoluteAdapterPosition();
-                            ChatMessage removedMessage = messages.get(position);
-                            messages.remove(position);
-                            adt.notifyItemRemoved(position);
-
-                            db.delete(MyOpenHelper.TABLE_NAME, "_id=?", new String[]{Long.toString(removedMessage.getId())});
-
-                            Snackbar.make(messageText,"You deleted message #" + position, Snackbar.LENGTH_LONG)
-                                    .setAction("Undo",clk -> {
-
-                                        messages.add(position,removedMessage);
-                                        adt.notifyItemInserted(position);
-
-                                        db.execSQL("Insert into " + MyOpenHelper.TABLE_NAME + " values('" + removedMessage.getId() +
-                                                "','" + removedMessage.getMessage() +
-                                                "','" + removedMessage.getSentOrReceive() +
-                                                "','" + removedMessage.getTimeSent() + "');");
-
-                                    })
-                                    .show();
-                        })
-
-                        .setNegativeButton("No",(dialog,cl)->{
-
-                        })
-                        .create().show();   */
-
 
 
                 MovieInfoRecord parentActivity = (MovieInfoRecord)getContext();
                // int position = getAbsoluteAdapterPosition();
                 parentActivity.userClickedMessage(messages.get(position),position);
-
-
-
-
 
 
             });

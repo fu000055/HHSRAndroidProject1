@@ -23,7 +23,10 @@ import algonquin.cst2335.hhsrandroidproject1.R;
 
 public class SavedMovies extends AppCompatActivity {
 
-
+    /**
+     *
+     * @param savedInstanceState
+     */
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
