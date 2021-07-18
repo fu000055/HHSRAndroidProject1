@@ -6,7 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ImageView;
 
-import algonquin.cst2335.hhsrandroidproject1.MovieIfo.MovieInformationActivity;
+import algonquin.cst2335.hhsrandroidproject1.MovieIfo.Movie_Database_API;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -17,7 +17,7 @@ public class MainActivity extends AppCompatActivity {
 
         ImageView simon = findViewById(R.id.movie_icon);
         simon.setOnClickListener(V ->{
-            Intent goToMovie = new Intent(MainActivity.this, MovieInformationActivity.class);
+            Intent goToMovie = new Intent(MainActivity.this, Movie_Database_API.class);
             startActivity(goToMovie);
         });
 

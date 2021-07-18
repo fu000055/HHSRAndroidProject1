@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="wrap_content"
+android:orientation="vertical"
+android:visibility="visible"
+  tools:visibility="visible"
+    tools:context=".MovieIfo.Movie_Database_API">
+
+    <ImageButton
+        android:id="@+id/welcomImageButton"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        app:srcCompat="@android:drawable/presence_video_busy" />
+
+    <ImageButton
+        android:id="@+id/adultVericicationImageButton"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        app:srcCompat="@android:drawable/presence_video_online" />
+
+    <TextView
+        android:id="@+id/movieTextView"
+        android:layout_width="match_parent"
+        android:layout_height="24dp"
+        android:text="Enter Movie name " />
+
+    <EditText
+        android:id="@+id/inputMovieName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:hint="Type Movie name" />
+
+    <TextView
+        android:id="@+id/actorTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Entry Actor Name" />
+
+    <EditText
+        android:id="@+id/inputActorName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:hint="Entry main actor name here" />
+
+    <TextView
+        android:id="@+id/memberShipTextView"
+        android:layout_width="match_parent"
+        android:layout_height="24dp"
+        android:text="Membership number " />
+
+    <EditText
+        android:id="@+id/inputMemNumber"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Enter membership number here "
+        android:inputType="phone" />
+
+    <Button
+        android:id="@+id/longinBtn"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:rotation="0"
+        android:rotationY="0"
+        android:text="Longin"
+        android:textAlignment="center"
+        android:textSize="8sp" />
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/myrecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="136dp" />
+
+    <Button
+        android:id="@+id/helpButton"
+        android:layout_width="90dp"
+        android:layout_height="48dp"
+        android:text="HELP"
+        android:textSize="8sp" />
+
+    <Button
+        android:id="@+id/favoritesButton"
+        android:layout_width="90dp"
+        android:layout_height="48dp"
+        android:text="Favorites"
+        android:textSize="8sp" />
+
+    <Button
+        android:id="@+id/detailBtn"
+        android:layout_width="90dp"
+        android:layout_height="48dp"
+        android:text="Detail"
+        android:textSize="8sp" />
+
+
+</LinearLayout>
