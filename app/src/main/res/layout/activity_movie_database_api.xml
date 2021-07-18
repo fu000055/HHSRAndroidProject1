@@ -4,12 +4,12 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-android:layout_width="match_parent"
-android:layout_height="wrap_content"
-android:orientation="vertical"
-android:visibility="visible"
-  tools:visibility="visible"
-    tools:context=".MovieIfo.Movie_Database_API">
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:visibility="visible"
+    tools:context=".MovieIfo.Movie_Database_API"
+    tools:visibility="visible">
 
     <ImageButton
         android:id="@+id/welcomImageButton"
@@ -37,8 +37,8 @@ android:visibility="visible"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:inputType="textPersonName"
-        android:hint="Type Movie name" />
+        android:hint="Type Movie name"
+        android:inputType="textPersonName" />
 
     <TextView
         android:id="@+id/actorTextView"
@@ -52,8 +52,8 @@ android:visibility="visible"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:inputType="textPersonName"
-        android:hint="Entry main actor name here" />
+        android:hint="Entry main actor name here"
+        android:inputType="textPersonName" />
 
     <TextView
         android:id="@+id/memberShipTextView"
@@ -83,10 +83,11 @@ android:visibility="visible"
         android:textSize="8sp" />
 
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/myrecyclerView"
+    <ImageView
+        android:id="@+id/imageView6"
         android:layout_width="match_parent"
-        android:layout_height="136dp" />
+        android:layout_height="164dp"
+        app:srcCompat="@drawable/moviepo4" />
 
     <Button
         android:id="@+id/helpButton"
