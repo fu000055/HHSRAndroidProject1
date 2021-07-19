@@ -44,10 +44,9 @@ public class ChargingOpenHelper extends SQLiteOpenHelper {
      */
     public static final String COL_PHONE = "PHONE";
 
-    public ChargingOpenHelper(Activity context) {
+    public ChargingOpenHelper(Context context) {
         super(context, DATABASE_NAME, null, VERSION_NUM);
     }
-
 
     @Override
     public void onCreate(SQLiteDatabase db) {

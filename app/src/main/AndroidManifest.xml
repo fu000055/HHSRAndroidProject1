@@ -16,7 +16,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".chargingStation.ChargingStation"/>
-
+        <activity android:name=".chargingStation.ChargingStationFavouriteStation"/>
     </application>
 
 </manifest>

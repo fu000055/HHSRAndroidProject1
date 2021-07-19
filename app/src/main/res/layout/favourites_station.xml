@@ -3,7 +3,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:focusable="true"
+    android:clickable="true"
+    android:background="@color/white">
 
     <Button
         android:id="@+id/deleteFavourite"
@@ -15,6 +18,7 @@
         tools:layout_editor_absoluteX="103dp" />
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/favouriteRecycler"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginBottom="100dp"

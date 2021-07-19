@@ -1,21 +1,18 @@
 package algonquin.cst2335.hhsrandroidproject1.chargingStation;
 
 import android.content.Context;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
+import android.widget.LinearLayout;
 
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -24,7 +21,6 @@ import com.google.android.material.snackbar.Snackbar;
 
 import java.util.ArrayList;
 
-import algonquin.cst2335.hhsrandroidproject1.MainActivity;
 import algonquin.cst2335.hhsrandroidproject1.R;
 
 public class ChargingStationListFragment extends Fragment {
@@ -51,12 +47,14 @@ public class ChargingStationListFragment extends Fragment {
         latitude = StationLayout.findViewById(R.id.latitudeInput);
         longitude = StationLayout.findViewById(R.id.longitudeInput);
         search = StationLayout.findViewById(R.id.searchButton);
+        Button help = StationLayout.findViewById(R.id.help);
 
-        adt = new ChargingStationAdapter();
+        adt = new ChargingStationAdapter(stationList);
         stations.setAdapter(adt);
         stations.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
         sharedPref = getContext().getSharedPreferences("ChargingStation", Context.MODE_PRIVATE);
-
+        latitude.setText(sharedPref.getString("Latitude", ""));
+        longitude.setText(sharedPref.getString("Longitude",""));
         search.setOnClickListener(clk->{
            // longitude.onEditorAction(EditorInfo.IME_ACTION_DONE);
             //Intent nextPage = new Intent(this, ChargingStationDetails.class);
@@ -65,16 +63,31 @@ public class ChargingStationListFragment extends Fragment {
                 pojo.setTitle("i" + i);
                 stationList.add(pojo);
             }
+
             SharedPreferences.Editor editor = sharedPref.edit();
             editor.putString("Latitude", latitude.getText().toString());
             editor.putString("Longitude", longitude.getText().toString());
             editor.commit();
             //startActivity( nextPage );
         });
+
+        help.setOnClickListener(helpClk->{
+            AlertDialog.Builder builder = new AlertDialog.Builder( getContext() );
+
+            builder.setMessage("Directly input the latitude and longitude would be fine")
+                    .setTitle("Instruction")
+                    .setCancelable(false)
+                    .setPositiveButton("OK", (dialog, cl) -> { })
+                    .create().show();
+
+        });
+
         return StationLayout;
     }
 
-    public void notifyMessageDeleted(ChargingStationPOJO chosenStation, int chosenPosition) {
+
+
+    public void notifyStationDeleted(ChargingStationPOJO chosenStation, int chosenPosition) {
         AlertDialog.Builder builder = new AlertDialog.Builder( getContext() );
         builder.setMessage("are you sure you want to delete this station: " + chosenStation.getTitle())
                 .setTitle("Danger!")
@@ -104,49 +117,5 @@ public class ChargingStationListFragment extends Fragment {
                             .show();
                 })
                 .create().show();
-    }
-
-    public class ChargingStationAdapter extends RecyclerView.Adapter<MyRowViews> {
-
-        @Override
-        public MyRowViews onCreateViewHolder(ViewGroup parent, int viewType) {
-            LayoutInflater inflater = getLayoutInflater();
-            View loadedRow = inflater.inflate(R.layout.charging_station_item, parent, false);
-            return new MyRowViews(loadedRow);
-        }
-
-        @Override
-        public void onBindViewHolder(MyRowViews holder, int position) {
-            String title = stationList.get(position).getTitle();
-            holder.locationTitle.setText(title);
-            holder.setPosition(position);
-        }
-
-        @Override
-        public int getItemCount() {
-            return stationList.size();
-        }
-    }
-    public class MyRowViews extends RecyclerView.ViewHolder {
-
-        TextView locationTitle;
-
-        int position = -1;
-
-        public MyRowViews(View itemView) {
-            super(itemView);
-
-            itemView.setOnClickListener(clk ->{
-                 MyRowViews newRow = adt.onCreateViewHolder(null, adt.getItemViewType(position));
-                 ChargingStation parentActivity = (ChargingStation)getContext();
-                 int position = getAbsoluteAdapterPosition();
-                 parentActivity.userClickedStation(stationList.get(position), position);
-
-            });
-            locationTitle = itemView.findViewById(R.id.row_title);
-        }
-        public void setPosition(int p){
-            position = p;
-        }
     }
 }

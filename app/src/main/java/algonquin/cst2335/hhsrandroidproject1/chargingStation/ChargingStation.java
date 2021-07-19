@@ -34,7 +34,8 @@ public class ChargingStation extends AppCompatActivity {
     public void userClickedStation(ChargingStationPOJO station, int position) {
 
         ChargingStationDetailsFragment detailsFragment = new ChargingStationDetailsFragment(station, position);
-
+        //   ChargingStationFavouriteStation favouriteStation = new ChargingStationFavouriteStation();
+    //    favouriteStation.setPositionClicked(position);
         if(isTablet)
         {
             //A tablet has a second Fragment with id detailsRoom to load a second fragment
@@ -46,7 +47,8 @@ public class ChargingStation extends AppCompatActivity {
         }
     }
 
-    public void notifyMessageDeleted(ChargingStationPOJO chosenStation, int chosenPosition) {
-        stationFragment.notifyMessageDeleted(chosenStation, chosenPosition);
+
+    public void notifyStationDeleted(ChargingStationPOJO chosenStation, int chosenPosition) {
+        stationFragment.notifyStationDeleted(chosenStation, chosenPosition);
     }
 }
