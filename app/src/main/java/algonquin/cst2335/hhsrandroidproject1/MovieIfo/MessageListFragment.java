@@ -55,10 +55,12 @@ public class MessageListFragment extends Fragment {
         Button sentBtn = chatLayout.findViewById(R.id.sendbutton);
         Button receiveBtn = chatLayout.findViewById(R.id.receivebutton);
 
-        //Week 7 work
-       MyOpenHelper opener = new MyOpenHelper(getContext());
 
-        //Open the database
+        MyOpenHelper opener = new MyOpenHelper(getContext());
+
+        /**
+         * Open the database
+         */
         db = opener.getWritableDatabase();
 
         Cursor results = db.rawQuery("Select * from " + MyOpenHelper.TABLE_NAME + ";", null);
@@ -120,7 +122,7 @@ public class MessageListFragment extends Fragment {
                 .setTitle("Qustions:")
 
                 .setPositiveButton("Yes",(dialog,cl)->{
-                    // position = getAbsoluteAdapterPosition();
+                    //position = getAbsoluteAdapterPosition();
                     ChatMessage removedMessage = messages.get(chosenPosition);
                     messages.remove(chosenPosition);
                     adt.notifyItemRemoved(chosenPosition);
