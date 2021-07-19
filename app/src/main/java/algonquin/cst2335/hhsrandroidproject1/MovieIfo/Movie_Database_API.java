@@ -12,13 +12,25 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import org.xmlpull.v1.XmlPullParser;
+import org.xmlpull.v1.XmlPullParserException;
+import org.xmlpull.v1.XmlPullParserFactory;
+
+import java.io.BufferedInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.net.URLEncoder;
+import java.util.concurrent.Executor;
+import java.util.concurrent.Executors;
 
 import algonquin.cst2335.hhsrandroidproject1.R;
 
@@ -60,6 +72,79 @@ public class Movie_Database_API extends AppCompatActivity {
                     "You need to verify your identity",
                     Toast.LENGTH_LONG).show();
         });
+
+
+        EditText movieNameText;
+        TextView tv;
+        Button movieNameBtn;
+
+        tv = findViewById(R.id.movieTextView);
+        movieNameBtn = findViewById(R.id.movieIfoButton);
+        movieNameText = findViewById(R.id.inputMovieName);
+
+        /**
+         * Start movie  button to query movie information
+         */
+        movieNameBtn.setOnClickListener( click ->{
+
+            AlertDialog dialog = new AlertDialog.Builder(Movie_Database_API.this)
+                    .setTitle("Getting Movie network information").setMessage("Simon perfecting information")
+                    .setView(new ProgressBar(Movie_Database_API.this))
+                    .show();
+
+            Executor newThread = Executors.newSingleThreadExecutor();
+            newThread.execute( ( ) ->{
+
+                URL url = null;
+
+                //try catch
+
+               /* try {
+
+                    //connect to the server:
+                    String stringURL = "https://api.openweathermap.org/data/2.5/weather?q="
+                            + URLEncoder.encode(movieNameText.getText().toString(), "UTF-8")
+                            + "&appid=7e943c97096a9784391a981c4d878b22&units=metric&mode=xml";
+
+                    //on other cpu:
+                    url = new URL(stringURL);
+                    HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
+                    InputStream in = new BufferedInputStream(urlConnection.getInputStream());
+
+                    //USE XML:
+                    XmlPullParserFactory factory = XmlPullParserFactory.newInstance();
+                    // ignore namespaces:
+                    factory.setNamespaceAware(false);
+                    //create the object
+                    XmlPullParser xpp = factory.newPullParser();
+                    //read from in, like Scanner
+                    xpp.setInput( in  , "UTF-8");
+
+
+
+
+
+
+                }catch (IOException | XmlPullParserException e){
+                    e.printStackTrace();
+
+                }
+*/
+
+
+
+
+
+            });
+
+
+        });
+
+
+
+
+
+
 
 
         Button loginBtn = findViewById(R.id.longinBtn);

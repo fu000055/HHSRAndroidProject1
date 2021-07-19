@@ -41,7 +41,7 @@
         android:inputType="textPersonName" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/movieIfoButton"
         android:layout_width="match_parent"
         android:layout_height="36dp"
         android:text="get movie ifmatiom" />
