@@ -5,5 +5,8 @@
     <string name="car_charging">汽车充电站</string>
     <string name="movie_info">电影信息</string>
     <string name="soccer_game">足球比赛</string>
-
+    <string name="editText">请输入站牌号码</string>
+    <string name="search_bar">搜索</string>
+    <string name="history_bar">历史记录</string>
+    <string name="help_bar">帮助</string>
 </resources>
