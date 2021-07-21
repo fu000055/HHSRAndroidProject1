@@ -4,6 +4,7 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,6 +17,7 @@ import android.widget.Toast;
 import androidx.fragment.app.Fragment;
 
 import java.util.Date;
+import java.util.Locale;
 
 import algonquin.cst2335.hhsrandroidproject1.R;
 
@@ -90,6 +92,15 @@ public class ChargingStationDetailsFragment extends Fragment {
         seeFavouriteStationsBtn.setOnClickListener(clk -> {
             Intent intent = new Intent(getActivity(), ChargingStationFavouriteStation.class);
             startActivity(intent);
+        });
+
+        Button loadMap = detailsView.findViewById(R.id.loadMap);
+        loadMap.setOnClickListener(loadMapClk -> {
+            String uri = String.format(Locale.ENGLISH, "http://maps.google.com/maps?q=loc:%f,%f", chosenStation.getLatitude(), chosenStation.getLongitude());
+            Uri intentUri = Uri.parse(uri);
+            Intent mapIntent = new Intent(Intent.ACTION_VIEW, intentUri);
+            mapIntent.setPackage("com.google.android.apps.maps");
+            startActivity(mapIntent);
         });
 
         return detailsView;

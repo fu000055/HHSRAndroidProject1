@@ -51,4 +51,6 @@ public class ChargingStation extends AppCompatActivity {
     public void notifyStationDeleted(ChargingStationPOJO chosenStation, int chosenPosition) {
         stationFragment.notifyStationDeleted(chosenStation, chosenPosition);
     }
+
+
 }

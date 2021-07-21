@@ -35,7 +35,8 @@
         android:layout_marginTop="10dp"
         android:hint="@string/latitudeInput"
         android:textSize="20dp"
-        android:inputType="number"
+        android:inputType="numberSigned"
+
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/latitude" />
 
@@ -57,7 +58,7 @@
         android:layout_marginStart="32dp"
         android:layout_marginTop="10dp"
         android:hint="@string/longitudeInput"
-        android:inputType="number"
+        android:inputType="numberSigned"
         android:textSize="20dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/longitude" />

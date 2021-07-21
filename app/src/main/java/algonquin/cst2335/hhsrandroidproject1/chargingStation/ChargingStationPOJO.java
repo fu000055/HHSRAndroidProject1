@@ -26,6 +26,7 @@ public class ChargingStationPOJO {
         this.longitude = longitude;
         this.phone = phone;
     }
+    public ChargingStationPOJO(){}
 
     public double getLatitude() {
         return latitude;
