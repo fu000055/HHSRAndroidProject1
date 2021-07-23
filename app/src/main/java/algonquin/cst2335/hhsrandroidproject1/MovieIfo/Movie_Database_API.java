@@ -90,6 +90,11 @@ public class Movie_Database_API extends AppCompatActivity {
 
     String runMovie;
 
+    /**
+     *  Get an object called a MenuInflater,initialize the toolbar
+     * @param menu
+     * @return
+     */
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater =getMenuInflater();
@@ -98,7 +103,8 @@ public class Movie_Database_API extends AppCompatActivity {
     }
 
     /**
-     * Clear movie information
+     * Clear movie information,font size smaller,font size bigger
+     * Use a switch statement and check for different ids in the menu file
      */
 
     @Override
@@ -153,8 +159,9 @@ public class Movie_Database_API extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_movie_database_api);
 
-
+        //add code in onCreate() to find the toolbar
         Toolbar myToolbar = findViewById(R.id.toolbar);
+        // load the toolbar call setSupportActionBar( ) and pass the toolbar as a parameter
         setSupportActionBar(myToolbar);
 
         tv = findViewById(R.id.movieTextView);
