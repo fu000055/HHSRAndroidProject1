@@ -71,6 +71,9 @@ public class Movie_Database_API extends AppCompatActivity {
     TextView tv;
     Button movieNameBtn;
 
+    EditText actorNameText;
+
+
 
     /**     *
      * Use to connect the activity_movie_database_api.XML
@@ -112,11 +115,11 @@ public class Movie_Database_API extends AppCompatActivity {
          */
         movieNameBtn.setOnClickListener( click ->{
 
-           /* AlertDialog dialog = new AlertDialog.Builder(Movie_Database_API.this)
-                    .setTitle("Getting Movie network information")
-                    .setMessage("Simon perfecting information" + movieNameText)
+            AlertDialog dialog = new AlertDialog.Builder(Movie_Database_API.this)
+                    .setTitle("Getting Movie  information")
+                    .setMessage("Simon Movie App: " + movieNameText)
                     .setView(new ProgressBar(Movie_Database_API.this))
-                    .show();*/
+                    .show();
 
             Executor newThread = Executors.newSingleThreadExecutor();
             newThread.execute( ( ) ->{
@@ -130,7 +133,6 @@ public class Movie_Database_API extends AppCompatActivity {
                     //connect to the server:
                     String stringURL = "http://www.omdbapi.com/?apikey=6c9862c2" + "&t="
                             + URLEncoder.encode(movieNameText.getText().toString(), "UTF-8");
-
 
                     //on other cpu:
                     url = new URL(stringURL);
@@ -156,49 +158,46 @@ public class Movie_Database_API extends AppCompatActivity {
                     plot = movieDocument.getString("Plot");
                     poster = movieDocument.getString("Poster");
 
-                    URL imgUrl = new URL(poster);
-                    HttpURLConnection imgCon = (HttpURLConnection) imgUrl.openConnection();
-                    imgCon.connect();
-                    int responseCode = imgCon.getResponseCode();
+                    URL imageUrl = new URL(poster);
+                    HttpURLConnection imageConnect = (HttpURLConnection) imageUrl.openConnection();
+                    imageConnect.connect();
+                    int responseCode = imageConnect.getResponseCode();
                     if(responseCode == 200){
-                        image = BitmapFactory.decodeStream(imgCon.getInputStream());
+                        image = BitmapFactory.decodeStream(imageConnect.getInputStream());
 
                     }
-
 
                     runOnUiThread(() -> {
                         TextView tv ;
                         tv = findViewById(R.id.title);
-                        tv.setText("The movie title is " + title);
+                        tv.setText("       *** Movie Information ***\n"+ "The movie title is : " + title);
                         tv.setVisibility(View.VISIBLE);
 
                         tv = findViewById(R.id.year);
-                        tv.setText("The movie year is " + year);
+                        tv.setText("The movie year is : " + year);
                         tv.setVisibility(View.VISIBLE);
 
                         tv = findViewById(R.id.rating);
-                        tv.setText("The movie rating is " + rating);
+                        tv.setText("The movie rating is : " + rating);
                         tv.setVisibility(View.VISIBLE);
 
                         tv = findViewById(R.id.runtime);
-                        tv.setText("The movie runtime is " + runtime);
+                        tv.setText("The movie runtime is : " + runtime);
                         tv.setVisibility(View.VISIBLE);
 
                         tv = findViewById(R.id.actors);
-                        tv.setText("The movie main actors is " + actors);
+                        tv.setText("The movie main actors is : " + actors);
                         tv.setVisibility(View.VISIBLE);
 
                         tv = findViewById(R.id.plot);
-                        tv.setText("The movie plot is " + plot);
+                        tv.setText("The movie plot is : " + plot);
                         tv.setVisibility(View.VISIBLE);
 
                         ImageView iv = findViewById(R.id.poster);
                         iv.setImageBitmap(image);
                         iv.setVisibility(View.VISIBLE);
 
-
                     });
-
 
                 }catch (IOException  | JSONException e){
                     e.printStackTrace();
@@ -209,7 +208,7 @@ public class Movie_Database_API extends AppCompatActivity {
 
         });
 
-
+         //Login button can go to the next page
         Button loginBtn = findViewById(R.id.longinBtn);
         SharedPreferences prefs = getSharedPreferences("MyData", Context.MODE_PRIVATE);
 
@@ -218,13 +217,7 @@ public class Movie_Database_API extends AppCompatActivity {
         et.setText(movieName);
 
 
-        /*String actorName = prefs.getString("ActorName","");
-        EditText et2 = findViewById(R.id.editActorName);
-        et2.setText(actorName);
 
-        String memberNumber = prefs.getString("MemberNumber","");
-        EditText mer = findViewById(R.id.editMemNumber);
-        mer.setText(memberNumber);*/
 
         loginBtn.setOnClickListener((clk) -> {
 

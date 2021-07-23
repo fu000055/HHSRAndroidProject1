@@ -14,14 +14,14 @@
     <ImageButton
         android:id="@+id/welcomImageButton"
         android:layout_width="match_parent"
-        android:layout_height="45dp"
+        android:layout_height="30dp"
         android:background="#55AFD8"
         app:srcCompat="@drawable/play2" />
 
     <ImageButton
         android:id="@+id/adultVericicationImageButton"
         android:layout_width="match_parent"
-        android:layout_height="45dp"
+        android:layout_height="31dp"
         android:background="#66BDDF"
         app:srcCompat="@drawable/marketplace_icon" />
 
@@ -45,21 +45,6 @@
         android:layout_width="match_parent"
         android:layout_height="36dp"
         android:text="get movie ifmatiom" />
-
-    <TextView
-        android:id="@+id/actorTextView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Entry Actor Name"
-        android:textColor="#612828" />
-
-    <EditText
-        android:id="@+id/inputActorName"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="Entry main actor name here"
-        android:inputType="textPersonName" />
 
     <TextView
         android:id="@+id/memberShipTextView"
@@ -135,7 +120,7 @@
     <ImageView
         android:id="@+id/poster"
         android:layout_width="match_parent"
-        android:layout_height="101dp"
+        android:layout_height="139dp"
         android:visibility="invisible" />
 
 
