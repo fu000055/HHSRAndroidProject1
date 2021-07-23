@@ -11,6 +11,13 @@
     tools:context=".MovieIfo.Movie_Database_API"
     tools:visibility="visible">
 
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+
     <ImageButton
         android:id="@+id/welcomImageButton"
         android:layout_width="match_parent"

@@ -10,6 +10,9 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -19,7 +22,9 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -74,6 +79,24 @@ public class Movie_Database_API extends AppCompatActivity {
     EditText actorNameText;
 
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater =getMenuInflater();
+        inflater.inflate(R.menu.movie_api_activity_actions,menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected( MenuItem item) {
+          switch (item.getItemId()){
+              case R.id.hide_view:
+                  break;
+
+          }
+
+
+        return super.onOptionsItemSelected(item);
+    }
 
     /**     *
      * Use to connect the activity_movie_database_api.XML
@@ -83,6 +106,21 @@ public class Movie_Database_API extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_movie_database_api);
+
+
+        Toolbar myToolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(myToolbar);
+
+        tv = findViewById(R.id.movieTextView);
+        movieNameBtn = findViewById(R.id.movieIfoBtn);
+        movieNameText = findViewById(R.id.inputMovieName);
+
+        /*myToolbar.getMenu();
+        String movieName = movieNameText.getText().toString();
+        myToolbar.getMenu().add(0,5,0,movieName)
+                .setIcon(R.drawable.clear).setShowAsAction(MenuItem.SHOW_AS_ACTION_NEVER);*/
+
+
 
         //welcome page show information
         welBtn = findViewById(R.id.welcomImageButton);
@@ -106,9 +144,6 @@ public class Movie_Database_API extends AppCompatActivity {
 
 
 
-        tv = findViewById(R.id.movieTextView);
-        movieNameBtn = findViewById(R.id.movieIfoBtn);
-        movieNameText = findViewById(R.id.inputMovieName);
 
         /**
          * Start movie  button to query movie information
