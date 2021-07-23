@@ -1,36 +1,47 @@
 package algonquin.cst2335.hhsrandroidproject1.MovieIfo;
 
 
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import org.json.JSONException;
+import org.json.JSONObject;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 import org.xmlpull.v1.XmlPullParserFactory;
 
 import java.io.BufferedInputStream;
+import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
+import java.util.stream.Collectors;
 
 import algonquin.cst2335.hhsrandroidproject1.R;
 
@@ -44,6 +55,22 @@ public class Movie_Database_API extends AppCompatActivity {
     private Button  favoritesButton;
     private ImageButton welBtn;
     private ImageButton advBtn;
+
+
+    private  String stringURL;
+    Bitmap image;
+    String title;
+    String year;
+    String rating;
+    String runtime;
+    String actors;
+    String plot;
+    String poster;
+
+    EditText movieNameText;
+    TextView tv;
+    Button movieNameBtn;
+
 
     /**     *
      * Use to connect the activity_movie_database_api.XML
@@ -74,12 +101,10 @@ public class Movie_Database_API extends AppCompatActivity {
         });
 
 
-        EditText movieNameText;
-        TextView tv;
-        Button movieNameBtn;
+
 
         tv = findViewById(R.id.movieTextView);
-        movieNameBtn = findViewById(R.id.movieIfoButton);
+        movieNameBtn = findViewById(R.id.movieIfoBtn);
         movieNameText = findViewById(R.id.inputMovieName);
 
         /**
@@ -87,10 +112,11 @@ public class Movie_Database_API extends AppCompatActivity {
          */
         movieNameBtn.setOnClickListener( click ->{
 
-            AlertDialog dialog = new AlertDialog.Builder(Movie_Database_API.this)
-                    .setTitle("Getting Movie network information").setMessage("Simon perfecting information")
+           /* AlertDialog dialog = new AlertDialog.Builder(Movie_Database_API.this)
+                    .setTitle("Getting Movie network information")
+                    .setMessage("Simon perfecting information" + movieNameText)
                     .setView(new ProgressBar(Movie_Database_API.this))
-                    .show();
+                    .show();*/
 
             Executor newThread = Executors.newSingleThreadExecutor();
             newThread.execute( ( ) ->{
@@ -99,52 +125,89 @@ public class Movie_Database_API extends AppCompatActivity {
 
                 //try catch
 
-               /* try {
+                try {
 
                     //connect to the server:
-                    String stringURL = "https://api.openweathermap.org/data/2.5/weather?q="
-                            + URLEncoder.encode(movieNameText.getText().toString(), "UTF-8")
-                            + "&appid=7e943c97096a9784391a981c4d878b22&units=metric&mode=xml";
+                    String stringURL = "http://www.omdbapi.com/?apikey=6c9862c2" + "&t="
+                            + URLEncoder.encode(movieNameText.getText().toString(), "UTF-8");
+
 
                     //on other cpu:
                     url = new URL(stringURL);
                     HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
                     InputStream in = new BufferedInputStream(urlConnection.getInputStream());
 
-                    //USE XML:
-                    XmlPullParserFactory factory = XmlPullParserFactory.newInstance();
-                    // ignore namespaces:
-                    factory.setNamespaceAware(false);
-                    //create the object
-                    XmlPullParser xpp = factory.newPullParser();
-                    //read from in, like Scanner
-                    xpp.setInput( in  , "UTF-8");
+
+                    //convert string to JSON object
+
+                    //this converts to a String
+                    String text = (new BufferedReader(
+                            new InputStreamReader(in, StandardCharsets.UTF_8)))
+                            .lines()
+                            .collect(Collectors.joining("\n"));
+
+                    JSONObject movieDocument = new JSONObject( text );
+
+                    title = movieDocument.getString("Title");
+                    year = movieDocument.getString("Year");
+                    rating = movieDocument.getString("Rated");
+                    runtime = movieDocument.getString("Runtime");
+                    actors = movieDocument.getString("Actors");
+                    plot = movieDocument.getString("Plot");
+                    poster = movieDocument.getString("Poster");
+
+                    URL imgUrl = new URL(poster);
+                    HttpURLConnection imgCon = (HttpURLConnection) imgUrl.openConnection();
+                    imgCon.connect();
+                    int responseCode = imgCon.getResponseCode();
+                    if(responseCode == 200){
+                        image = BitmapFactory.decodeStream(imgCon.getInputStream());
+
+                    }
 
 
+                    runOnUiThread(() -> {
+                        TextView tv ;
+                        tv = findViewById(R.id.title);
+                        tv.setText("The movie title is " + title);
+                        tv.setVisibility(View.VISIBLE);
+
+                        tv = findViewById(R.id.year);
+                        tv.setText("The movie year is " + year);
+                        tv.setVisibility(View.VISIBLE);
+
+                        tv = findViewById(R.id.rating);
+                        tv.setText("The movie rating is " + rating);
+                        tv.setVisibility(View.VISIBLE);
+
+                        tv = findViewById(R.id.runtime);
+                        tv.setText("The movie runtime is " + runtime);
+                        tv.setVisibility(View.VISIBLE);
+
+                        tv = findViewById(R.id.actors);
+                        tv.setText("The movie main actors is " + actors);
+                        tv.setVisibility(View.VISIBLE);
+
+                        tv = findViewById(R.id.plot);
+                        tv.setText("The movie plot is " + plot);
+                        tv.setVisibility(View.VISIBLE);
+
+                        ImageView iv = findViewById(R.id.poster);
+                        iv.setImageBitmap(image);
+                        iv.setVisibility(View.VISIBLE);
 
 
+                    });
 
 
-                }catch (IOException | XmlPullParserException e){
+                }catch (IOException  | JSONException e){
                     e.printStackTrace();
 
                 }
-*/
-
-
-
-
 
             });
 
-
         });
-
-
-
-
-
-
 
 
         Button loginBtn = findViewById(R.id.longinBtn);

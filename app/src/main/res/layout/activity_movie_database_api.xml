@@ -41,7 +41,7 @@
         android:inputType="textPersonName" />
 
     <Button
-        android:id="@+id/movieIfoButton"
+        android:id="@+id/movieIfoBtn"
         android:layout_width="match_parent"
         android:layout_height="36dp"
         android:text="get movie ifmatiom" />
@@ -88,7 +88,7 @@
         android:textColor="#FFF7F7"
         android:textSize="10sp" />
 
-
+          <!--Movie information detail title,year,rating,runtime,main actor,plot,poster-->
     <TextView
         android:id="@+id/title"
         android:layout_width="match_parent"
@@ -118,7 +118,7 @@
         android:visibility="invisible" />
 
     <TextView
-        android:id="@+id/mainactors"
+        android:id="@+id/actors"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="main actors goes here"
@@ -131,12 +131,16 @@
         android:text="plot goes here"
         android:visibility="invisible" />
 
+
     <ImageView
         android:id="@+id/poster"
         android:layout_width="match_parent"
         android:layout_height="101dp"
         android:visibility="invisible" />
 
+
+
+    <!--help button-->
 
     <Button
         android:id="@+id/helpButton"
@@ -146,6 +150,7 @@
         android:text="@string/Help"
         android:textSize="10sp" />
 
+    <!--favorites button-->
     <Button
         android:id="@+id/favoritesButton"
         android:layout_width="96dp"
@@ -153,6 +158,8 @@
         android:text="@string/Favorites"
         android:textSize="10sp" />
 
+
+    <!--detail button-->
     <Button
         android:id="@+id/detailBtn"
         android:layout_width="96dp"
