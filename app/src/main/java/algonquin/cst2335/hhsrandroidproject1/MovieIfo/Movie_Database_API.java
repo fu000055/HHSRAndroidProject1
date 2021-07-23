@@ -182,8 +182,6 @@ public class Movie_Database_API extends AppCompatActivity {
 
 
 
-
-
         //welcome page show information
         welBtn = findViewById(R.id.welcomImageButton);
         welBtn.setOnClickListener((click)->{
@@ -202,11 +200,6 @@ public class Movie_Database_API extends AppCompatActivity {
                     "You need to verify your identity",
                     Toast.LENGTH_LONG).show();
         });
-
-
-
-
-
 
 
 
