@@ -78,6 +78,8 @@ public class Movie_Database_API extends AppCompatActivity {
 
     EditText actorNameText;
 
+    TextView titleView,yearView,ratingView,runtimeView,actorsView,plotView;
+    ImageView posterView;
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -86,20 +88,30 @@ public class Movie_Database_API extends AppCompatActivity {
         return true;
     }
 
+    /**
+     * Clear movie information
+     */
+
     @Override
     public boolean onOptionsItemSelected( MenuItem item) {
           switch (item.getItemId()){
               case R.id.hide_view:
+                  titleView.setVisibility(View.INVISIBLE);
+                  yearView.setVisibility(View.INVISIBLE);
+                  ratingView.setVisibility(View.INVISIBLE);
+                  runtimeView.setVisibility(View.INVISIBLE);
+                  actorsView.setVisibility(View.INVISIBLE);
+                  plotView.setVisibility(View.INVISIBLE);
+                  posterView.setVisibility(View.INVISIBLE);
                   break;
 
           }
-
 
         return super.onOptionsItemSelected(item);
     }
 
     /**     *
-     * Use to connect the activity_movie_database_api.XML
+     * Use to connect the activity_movie_database_api.xml
      * @param savedInstanceState
      */
     @Override
@@ -203,7 +215,37 @@ public class Movie_Database_API extends AppCompatActivity {
                     }
 
                     runOnUiThread(() -> {
-                        TextView tv ;
+
+                        titleView = findViewById(R.id.title);
+                        titleView.setText("       *** Movie Information ***\n"+ "The movie title is : " + title);
+                        titleView.setVisibility(View.VISIBLE);
+
+                        yearView = findViewById(R.id.year);
+                        yearView.setText("The movie year is : " + year);
+                        yearView.setVisibility(View.VISIBLE);
+
+                        ratingView = findViewById(R.id.rating);
+                        ratingView.setText("The movie rating is : " + rating);
+                        ratingView.setVisibility(View.VISIBLE);
+
+                        runtimeView = findViewById(R.id.runtime);
+                        runtimeView.setText("The movie runtime is : " + runtime);
+                        runtimeView.setVisibility(View.VISIBLE);
+
+                        actorsView = findViewById(R.id.actors);
+                        actorsView.setText("The movie main actors is : " + actors);
+                        actorsView.setVisibility(View.VISIBLE);
+
+                        plotView = findViewById(R.id.plot);
+                        plotView.setText("The movie plot is : " + plot);
+                        plotView.setVisibility(View.VISIBLE);
+
+                        posterView = findViewById(R.id.poster);
+                        posterView.setImageBitmap(image);
+                        posterView.setVisibility(View.VISIBLE);
+
+
+                       /* TextView tv ;
                         tv = findViewById(R.id.title);
                         tv.setText("       *** Movie Information ***\n"+ "The movie title is : " + title);
                         tv.setVisibility(View.VISIBLE);
@@ -230,7 +272,7 @@ public class Movie_Database_API extends AppCompatActivity {
 
                         ImageView iv = findViewById(R.id.poster);
                         iv.setImageBitmap(image);
-                        iv.setVisibility(View.VISIBLE);
+                        iv.setVisibility(View.VISIBLE);*/
 
                     });
 
