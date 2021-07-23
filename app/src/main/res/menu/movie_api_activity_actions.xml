@@ -7,4 +7,19 @@
         android:icon="@drawable/clear"
         android:title="Clear movie"
         app:showAsAction="always" />
+
+    <item
+        android:id="@+id/id_increase"
+        android:icon="@drawable/increase"
+        android:title="Clear movie"
+        app:showAsAction="always" />
+
+    <item
+        android:id="@+id/id_decrease"
+        android:icon="@drawable/decrease"
+        android:title="Clear movie"
+        app:showAsAction="always" />
+
+
+
 </menu>

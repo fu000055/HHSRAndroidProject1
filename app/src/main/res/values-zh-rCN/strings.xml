@@ -20,6 +20,8 @@
     <!-- Movie_info_record.xml button text -->
     <string name="question">问题</string>
     <string name="Feedback">反馈</string>
+    <string name="open">打开</string>
+    <string name="close">关闭</string>
 
 
 

@@ -16,6 +16,8 @@
     <string name="Close">Close</string>
     <string name="question">question</string>
     <string name="Feedback">feedback</string>
+    <string name="open">Opne</string>
+    <string name="close">Close</string>
     <!-- TODO: Remove or change this placeholder text -->
 
 </resources>

@@ -23,8 +23,13 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
+
+import com.google.android.material.navigation.NavigationView;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -81,6 +86,10 @@ public class Movie_Database_API extends AppCompatActivity {
     TextView titleView,yearView,ratingView,runtimeView,actorsView,plotView;
     ImageView posterView;
 
+    float oldSize;
+
+    String runMovie;
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater =getMenuInflater();
@@ -105,6 +114,31 @@ public class Movie_Database_API extends AppCompatActivity {
                   posterView.setVisibility(View.INVISIBLE);
                   break;
 
+              case R.id.id_increase:
+                  oldSize++;
+                  titleView.setTextSize(oldSize);
+                  yearView.setTextSize(oldSize);
+                  ratingView.setTextSize(oldSize);
+                  runtimeView.setTextSize(oldSize);
+                  actorsView.setTextSize(oldSize);
+                  plotView.setTextSize(oldSize);
+                  break;
+
+              case R.id.id_decrease:
+                  oldSize = Float.max(oldSize-1,5);
+                  titleView.setTextSize(oldSize);
+                  yearView.setTextSize(oldSize);
+                  ratingView.setTextSize(oldSize);
+                  runtimeView.setTextSize(oldSize);
+                  actorsView.setTextSize(oldSize);
+                  plotView.setTextSize(oldSize);
+                  break;
+
+              case 5:
+                 // String movieName = item.getTitle().toString();
+                 // runMovie(movieName);
+                  break;
+
           }
 
         return super.onOptionsItemSelected(item);
@@ -127,10 +161,26 @@ public class Movie_Database_API extends AppCompatActivity {
         movieNameBtn = findViewById(R.id.movieIfoBtn);
         movieNameText = findViewById(R.id.inputMovieName);
 
-        /*myToolbar.getMenu();
+        myToolbar.getMenu();
         String movieName = movieNameText.getText().toString();
         myToolbar.getMenu().add(0,5,0,movieName)
-                .setIcon(R.drawable.clear).setShowAsAction(MenuItem.SHOW_AS_ACTION_NEVER);*/
+                .setIcon(R.drawable.clear)
+                .setShowAsAction(MenuItem.SHOW_AS_ACTION_NEVER);
+
+
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, myToolbar, R.string.open, R.string.close);
+        drawer.addDrawerListener(toggle);
+        toggle.syncState();
+
+        NavigationView navigationView = findViewById(R.id.popout_menu);
+        navigationView.setNavigationItemSelectedListener((item) ->{
+            onOptionsItemSelected(item);
+            drawer.closeDrawer(GravityCompat.START);
+            return false;
+        });
+
+
 
 
 
@@ -152,6 +202,9 @@ public class Movie_Database_API extends AppCompatActivity {
                     "You need to verify your identity",
                     Toast.LENGTH_LONG).show();
         });
+
+
+
 
 
 
@@ -245,35 +298,6 @@ public class Movie_Database_API extends AppCompatActivity {
                         posterView.setVisibility(View.VISIBLE);
 
 
-                       /* TextView tv ;
-                        tv = findViewById(R.id.title);
-                        tv.setText("       *** Movie Information ***\n"+ "The movie title is : " + title);
-                        tv.setVisibility(View.VISIBLE);
-
-                        tv = findViewById(R.id.year);
-                        tv.setText("The movie year is : " + year);
-                        tv.setVisibility(View.VISIBLE);
-
-                        tv = findViewById(R.id.rating);
-                        tv.setText("The movie rating is : " + rating);
-                        tv.setVisibility(View.VISIBLE);
-
-                        tv = findViewById(R.id.runtime);
-                        tv.setText("The movie runtime is : " + runtime);
-                        tv.setVisibility(View.VISIBLE);
-
-                        tv = findViewById(R.id.actors);
-                        tv.setText("The movie main actors is : " + actors);
-                        tv.setVisibility(View.VISIBLE);
-
-                        tv = findViewById(R.id.plot);
-                        tv.setText("The movie plot is : " + plot);
-                        tv.setVisibility(View.VISIBLE);
-
-                        ImageView iv = findViewById(R.id.poster);
-                        iv.setImageBitmap(image);
-                        iv.setVisibility(View.VISIBLE);*/
-
                     });
 
                 }catch (IOException  | JSONException e){
@@ -289,7 +313,7 @@ public class Movie_Database_API extends AppCompatActivity {
         Button loginBtn = findViewById(R.id.longinBtn);
         SharedPreferences prefs = getSharedPreferences("MyData", Context.MODE_PRIVATE);
 
-        String movieName = prefs.getString("MovieName", "");
+        String moviesName = prefs.getString("MovieName", "");
         EditText et = findViewById(R.id.inputMovieName);
         et.setText(movieName);
 
