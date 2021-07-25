@@ -6,26 +6,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <!--    <android.support.design.widget.FloatingActionButton-->
-    <!--        android:id="@+id/fab"-->
-    <!--        android:layout_width="wrap_content"-->
-    <!--        android:layout_height="wrap_content"-->
-    <!--        android:layout_gravity="bottom|end"-->
-    <!--        android:layout_margin="@dimen/fab_margin"-->
-    <!--        android:src="@drawable/ic_fab_chat_button_white"-->
-    <!--        app:layout_constraintEnd_toEndOf="parent"-->
-    <!--        app:layout_constraintStart_toStartOf="parent" />-->
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/myrecycler"
-        android:layout_width="312dp"
-        android:layout_height="321dp"
-        android:layout_marginBottom="16dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
-
     <TextView
         android:id="@+id/textView"
         android:layout_width="match_parent"
@@ -58,38 +38,20 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/search_edit_text" />
 
+
     <Button
         android:id="@+id/help_bar"
-        android:layout_width="394dp"
-        android:layout_height="46dp"
-        android:layout_marginTop="16dp"
+        android:layout_width="133dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="24dp"
         android:text="@string/help_bar"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintHorizontal_bias="0.6"
+        app:layout_constraintStart_toEndOf="@+id/favouritesButton"
         app:layout_constraintTop_toBottomOf="@+id/search_bar" />
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="239dp"
-        android:layout_height="29dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="32dp"
-        android:capitalize="characters"
-        android:text="Histories"
-        app:layout_constraintStart_toEndOf="@+id/imageView"
-        app:layout_constraintTop_toBottomOf="@+id/help_bar" />
-
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="44dp"
-        android:layout_height="41dp"
-        android:layout_marginTop="23dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/help_bar"
-        app:srcCompat="@drawable/history15_icon" />
-
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/returnButtonOCt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
@@ -97,5 +59,15 @@
         android:text="Return"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
+
+    <Button
+        android:id="@+id/favouritesButton"
+        android:layout_width="258dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="24dp"
+        android:text="Favourites"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/search_bar"
+        app:rippleColor="#AB47BC" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

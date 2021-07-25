@@ -1,24 +1,16 @@
 package algonquin.cst2335.hhsrandroidproject1.oct;
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.app.LauncherActivity;
-import android.app.ProgressDialog;
-import android.content.ContentValues;
 import android.content.Intent;
 import android.os.Bundle;
 
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
-
-import com.google.android.material.snackbar.Snackbar;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -44,6 +36,7 @@ public class StationDetail extends AppCompatActivity {
     RecyclerView stopListView;
     ArrayList<Route> routes = new ArrayList<>();
     StopAdapter adt = new StopAdapter();
+    String routeNo;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -54,6 +47,7 @@ public class StationDetail extends AppCompatActivity {
         String stationNumber = fromOct.getStringExtra("StationNumber");
         TextView titleText = findViewById(R.id.header);
         TextView stopDescriptionText = findViewById(R.id.staticInfo);
+
         stopListView = findViewById(R.id.stationInformationRecycler);
         stopListView.setAdapter(adt);
         stopListView.setLayoutManager(new LinearLayoutManager(this));
@@ -77,12 +71,12 @@ public class StationDetail extends AppCompatActivity {
                 String error = getRouteSummaryForStopResult.getString("Error");
                 String description = getRouteSummaryForStopResult.getString("StopDescription");
                 titleText.setText("Information of the Station: ");
-                stopDescriptionText.setText(description +"(stop number" +stopNo+")");
+                stopDescriptionText.setText(description +"(stop number" +stopNo+")"+error);
                 JSONObject routesObj = getRouteSummaryForStopResult.getJSONObject("Routes");
                 JSONArray routeArray = routesObj.getJSONArray("Route");
                 for (int i = 0; i < routeArray.length(); i++) {
                     JSONObject o = routeArray.getJSONObject(i);
-//                    r.routeNo = o.getString("RouteNo");
+                    routeNo = o.getString("RouteNo");
                     //routes.add(new Route(o.getString("RouteNo")));
                     //adt.notifyItemInserted(i);
 //                    o.getString("RouteNo");
@@ -101,6 +95,10 @@ public class StationDetail extends AppCompatActivity {
                      adt.notifyDataSetChanged();
                  });
 
+//                Intent nextPageStop = new Intent(StationDetail.this, RouteFragment.class);
+//                nextPageStop.putExtra("StationNumber",stationNumber);
+//                nextPageStop.putExtra("StopNumber",routeNo);
+//                startActivity(nextPageStop);
 
             } catch (IOException | JSONException ioe) {
                 Log.e("Connection error:", ioe.getMessage());
