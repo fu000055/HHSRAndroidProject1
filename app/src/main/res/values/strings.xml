@@ -4,9 +4,15 @@
     <string name="car_charging">Car Charging Station</string>
     <string name="movie_info">Movie Information</string>
     <string name="soccer_game">Soccer Games Api</string>
-    <string name="editText">Please enter the bus stop number </string>
+    <string name="oct_header">OC Transpo</string>
+    <string name="station_detail_header"> </string>
+    <string name="search_edit_text">Please enter the bus stop number </string>
     <string name="search_bar">SEARCH</string>
-    <string name="history_bar">HISTROIES</string>
     <string name="help_bar">HELP</string>
+    <string name="returnButtonOCt">Return</string>
+    <string name="favouritesButton">Favourites</string>
+    <string name="returnButtonStation">Return</string>
+    <string name="favouritesTitle">Favorites</string>
+    <string name="favouritesRerun">Return</string>
 
 </resources>

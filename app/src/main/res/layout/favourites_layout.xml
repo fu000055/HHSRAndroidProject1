@@ -18,7 +18,6 @@
         android:id="@+id/favouritesTitle"
         android:layout_width="305dp"
         android:layout_height="37dp"
-        android:capitalize="characters"
         android:fontFamily="@font/archivo_black"
         android:text="Favourites"
         app:layout_constraintEnd_toEndOf="parent"

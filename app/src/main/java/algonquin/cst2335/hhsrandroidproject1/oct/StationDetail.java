@@ -106,7 +106,7 @@ public class StationDetail extends AppCompatActivity {
 
         });
 
-        Button returnBtn = findViewById(R.id.returnButton);
+        Button returnBtn = findViewById(R.id.returnButtonStation);
         returnBtn.setOnClickListener(returnclk2 -> {
             Intent previousPage = new Intent(StationDetail.this, OCTranspoBusRouteActivity.class);
             startActivity(previousPage);
