@@ -11,9 +11,6 @@
 
 
 <LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
@@ -137,20 +134,12 @@
     <ImageView
         android:id="@+id/poster"
         android:layout_width="match_parent"
-        android:layout_height="139dp"
+        android:layout_height="160dp"
         android:visibility="invisible" />
 
 
 
     <!--help button-->
-
-    <Button
-        android:id="@+id/helpButton"
-        android:layout_width="96dp"
-        android:layout_height="30dp"
-        android:background="@color/white"
-        android:text="@string/Help"
-        android:textSize="10sp" />
 
     <!--favorites button-->
     <Button

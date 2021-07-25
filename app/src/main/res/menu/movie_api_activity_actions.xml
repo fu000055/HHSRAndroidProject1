@@ -11,15 +11,20 @@
     <item
         android:id="@+id/id_increase"
         android:icon="@drawable/increase"
-        android:title="Clear movie"
+        android:title="Increase Text Size"
         app:showAsAction="always" />
 
     <item
         android:id="@+id/id_decrease"
         android:icon="@drawable/decrease"
-        android:title="Clear movie"
+        android:title="Decrease Text Size"
         app:showAsAction="always" />
 
+    <item
+        android:id="@+id/id_help"
+        android:icon="@android:drawable/ic_menu_help"
+        android:title="HELP"
+        app:showAsAction="always" />
 
 
 </menu>

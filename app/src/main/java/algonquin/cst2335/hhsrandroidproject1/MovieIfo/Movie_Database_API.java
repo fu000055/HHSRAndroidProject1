@@ -139,6 +139,25 @@ public class Movie_Database_API extends AppCompatActivity {
                   runMoviecast(movieName);
                   break;
 
+              case R.id.id_help:
+                  AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
+                  alertDialogBuilder.setTitle("How to use application movie_DATABASE_API")
+                          .setMessage("1>Type movie name\n" +
+                                  "2>Click on movie to view movies\n" +
+                                  "3>Click on movie to search\n" +
+                                  "4>Click Save while in movie to save\n" +
+                                  "5>Click on My Movies to see saved\n" +
+                                  "6>Click Delete button inside Movie \n" +
+                                  "to delete it from saved Movies\n" +
+                                  "\n" +
+                                  "Application created by Simon Ao")
+                          .setPositiveButton("OK", (click, arg) ->{
+                          })
+                          .create().show();
+                  break;
+
+
+
           }
 
         return super.onOptionsItemSelected(item);
@@ -262,6 +281,7 @@ public class Movie_Database_API extends AppCompatActivity {
         movieNameText = findViewById(R.id.inputMovieName);
 
         //add code in onCreate() to find the toolbar
+
         Toolbar myToolbar = findViewById(R.id.toolbar);
         // load the toolbar call setSupportActionBar( ) and pass the toolbar as a parameter
         setSupportActionBar(myToolbar);
@@ -340,7 +360,7 @@ public class Movie_Database_API extends AppCompatActivity {
 
 
         //help button information
-        helpButton = findViewById(R.id.helpButton);
+    /*    helpButton = findViewById(R.id.helpButton);
         helpButton.setOnClickListener(clk ->{
 
             AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
@@ -359,7 +379,7 @@ public class Movie_Database_API extends AppCompatActivity {
                     .create().show();
 
 
-        });
+        });*/
 
         //favorites movies information button
         favoritesButton =findViewById(R.id.favoritesButton);
