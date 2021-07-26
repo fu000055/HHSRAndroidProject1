@@ -1,32 +1,36 @@
 package algonquin.cst2335.hhsrandroidproject1;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.ImageView;
 
 import algonquin.cst2335.hhsrandroidproject1.oct.OCTranspoBusRouteActivity;
 
 public class MainActivity extends AppCompatActivity {
     private static String TAG = "MainActivity";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
+
         //SharedPreferences prefs = getSharedPreferences("MyData", Context.MODE_PRIVATE);
 
         ImageView otcImage = findViewById(R.id.bus_icon);
-
         otcImage.setOnClickListener(clk -> {
 
             Intent nextPageOCT = new Intent(MainActivity.this, OCTranspoBusRouteActivity.class);
             startActivity(nextPageOCT);
 
         });
-
 
     }
 

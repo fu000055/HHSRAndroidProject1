@@ -1,7 +1,11 @@
 package algonquin.cst2335.hhsrandroidproject1.oct;
 
+import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -10,10 +14,17 @@ import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.Toast;
+
+import com.google.android.material.navigation.NavigationView;
 
 import java.util.ArrayList;
 
@@ -24,12 +35,57 @@ public class OCTranspoBusRouteActivity extends AppCompatActivity {
     StationDetail myStationDetail = new StationDetail();
     ArrayList<String> favoriteList = new ArrayList<>();
     SQLiteDatabase db;
+    Toolbar mytoolbar;
+
+
+    public void runSearch() {
+        Intent searchPage = new Intent(this, OCTranspoBusRouteActivity.class);
+        startActivity(searchPage);
+    }
+    public void runFavourite() {
+        Intent favoritesPage = new Intent(this, Favourites.class);
+        startActivity(favoritesPage);
+    }
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.oct_main_menu, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId())
+        {
+            case R.id.id_favorites:
+                runFavourite();
+                break;
+            case R.id.id_search:
+                runSearch();
+
+        }
+        return super.onOptionsItemSelected(item);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.oct_layout);
 
+        mytoolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(mytoolbar);
+
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
+        ImageView star = findViewById(R.id.imageView);
+        //Generate Open and Close strings
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this,drawer,mytoolbar,R.string.open,R.string.close);
+        drawer.addDrawerListener(toggle);
+        toggle.syncState();
+        NavigationView navigationView = findViewById(R.id.popup_menu);
+        navigationView.setNavigationItemSelectedListener((item) -> {
+            onOptionsItemSelected(item);//call the function for the other Toolbar
+            drawer.closeDrawer(GravityCompat.START);
+            return false;
+
+        });
 
         Intent fromPreOCT = getIntent();
         // save message
@@ -42,9 +98,6 @@ public class OCTranspoBusRouteActivity extends AppCompatActivity {
         Button btnHelp =  findViewById(R.id.help_bar);
         Button btnReturn = findViewById(R.id.returnButtonOCt);
         Button btnFavourites = findViewById(R.id.favouritesButton);
-
-
-
 
         btnSearch.setOnClickListener(clk1 ->{
             if(!userInputText.getText().toString().isEmpty()) {

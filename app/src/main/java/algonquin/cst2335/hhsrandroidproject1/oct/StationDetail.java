@@ -1,5 +1,9 @@
 package algonquin.cst2335.hhsrandroidproject1.oct;
+import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -7,10 +11,16 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.google.android.material.navigation.NavigationView;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -37,11 +47,56 @@ public class StationDetail extends AppCompatActivity {
     ArrayList<Route> routes = new ArrayList<>();
     StopAdapter adt = new StopAdapter();
     String routeNo;
+    Toolbar mytoolbar;
+    public void runFavourite() {
+        Intent favoritesPage = new Intent(this, Favourites.class);
+        startActivity(favoritesPage);
+    }
+    public void runSearch() {
+        Intent searchPage = new Intent(this, OCTranspoBusRouteActivity.class);
+        startActivity(searchPage);
+    }
+
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.oct_main_menu, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId())
+        {
+            case R.id.id_favorites:
+                runFavourite();
+                break;
+            case R.id.id_search:
+                runSearch();
+
+        }
+        return super.onOptionsItemSelected(item);
+    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.station_detail_layout);
+        mytoolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(mytoolbar);
+
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
+        ImageView star = findViewById(R.id.imageView);
+        //Generate Open and Close strings
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this,drawer,mytoolbar,R.string.open,R.string.close);
+        drawer.addDrawerListener(toggle);
+        toggle.syncState();
+        NavigationView navigationView2 = findViewById(R.id.popup_menu);
+        navigationView2.setNavigationItemSelectedListener((item) -> {
+            onOptionsItemSelected(item);//call the function for the other Toolbar
+            drawer.closeDrawer(GravityCompat.START);
+            return false;
+
+        });
 
         Intent fromOct = getIntent();
         String stationNumber = fromOct.getStringExtra("StationNumber");
