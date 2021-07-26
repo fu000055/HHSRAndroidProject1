@@ -183,7 +183,7 @@ public class Movie_Database_API extends AppCompatActivity {
 
                 //connect to the server:
                 String stringURL = "http://www.omdbapi.com/?apikey=6c9862c2" + "&t="
-                        + URLEncoder.encode(movieNameText.getText().toString(), "UTF-8");
+                        + URLEncoder.encode(movieName, "UTF-8");
 
                 //on other cpu:
                 url = new URL(stringURL);
