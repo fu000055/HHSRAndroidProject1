@@ -18,6 +18,9 @@
     <string name="Feedback">feedback</string>
     <string name="open">Opne</string>
     <string name="close">Close</string>
+    <string name="getMovie">get movie information</string>
+
+
     <!-- TODO: Remove or change this placeholder text -->
 
 </resources>

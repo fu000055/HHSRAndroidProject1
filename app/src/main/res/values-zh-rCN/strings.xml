@@ -23,9 +23,7 @@
     <string name="open">打开</string>
 
     <string name="close">关闭</string>
-
-
-
+    <string name="getMovie">获得电影信息</string>
 
 
 </resources>

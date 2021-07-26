@@ -58,7 +58,7 @@
         android:id="@+id/movieIfoBtn"
         android:layout_width="match_parent"
         android:layout_height="36dp"
-        android:text="get movie ifmatiom" />
+        android:text="@string/getMovie" />
 
     <TextView
         android:id="@+id/memberShipTextView"
