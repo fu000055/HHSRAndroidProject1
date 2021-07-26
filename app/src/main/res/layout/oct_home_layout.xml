@@ -12,7 +12,7 @@
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="58dp"
-        android:background="@color/purple_200"
+        android:background="@color/purple_700"
         android:minHeight="?attr/actionBarSize"
         android:theme="?attr/actionBarTheme"
         app:layout_constraintEnd_toEndOf="parent"
@@ -45,7 +45,7 @@
         android:layout_height="45dp"
         android:layout_marginTop="16dp"
         android:ems="10"
-        android:hint="Please enter bus stop number"
+        android:hint="@string/search_stop"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -57,7 +57,7 @@
         android:layout_height="53dp"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
-        android:text="@string/search_bar"
+        android:text="@string/oct_search_bar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/search_edit_text" />
@@ -68,7 +68,7 @@
         android:layout_width="133dp"
         android:layout_height="48dp"
         android:layout_marginTop="24dp"
-        android:text="@string/help_bar"
+        android:text="@string/oct_help_bar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.6"
         app:layout_constraintStart_toEndOf="@+id/favouritesButton"
@@ -89,7 +89,7 @@
         android:layout_width="258dp"
         android:layout_height="48dp"
         android:layout_marginTop="24dp"
-        android:text="@string/favouritesButton"
+        android:text="@string/favouritesButtonOct"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/search_bar"
         app:rippleColor="#AB47BC" />
@@ -98,10 +98,10 @@
         <com.google.android.material.navigation.NavigationView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:id="@+id/popup_menu"
+            android:id="@+id/popup_menu_oct"
             android:layout_gravity = "start"
             android:fitsSystemWindows="true"
-            app:headerLayout="@layout/popout_header"
+            app:headerLayout="@layout/popout_header_oct"
             app:menu="@menu/oct_main_menu"/>
     </androidx.drawerlayout.widget.DrawerLayout>
 </LinearLayout>

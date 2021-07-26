@@ -67,10 +67,10 @@ public class StationDetail extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId())
         {
-            case R.id.id_favorites:
+            case R.id.id_favorites_oct:
                 runFavourite();
                 break;
-            case R.id.id_search:
+            case R.id.id_search_oct:
                 runSearch();
 
         }
@@ -80,18 +80,18 @@ public class StationDetail extends AppCompatActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.station_detail_layout);
+        setContentView(R.layout.oct_station_detail_layout);
         mytoolbar = findViewById(R.id.toolbar);
         setSupportActionBar(mytoolbar);
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         ImageView star = findViewById(R.id.imageView);
         //Generate Open and Close strings
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this,drawer,mytoolbar,R.string.open,R.string.close);
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this,drawer,mytoolbar,R.string.oct_open,R.string.oct_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
-        NavigationView navigationView2 = findViewById(R.id.popup_menu);
-        navigationView2.setNavigationItemSelectedListener((item) -> {
+        NavigationView navigationView = findViewById(R.id.popup_menu_oct);
+        navigationView.setNavigationItemSelectedListener((item) -> {
             onOptionsItemSelected(item);//call the function for the other Toolbar
             drawer.closeDrawer(GravityCompat.START);
             return false;
@@ -176,7 +176,7 @@ public class StationDetail extends AppCompatActivity {
 //            View loadedRow = inflater.inflate(R.layout.station_detail_list_layout,parent,false);
 //            return new RouteRowViews(loadedRow);
             return new RouteRowViews(
-                    getLayoutInflater().inflate(R.layout.station_detail_list_layout,parent,false));
+                    getLayoutInflater().inflate(R.layout.oct_station_detail_list_layout,parent,false));
         }
 
         @Override

@@ -5,20 +5,21 @@
     <string name="movie_info">Movie Information</string>
     <string name="soccer_game">Soccer Games Api</string>
     <string name="oct_header">OC Transpo</string>
-    <string name="search_edit_text">Please enter the bus stop number </string>
-    <string name="search_bar">SEARCH</string>
-    <string name="help_bar">HELP</string>
+    <string name="search_stop">Please enter the bus stop number </string>
+    <string name="oct_search_bar">SEARCH</string>
+    <string name="oct_help_bar">HELP</string>
     <string name="returnButtonOCt">Return</string>
-    <string name="favouritesButton">Favourites</string>
-    <string name="returnButtonStation">Return</string>
-    <string name="favouritesTitle">Favorites</string>
-    <string name="favouritesRerun">Return</string>
-    <string name="navigation_title"> OC Transpo App</string>
-    <string name="open">Open</string>
-    <string name="close">Close</string>
-    <string name="author"> Rong Fu</string>
-    <string name="version"> Version 1.0</string>
-    <string name="id_favorites">Favourites</string>
-    <string name="id_search">Search</string>
+    <string name="favouritesButtonOct">Favourites</string>
+    <string name="oct_returnButtonStation">Return</string>
+    <string name="oct_favouritesTitle">Favorites</string>
+    <string name="oct_favouritesRerun">Return</string>
+    <string name="oct_navigation_title"> OC Transpo App</string>
+    <string name="oct_open">Open</string>
+    <string name="oct_close">Close</string>
+    <string name="oct_author"> Rong Fu</string>
+    <string name="oct_version"> Version 1.0</string>
+    <string name="id_favorites_oct">Favourites</string>
+    <string name="id_search_oct">Search</string>
+    <string name="id_main_from_oct">Home Page</string>
 
 </resources>

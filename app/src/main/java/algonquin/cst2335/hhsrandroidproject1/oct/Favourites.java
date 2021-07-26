@@ -1,6 +1,5 @@
 package algonquin.cst2335.hhsrandroidproject1.oct;
 
-import android.content.ContentValues;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -12,9 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.ProgressBar;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AlertDialog;
@@ -31,7 +28,6 @@ import com.google.android.material.snackbar.Snackbar;
 
 import java.util.ArrayList;
 
-import algonquin.cst2335.hhsrandroidproject1.MainActivity;
 import algonquin.cst2335.hhsrandroidproject1.R;
 
 public class Favourites extends AppCompatActivity {
@@ -58,10 +54,10 @@ public class Favourites extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId())
         {
-            case R.id.id_favorites:
+            case R.id.id_favorites_oct:
                 runFavourite();
                 break;
-            case R.id.id_search:
+            case R.id.id_search_oct:
                 runSearch();
 
         }
@@ -71,18 +67,18 @@ public class Favourites extends AppCompatActivity {
         @Override
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
-            setContentView(R.layout.favourites_layout);
+            setContentView(R.layout.favourites_oct_layout);
             mytoolbar = findViewById(R.id.toolbar);
             setSupportActionBar(mytoolbar);
 
             DrawerLayout drawer = findViewById(R.id.drawer_layout);
             ImageView star = findViewById(R.id.imageView);
             //Generate Open and Close strings
-            ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this,drawer,mytoolbar,R.string.open,R.string.close);
+            ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this,drawer,mytoolbar,R.string.oct_open,R.string.oct_close);
             drawer.addDrawerListener(toggle);
             toggle.syncState();
-            NavigationView navigationView2 = findViewById(R.id.popup_menu);
-            navigationView2.setNavigationItemSelectedListener((item) -> {
+            NavigationView navigationView = findViewById(R.id.popup_menu_oct);
+            navigationView.setNavigationItemSelectedListener((item) -> {
                 onOptionsItemSelected(item);//call the function for the other Toolbar
                 drawer.closeDrawer(GravityCompat.START);
                 return false;
@@ -117,7 +113,7 @@ public class Favourites extends AppCompatActivity {
             mgr.setReverseLayout(true);
             favouritesView.setLayoutManager(mgr);
 
-            Button btnFReturn = findViewById(R.id.favouritesRerun);
+            Button btnFReturn = findViewById(R.id.oct_favouritesRerun);
 
             btnFReturn.setOnClickListener(fr_clk ->{
                 Intent previousPage = new Intent(Favourites.this, OCTranspoBusRouteActivity.class);
@@ -166,7 +162,7 @@ public class Favourites extends AppCompatActivity {
 //                LayoutInflater inflater = getLayoutInflater();
 //                View loadedRow = inflater.inflate(R.layout.histories_list,parent,false);
 //                return new MyRowViews(loadedRow);
-                return new MyRowViews(getLayoutInflater().inflate(R.layout.faourites_list,parent,false));
+                return new MyRowViews(getLayoutInflater().inflate(R.layout.faourites_oct_list,parent,false));
             }
 
             @Override

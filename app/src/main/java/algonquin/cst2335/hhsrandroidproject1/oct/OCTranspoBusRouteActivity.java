@@ -17,7 +17,6 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -37,7 +36,10 @@ public class OCTranspoBusRouteActivity extends AppCompatActivity {
     SQLiteDatabase db;
     Toolbar mytoolbar;
 
-
+    public void runMain() {
+        Intent mainPage = new Intent(this, MainActivity.class);
+        startActivity(mainPage);
+    }
     public void runSearch() {
         Intent searchPage = new Intent(this, OCTranspoBusRouteActivity.class);
         startActivity(searchPage);
@@ -55,11 +57,14 @@ public class OCTranspoBusRouteActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId())
         {
-            case R.id.id_favorites:
+            case R.id.id_favorites_oct:
                 runFavourite();
                 break;
-            case R.id.id_search:
+            case R.id.id_search_oct:
                 runSearch();
+                break;
+            case R.id.id_main_from_oct:
+                runMain();
 
         }
         return super.onOptionsItemSelected(item);
@@ -68,7 +73,7 @@ public class OCTranspoBusRouteActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.oct_layout);
+        setContentView(R.layout.oct_home_layout);
 
         mytoolbar = findViewById(R.id.toolbar);
         setSupportActionBar(mytoolbar);
@@ -76,10 +81,10 @@ public class OCTranspoBusRouteActivity extends AppCompatActivity {
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         ImageView star = findViewById(R.id.imageView);
         //Generate Open and Close strings
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this,drawer,mytoolbar,R.string.open,R.string.close);
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this,drawer,mytoolbar,R.string.oct_open,R.string.oct_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
-        NavigationView navigationView = findViewById(R.id.popup_menu);
+        NavigationView navigationView = findViewById(R.id.popup_menu_oct);
         navigationView.setNavigationItemSelectedListener((item) -> {
             onOptionsItemSelected(item);//call the function for the other Toolbar
             drawer.closeDrawer(GravityCompat.START);

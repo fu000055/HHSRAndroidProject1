@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -12,7 +11,7 @@
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="58dp"
-        android:background="@color/purple_200"
+        android:background="@color/purple_700"
         android:minHeight="?attr/actionBarSize"
         android:theme="?attr/actionBarTheme"
         app:layout_constraintEnd_toEndOf="parent"
@@ -23,68 +22,58 @@
         android:id="@+id/drawer_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-
-    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/linearLayout"
+<androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".oct.StationDetail">
+    tools:context=".oct.Favourites">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/stationInformationRecycler"
-        android:layout_width="368dp"
-        android:layout_height="549dp"
+        android:id="@+id/myrecycler"
+        android:layout_width="376dp"
+        android:layout_height="527dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/staticInfo" />
-
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
     <TextView
-        android:id="@+id/header"
-        android:layout_width="372dp"
-        android:layout_height="0dp"
+        android:id="@+id/favouritesTitle"
+        android:layout_width="305dp"
+        android:layout_height="37dp"
         android:fontFamily="@font/archivo_black"
-        android:text="TextView"
-        android:textColor="#AB47BC"
-        android:textSize="16sp"
+        android:text="@string/oct_favouritesTitle"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imageView"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="44dp"
+        android:layout_height="41dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/history15_icon" />
+
     <Button
-        android:id="@+id/returnButtonStation"
+        android:id="@+id/oct_favouritesRerun"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="21dp"
-        android:layout_marginEnd="32dp"
-        android:layout_marginBottom="32dp"
-        android:text="@string/returnButtonStation"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="28dp"
+        android:text="@string/oct_favouritesRerun"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/stationInformationRecycler" />
+        app:layout_constraintTop_toBottomOf="@+id/myrecycler"
+        app:layout_constraintVertical_bias="0.384" />
 
-    <TextView
-        android:id="@+id/staticInfo"
-        android:layout_width="372dp"
-        android:layout_height="41dp"
-        android:fontFamily="@font/archivo_black"
-        android:text="Stop description and error message"
-        android:textColor="#AB47BC"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.515"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/header" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
         <com.google.android.material.navigation.NavigationView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:id="@+id/popup_menu"
+            android:id="@+id/popup_menu_oct"
             android:layout_gravity = "start"
             android:fitsSystemWindows="true"
-            app:headerLayout="@layout/popout_header"
+            app:headerLayout="@layout/popout_header_oct"
             app:menu="@menu/oct_main_menu"/>
     </androidx.drawerlayout.widget.DrawerLayout>
 </LinearLayout>
