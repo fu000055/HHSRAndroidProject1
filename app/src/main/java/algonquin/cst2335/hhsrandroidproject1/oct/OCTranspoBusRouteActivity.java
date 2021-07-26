@@ -163,10 +163,9 @@ public class OCTranspoBusRouteActivity extends AppCompatActivity {
         btnHelp.setOnClickListener(clk3 ->{
             // AlertDialog for popup dialog box
             AlertDialog.Builder builder = new AlertDialog.Builder(OCTranspoBusRouteActivity.this);
-            builder.setMessage("Enter the bus station code, then click 'Search button', you will find all the line information that the bus station contains. " +
-                    "Click 'Return' button to return to previous page. Click on the list of histories. You can quickly enter the familiar station." )
-                    .setTitle("Help")
-                    .setPositiveButton("Cancel",(dialog, cl) ->{
+            builder.setMessage(R.string.oct_help_alert )
+                    .setTitle(R.string.oct_help_alert_title)
+                    .setPositiveButton(R.string.oct_help_alert_cancel,(dialog, cl) ->{
 
                     }).create().show();
         });

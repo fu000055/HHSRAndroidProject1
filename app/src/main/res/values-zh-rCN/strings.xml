@@ -22,4 +22,7 @@
     <string name="id_favorites_oct">收藏夹</string>
     <string name="id_search_oct">查找线路</string>
     <string name="id_main_from_oct">主页</string>
+    <string name="oct_help_alert">"输入汽车站号码："</string>
+    <string name="oct_help_alert_title">帮助</string>
+    <string name="oct_help_alert_cancel">取消</string>
 </resources>

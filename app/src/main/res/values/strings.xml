@@ -21,5 +21,11 @@
     <string name="id_favorites_oct">Favourites</string>
     <string name="id_search_oct">Search</string>
     <string name="id_main_from_oct">Home Page</string>
+    <string name="oct_help_alert">"Enter the bus station code, then click 'Search button',
+        you will find all the line information that the bus station contains.
+        Click 'Return' button to return to previous page.
+        Click on the list of histories. You can quickly enter the familiar station."</string>
+    <string name="oct_help_alert_title">Help</string>
+    <string name="oct_help_alert_cancel">Cancel</string>
 
 </resources>
