@@ -198,6 +198,13 @@ public class StationDetail extends AppCompatActivity {
             super(itemView);
             routeNoText = itemView.findViewById(R.id.stop_list);
             itemView.setOnClickListener(click -> {
+                Intent nextPageRoute = new Intent(StationDetail.this, RouteDetail.class);
+                Intent fromOct = getIntent();
+                String stationNumber = fromOct.getStringExtra("StationNumber");
+                nextPageRoute.putExtra("StationNumber", stationNumber);
+                position = getAbsoluteAdapterPosition();
+                nextPageRoute.putExtra("routeNo", routes.get(position).routeNo);
+                startActivity(nextPageRoute);
 
             });
         }

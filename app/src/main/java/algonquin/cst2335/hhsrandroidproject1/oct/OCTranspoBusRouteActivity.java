@@ -95,7 +95,7 @@ public class OCTranspoBusRouteActivity extends AppCompatActivity {
         Intent fromPreOCT = getIntent();
         // save message
         SharedPreferences prefs = getSharedPreferences("MyData", Context.MODE_PRIVATE);
-        String searchStop = prefs.getString("StationNumber","");
+        String searchStop = prefs.getString("stationNumber","");
         EditText userInputText = findViewById(R.id.search_edit_text);
         userInputText.setText(searchStop);
 
