@@ -103,7 +103,10 @@ public class Movie_Database_API extends AppCompatActivity {
         startActivity(appHome);
     }
 
-
+    public void favoriteMovieActivity(){
+        Intent favoriteMovie = new Intent(this,MovieInfoRecord.class);
+        startActivity(favoriteMovie);
+    }
 
     /**
      * Clear movie information,font size smaller,font size bigger
@@ -121,31 +124,26 @@ public class Movie_Database_API extends AppCompatActivity {
                   actorsView.setVisibility(View.INVISIBLE);
                   plotView.setVisibility(View.INVISIBLE);
                   posterView.setVisibility(View.INVISIBLE);
+                  movieNameText.setText("");
                   break;
 
 
 
-
-
-
-
-
-
               case R.id.id_favorite:
-                  oldSize++;
+
+                  favoriteMovieActivity();
+
+                 /* oldSize++;
                   titleView.setTextSize(oldSize);
                   yearView.setTextSize(oldSize);
                   ratingView.setTextSize(oldSize);
                   runtimeView.setTextSize(oldSize);
                   actorsView.setTextSize(oldSize);
-                  plotView.setTextSize(oldSize);
+                  plotView.setTextSize(oldSize);*/
                   break;
 
               case R.id.id_home:
                   startAppHomeActivity();
-
-
-
 
 
                   /*oldSize = Float.max(oldSize-1,5);
@@ -158,7 +156,7 @@ public class Movie_Database_API extends AppCompatActivity {
                   break;
 
               case 5:
-                 String movieName = item.getTitle().toString();
+                  String movieName = item.getTitle().toString();
                   runMoviecast(movieName);
                   break;
 
@@ -375,14 +373,12 @@ public class Movie_Database_API extends AppCompatActivity {
 
         });
 
-        Button detailBtn = findViewById(R.id.detailBtn);
+      /*  Button detailBtn = findViewById(R.id.detailBtn);
         detailBtn.setOnClickListener((clk) -> {
-
-
             Intent nextPage = new Intent(Movie_Database_API.this, MovieInfoRecord.class);
             startActivity(nextPage);
 
-        });
+        });*/
 
 
         //help button information
