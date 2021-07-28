@@ -10,14 +10,16 @@
 
     <TextView
         android:id="@+id/titleView"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginTop="32dp"
         android:layout_marginEnd="32dp"
         android:text="Title"
+        android:textAlignment="textStart"
         android:textColor="#151515"
-        android:textSize="16sp"
+        android:textSize="20sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -25,11 +27,12 @@
 
     <TextView
         android:id="@+id/dateView"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="22dp"
         android:layout_marginEnd="32dp"
         android:text="Date"
+        android:textAlignment="textStart"
         android:textColor="#191818"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -39,9 +42,11 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="337dp"
-        android:layout_height="325dp"
-        android:layout_marginTop="12dp"
+        android:layout_width="375dp"
+        android:layout_height="375dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="22dp"
+        android:layout_marginEnd="32dp"
         android:text="Image"
         android:textColor="#2E2C2C"
         android:textSize="16sp"
@@ -51,27 +56,32 @@
 
     <TextView
         android:id="@+id/urlView"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="32dp"
+        android:clickable="true"
         android:text="URL"
+        android:textAlignment="textStart"
         android:textColor="#1C1B1B"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.805"
         app:layout_constraintStart_toStartOf="@+id/dateView"
         app:layout_constraintTop_toBottomOf="@+id/dateView" />
 
     <TextView
         android:id="@+id/descriptionView"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="22dp"
         android:layout_marginEnd="32dp"
         android:text="Description"
+        android:textAlignment="textStart"
         android:textColor="#393737"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.558"
         app:layout_constraintStart_toStartOf="parent"
@@ -84,7 +94,7 @@
         android:layout_marginStart="32dp"
         android:layout_marginTop="32dp"
         android:layout_marginBottom="32dp"
-        android:text="SAVE TO FAVOURITE"
+        android:text="@string/soccer_news_save_to_favourite"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView"
@@ -98,7 +108,7 @@
         android:layout_marginTop="32dp"
         android:layout_marginEnd="32dp"
         android:layout_marginBottom="32dp"
-        android:text="LOAD IN BROWSER"
+        android:text="@string/soccer_news_load_to_browser"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/closebtn"
         app:layout_constraintHorizontal_bias="0.529"
@@ -112,9 +122,13 @@
         android:layout_height="54dp"
         android:layout_marginEnd="32dp"
         android:layout_marginBottom="32dp"
-        android:text="CLOSE"
+        android:text="@string/close"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
+    <WebView
+        android:id="@+id/webview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

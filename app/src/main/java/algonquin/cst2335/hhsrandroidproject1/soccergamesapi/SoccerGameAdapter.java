@@ -18,20 +18,30 @@ import java.util.Set;
 
 import algonquin.cst2335.hhsrandroidproject1.R;
 
+/**
+ * Adapters provide a binding from an app-specific data set to views that are displayed within a RecyclerView.
+ * @author Minghui Liao
+ * @version 1.0
+ */
 public class SoccerGameAdapter extends RecyclerView.Adapter<SoccerGameAdapter.SoccerGameViewHolder> implements Filterable {
+    /**The list of articles*/
     List<ArticleInfo> articleInfos;
+    /**The list of articles*/
     List<ArticleInfo> oriArticleInfos;
+    /**The String set of saved article urls.*/
     Set<String> savedArticleUrls;
-    // Indicate if it is on Favorite page or feed page
+    /**Indicate if it is on Favorite page or feed page*/
     private boolean isFavoriteList = false;
-    // Keyword to search
+    /**The keyword to search.*/
     private CharSequence keyword = "";
+    /**The activity context.*/
     Context context;
-    //private ArrayList<SoccerGameListFragment.SoccerGame> newsList = new ArrayList<>();\
-    //private OnItemListener onItemListener;
+
     Filter filter = new Filter() {
-        /*
-         *  Perform filter according to isFavoriteList and keyword
+        /**
+         * Perform filter according to isFavoriteList and keyword.
+         * @param constraint
+         * @return Return the filter Results.
          */
         @Override
         protected FilterResults performFiltering(CharSequence constraint) {
@@ -73,20 +83,38 @@ public class SoccerGameAdapter extends RecyclerView.Adapter<SoccerGameAdapter.So
         }
     };
 
+    /**
+     * This creates an adapter with specified characteristics.
+     * @param ct
+     * @param articleInfos
+     * @param savedArticleUrls
+     */
     public SoccerGameAdapter(Context ct, List<ArticleInfo> articleInfos, Set<String> savedArticleUrls) {
         context = ct;
         this.articleInfos = oriArticleInfos = articleInfos;
         this.savedArticleUrls = savedArticleUrls;
     }
 
+    /**
+     * This method is to check if current list is the favorite list.
+     * @return Return true if the list is favorite list.
+     */
     public boolean isFavoriteList() {
         return isFavoriteList;
     }
 
+    /**
+     * This method is to set the favourite list.
+     * @param favoriteList
+     */
     public void setFavoriteList(boolean favoriteList) {
         this.isFavoriteList = favoriteList;
     }
 
+    /**
+     * This method is to set the keyword.
+     * @param keyword
+     */
     public void setKeyword(CharSequence keyword) {
         this.keyword = keyword;
     }
@@ -98,6 +126,12 @@ public class SoccerGameAdapter extends RecyclerView.Adapter<SoccerGameAdapter.So
         this.getFilter().filter(keyword);
     }
 
+    /**
+     * Called when RecyclerView needs a new RecyclerView.ViewHolder of the given type to represent an item.
+     * @param parent The ViewGroup into which the new View will be added after it is bound to an adapter position.
+     * @param viewType The view type of the new View.
+     * @return
+     */
     @Override
     public SoccerGameAdapter.SoccerGameViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(context);
@@ -106,6 +140,11 @@ public class SoccerGameAdapter extends RecyclerView.Adapter<SoccerGameAdapter.So
         return new SoccerGameViewHolder(view);
     }
 
+    /**
+     * Called by RecyclerView to display the data at the specified position.
+     * @param holder The ViewHolder which should be updated to represent the contents of the item at the given position in the data set.
+     * @param position The position of the item within the adapter's data set.
+     */
     @Override
     public void onBindViewHolder(SoccerGameViewHolder holder, int position) {
 
@@ -118,7 +157,7 @@ public class SoccerGameAdapter extends RecyclerView.Adapter<SoccerGameAdapter.So
         Bitmap thumbnail = ImageCache.getthumbnailFromMemCache(articleInfo.imgUrl);
         if (thumbnail == null) {
             // If thumbnail not in cache, request the image from url
-            ImageQuery query = new ImageQuery(holder.soccer_game_image, true);
+            ImageQuery query = new ImageQuery(context, holder.soccer_game_image, true);
             query.execute(articleInfo.imgUrl);
         } else {
             // If thumbnail in cache, put it in the imageView
@@ -127,21 +166,36 @@ public class SoccerGameAdapter extends RecyclerView.Adapter<SoccerGameAdapter.So
 
     }
 
+    /**
+     * This method is to get the amount of articles.
+     * @return Return the amount of articles.
+     */
     @Override
     public int getItemCount() {
         return articleInfos.size();
     }
 
+    /**
+     * This method is to get the filter.
+     * @return Return the filter.
+     */
     @Override
     public Filter getFilter() {
         return filter;
     }
 
+    /**
+     * This class represents a row that inherits from RecyclerView.ViewHolder.
+     */
     public class SoccerGameViewHolder extends RecyclerView.ViewHolder {
         TextView soccer_game_title, soccer_game_date, soccer_game_description;
         ImageView soccer_game_image;
         int position = -1;
 
+        /**
+         * This creates the view of the row.
+         * @param itemView The item view。
+         */
         public SoccerGameViewHolder(View itemView) {
             super(itemView);
 

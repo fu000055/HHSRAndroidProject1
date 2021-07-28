@@ -4,23 +4,24 @@
     <string name="car_charging">Car Charging Station</string>
     <string name="movie_info">Movie Information</string>
     <string name="soccer_game">Soccer Games Api</string>
+    <string name="open">Open</string>
+    <string name="close">Close</string>
 
-    <string-array name="soccer_game_news">
-        <item>‘I will carry Inter forever in my heart’ – PSG’s Hakimi says farewell to I Nerazzurri</item>
-        <item>aa</item>
-        <item>bb</item>
-        <item>CC</item>
-    </string-array>
-    <string-array name="soccer_game_description">
-        <item>This is description</item>
-        <item>This is description</item>
-        <item>This is description</item>
-        <item>This is description</item>
-    </string-array>
-    <string-array name="soccer_game_date">
-        <item>20210502</item>
-        <item>20210502</item>
-        <item>20210502</item>
-        <item>20210502</item>
-    </string-array>
+    <string name="help">HELP</string>
+    <string name="soccer_games_help">
+        "Author: Minghui Liao \nVersion Number: 1.0 \nInstructions: \n1- For searching news: Firstly, input the keyword, and then press \"SEARCH\" button \n"
+            "2 - For news details: Click an article from the list to view more details \n"
+            "3 - For saving news: Press "SAVE TO FAVOURITE" to save the news. In the list view, press 'FAVOURITE' to view you list of saved news \n"
+            "4 - For removing news, click the news you want to remove and then press "REMOVE FROM FAVOURITE" \n'"
+    </string>
+
+    <string name="soccer_games_information">
+        "Activity's Titile: Soccer Games\nAuthor: Minghui Liao \nVersion Number: 1.0 "
+    </string>
+    <string name="soccer_news_save_to_favourite">SAVE TO FAVOURITE</string>
+    <string name="soccer_news_load_to_browser">LOAD IN BROWSER</string>
+    <string name="soccer_news_favourite">FAVOURITE</string>
+    <string name="soccer_news_feeds">FEEDS</string>
+    <string name="soccer_news_search">SEARCH</string>
+    <string name="soccer_news_remove_from_favourite">REMOVE FROM FAVOURITE</string>
 </resources>

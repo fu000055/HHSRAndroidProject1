@@ -6,11 +6,14 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.widget.LinearLayout;
 import android.widget.RatingBar;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -20,16 +23,25 @@ import java.util.ArrayList;
 
 import algonquin.cst2335.hhsrandroidproject1.R;
 
+/**
+ * @author Minghui Liao
+ * @version 1.0
+ */
 public class SoccerGameActivity extends AppCompatActivity {
+    /**The Activity tag name.*/
     private static final String TAG = "SoccerGameActivity";
-    //    RecyclerView soccer_game_recylerView;
+    /**This marks that if the device is a tablet*/
     boolean isTablet = false;
+    /**The article list fragment*/
     SoccerGameListFragment soccerGameFragment;
-    ArrayList<ArticleInfo> newsList = new ArrayList<>();
 
 //    String title[], description[], date[];
 //    int images[] = {R.drawable.bus_icon,R.drawable.charging_station,R.drawable.movie_icon,R.drawable.soccer_icon };
 
+    /**
+     * Called when the activity first starts up.
+     * @param savedInstanceState A Bundle object containing the activity's previously saved state.
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,15 +49,20 @@ public class SoccerGameActivity extends AppCompatActivity {
 
         isTablet = findViewById(R.id.detailsRoom) != null;
 
-        //if (savedInstanceState != null) {
         soccerGameFragment = new SoccerGameListFragment();
         FragmentManager fMgr = getSupportFragmentManager();
         FragmentTransaction tx = fMgr.beginTransaction();
         tx.add(R.id.fragmentRoom, soccerGameFragment);
         tx.commit();
-        //}
         showRatingDialog();
     }
+
+//    @Override
+//    public boolean onCreateOptionsMenu(Menu menu) {
+//        MenuInflater inflater = getMenuInflater();
+//        inflater.inflate(R.menu.main_activity_actions, menu);
+//        return true;
+//    }
 
     /**
      * This method creates a dialog box for rating this application
@@ -85,9 +102,9 @@ public class SoccerGameActivity extends AppCompatActivity {
     /**
      * This function will enable a phone to load a detail fragment over top of the SoccerGameListFragment
      * and enable a tablet can load the detail fragment in the FrameLayout
-     * @param news soccer news
-     * @param position the positin of news
-     * @param isSaved the status of a news that is saved or not
+     * @param news Soccer news
+     * @param position The positin of news
+     * @param isSaved The status of a news that is saved or not
      */
     public void userClickedMessage(ArticleInfo news, int position, boolean isSaved) {
 
@@ -105,8 +122,8 @@ public class SoccerGameActivity extends AppCompatActivity {
 
     /**
      * This function calls the notifyNewsSaved function from SoccerGameListFragment
-     * @param chosenMessage the item you want to save
-     * @param chosenPosition the item position
+     * @param chosenMessage The item you want to save
+     * @param chosenPosition The item position
      */
     public void notifyNewsSaved(ArticleInfo chosenMessage, int chosenPosition) {
         soccerGameFragment.notifyNewsSaved(chosenMessage, chosenPosition);
@@ -114,8 +131,8 @@ public class SoccerGameActivity extends AppCompatActivity {
 
     /**
      * This function calls the notifyNewsRemoved function from SoccerGameListFragment
-     * @param chosenMessage the item you want to remove
-     * @param chosenPosition the item position
+     * @param chosenMessage The item you want to remove
+     * @param chosenPosition The item position
      */
     public void notifyNewsRemoved(ArticleInfo chosenMessage, int chosenPosition) {
         soccerGameFragment.notifyNewsRemoved(chosenMessage, chosenPosition);
