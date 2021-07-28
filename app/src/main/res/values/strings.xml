@@ -6,6 +6,29 @@
     <string name="soccer_game">Soccer Games Api</string>
 
   
+    <string name="open">Open</string>
+    <string name="close">Close</string>
+
+    <string name="help">HELP</string>
+    <string name="soccer_games_help">
+        "Author: Minghui Liao \nVersion Number: 1.0 \nInstructions: \n1- For searching news: Firstly, input the keyword, and then press \"SEARCH\" button \n"
+            "2 - For news details: Click an article from the list to view more details \n"
+            "3 - For saving news: Press "SAVE TO FAVOURITE" to save the news. In the list view, press 'FAVOURITE' to view you list of saved news \n"
+            "4 - For removing news, click the news you want to remove and then press "REMOVE FROM FAVOURITE" \n'"
+    </string>
+
+    <string name="soccer_games_information">
+        "Activity's Titile: Soccer Games\nAuthor: Minghui Liao \nVersion Number: 1.0 "
+    </string>
+    <string name="soccer_news_save_to_favourite">SAVE TO FAVOURITE</string>
+    <string name="soccer_news_load_to_browser">LOAD IN BROWSER</string>
+    <string name="soccer_news_favourite">FAVOURITE</string>
+    <string name="soccer_news_feeds">FEEDS</string>
+    <string name="soccer_news_search">SEARCH</string>
+    <string name="soccer_news_remove_from_favourite">REMOVE FROM FAVOURITE</string>
+
+
+  
     <string name="latitudeInput">Enter latitude</string>
     <string name="latitude">Latitude: </string>
     <string name="longitude">Longitude: </string>
@@ -40,5 +63,6 @@
         Click on the list of histories. You can quickly enter the familiar station."</string>
     <string name="oct_help_alert_title">Help</string>
     <string name="oct_help_alert_cancel">Cancel</string>
+
 
 </resources>
