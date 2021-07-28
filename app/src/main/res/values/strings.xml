@@ -6,19 +6,26 @@
     <string name="soccer_game">Soccer Games Api</string>
 
     <!-- Movie Information App button text -->
-    <string name="Longin">Login</string>
+
     <string name="Help">Help</string>
-    <string name="Favorites">Favorites</string>
-    <string name="Detail">Detail</string>
+
+
     <string name="searchTeater">Search Teater</string>
     <string name="TheaterTel">TheaterTel</string>
-    <string name="delBtn">Delete</string>
-    <string name="Close">Close</string>
-    <string name="question">question</string>
-    <string name="Feedback">feedback</string>
+
+
+
+
     <string name="open">Opne</string>
     <string name="close">Close</string>
     <string name="getMovie">get movie information</string>
+    <string name="LoginMovie">LoginMovie</string>
+    <string name="FavoritesMovie">FavoritesMovies</string>
+    <string name="DetailMovie">DetailMovie</string>
+    <string name="delBtnMovie">delete</string>
+    <string name="CloseMovie">Close</string>
+    <string name="questionMovie">question</string>
+    <string name="FeedbackMovie">Feedback</string>
 
 
     <!-- TODO: Remove or change this placeholder text -->

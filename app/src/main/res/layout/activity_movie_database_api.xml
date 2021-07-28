@@ -76,13 +76,13 @@
         android:inputType="phone" />
 
     <Button
-        android:id="@+id/longinBtn"
+        android:id="@+id/loginBtn"
         android:layout_width="96dp"
         android:layout_height="30dp"
         android:background="@color/black"
         android:rotation="0"
         android:rotationY="0"
-        android:text="@string/Longin"
+        android:text="@string/LoginMovie"
         android:textAlignment="center"
         android:textColor="#FFF7F7"
         android:textSize="10sp" />
@@ -146,7 +146,7 @@
         android:id="@+id/favoritesButton"
         android:layout_width="96dp"
         android:layout_height="36dp"
-        android:text="@string/Favorites"
+        android:text="@string/FavoritesMovie"
         android:textSize="10sp" />
 
 
@@ -155,7 +155,7 @@
         android:id="@+id/detailBtn"
         android:layout_width="96dp"
         android:layout_height="36dp"
-        android:text="@string/Detail"
+        android:text="@string/DetailMovie"
         android:textSize="10sp" />
 
 

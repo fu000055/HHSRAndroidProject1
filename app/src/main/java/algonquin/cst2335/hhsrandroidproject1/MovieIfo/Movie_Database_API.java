@@ -45,6 +45,7 @@ import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
 import java.util.stream.Collectors;
 
+import algonquin.cst2335.hhsrandroidproject1.MainActivity;
 import algonquin.cst2335.hhsrandroidproject1.R;
 
 /**
@@ -96,6 +97,14 @@ public class Movie_Database_API extends AppCompatActivity {
         return true;
     }
 
+    //Main page port
+    public void startAppHomeActivity(){
+        Intent appHome  = new Intent(this, MainActivity.class);
+        startActivity(appHome);
+    }
+
+
+
     /**
      * Clear movie information,font size smaller,font size bigger
      * Use a switch statement and check for different ids in the menu file
@@ -114,7 +123,15 @@ public class Movie_Database_API extends AppCompatActivity {
                   posterView.setVisibility(View.INVISIBLE);
                   break;
 
-              case R.id.id_increase:
+
+
+
+
+
+
+
+
+              case R.id.id_favorite:
                   oldSize++;
                   titleView.setTextSize(oldSize);
                   yearView.setTextSize(oldSize);
@@ -124,14 +141,20 @@ public class Movie_Database_API extends AppCompatActivity {
                   plotView.setTextSize(oldSize);
                   break;
 
-              case R.id.id_decrease:
-                  oldSize = Float.max(oldSize-1,5);
+              case R.id.id_home:
+                  startAppHomeActivity();
+
+
+
+
+
+                  /*oldSize = Float.max(oldSize-1,5);
                   titleView.setTextSize(oldSize);
                   yearView.setTextSize(oldSize);
                   ratingView.setTextSize(oldSize);
                   runtimeView.setTextSize(oldSize);
                   actorsView.setTextSize(oldSize);
-                  plotView.setTextSize(oldSize);
+                  plotView.setTextSize(oldSize);*/
                   break;
 
               case 5:
@@ -334,8 +357,11 @@ public class Movie_Database_API extends AppCompatActivity {
 
         });
 
+
+
+
          //Login button can go to the next page
-        Button loginBtn = findViewById(R.id.longinBtn);
+        Button loginBtn = findViewById(R.id.loginBtn);
         SharedPreferences prefs = getSharedPreferences("MyData", Context.MODE_PRIVATE);
 
         //String moviesName = prefs.getString("MovieName", "");

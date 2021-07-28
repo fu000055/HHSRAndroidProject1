@@ -10,7 +10,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
-        android:text="@string/question"
+        android:text="@string/questionMovie"
         android:textSize="12sp"
         app:layout_constraintBottom_toTopOf="@+id/receivebutton"
         app:layout_constraintEnd_toEndOf="@+id/receivebutton"
@@ -21,7 +21,7 @@
         android:id="@+id/receivebutton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/Feedback"
+        android:text="@string/FeedbackMovie"
         android:textSize="12sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
