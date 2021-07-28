@@ -20,7 +20,7 @@
 
         <activity android:name=".MovieIfo.Movie_Database_API"/>
         <activity android:name=".MovieIfo.MovieInfoRecord"/>
-        <activity android:name=".MovieIfo.SaveSecondActivity"/>
+        <activity android:name=".MovieIfo.SaveMovSecondActivity"/>
         <activity android:name=".MovieIfo.SavedMovies"/>
 
 

@@ -25,7 +25,7 @@ import java.util.Locale;
 
 import algonquin.cst2335.hhsrandroidproject1.R;
 
-public class MessageListFragment extends Fragment {
+public class MessageMovListFragment extends Fragment {
     ArrayList<ChatMessage> messages = new ArrayList<>();
     RecyclerView chatlist;
     MyChatAdapter adt = new MyChatAdapter();
@@ -56,18 +56,18 @@ public class MessageListFragment extends Fragment {
         Button receiveBtn = chatLayout.findViewById(R.id.receivebutton);
 
 
-        MyOpenHelper opener = new MyOpenHelper(getContext());
+        MovieOpenHelper opener = new MovieOpenHelper(getContext());
 
         /**
          * Open the database
          */
         db = opener.getWritableDatabase();
 
-        Cursor results = db.rawQuery("Select * from " + MyOpenHelper.TABLE_NAME + ";", null);
+        Cursor results = db.rawQuery("Select * from " + MovieOpenHelper.TABLE_NAME + ";", null);
         int _idCol = results.getColumnIndex("_id");
-        int messageCol = results.getColumnIndex(MyOpenHelper.col_message);
-        int sendCol = results.getColumnIndex(MyOpenHelper.col_sent_receive);
-        int timeCol = results.getColumnIndex(MyOpenHelper.col_time_sent);
+        int messageCol = results.getColumnIndex(MovieOpenHelper.col_message);
+        int sendCol = results.getColumnIndex(MovieOpenHelper.col_sent_receive);
+        int timeCol = results.getColumnIndex(MovieOpenHelper.col_time_sent);
 
         while(results.moveToNext()) {
             long id = results.getInt(_idCol);
@@ -83,12 +83,12 @@ public class MessageListFragment extends Fragment {
             ChatMessage cm = new ChatMessage(messageTyped.getText().toString(),1,currentDateandTime);
             //insert into the database
             ContentValues newRow = new ContentValues();
-            newRow.put(MyOpenHelper.col_message, cm.getMessage());
-            newRow.put(MyOpenHelper.col_sent_receive,cm.getSentOrReceive());
-            newRow.put(MyOpenHelper.col_time_sent,cm.getTimeSent());
+            newRow.put(MovieOpenHelper.col_message, cm.getMessage());
+            newRow.put(MovieOpenHelper.col_sent_receive,cm.getSentOrReceive());
+            newRow.put(MovieOpenHelper.col_time_sent,cm.getTimeSent());
 
             //now insert
-            long newId = db.insert(MyOpenHelper.TABLE_NAME, MyOpenHelper.col_message, newRow);
+            long newId = db.insert(MovieOpenHelper.TABLE_NAME, MovieOpenHelper.col_message, newRow);
             cm.setId(newId);
 
             messages.add(cm);
@@ -99,11 +99,11 @@ public class MessageListFragment extends Fragment {
         receiveBtn.setOnClickListener(clk->{
             ChatMessage cm = new ChatMessage(messageTyped.getText().toString(),2,currentDateandTime);
             ContentValues newRow = new ContentValues();
-            newRow.put(MyOpenHelper.col_message, cm.getMessage());
-            newRow.put(MyOpenHelper.col_sent_receive,cm.getSentOrReceive());
-            newRow.put(MyOpenHelper.col_time_sent,cm.getTimeSent());
+            newRow.put(MovieOpenHelper.col_message, cm.getMessage());
+            newRow.put(MovieOpenHelper.col_sent_receive,cm.getSentOrReceive());
+            newRow.put(MovieOpenHelper.col_time_sent,cm.getTimeSent());
             //now insert
-            long newId = db.insert(MyOpenHelper.TABLE_NAME, MyOpenHelper.col_message, newRow);
+            long newId = db.insert(MovieOpenHelper.TABLE_NAME, MovieOpenHelper.col_message, newRow);
             cm.setId(newId);
 
             messages.add(cm);
@@ -127,7 +127,7 @@ public class MessageListFragment extends Fragment {
                     messages.remove(chosenPosition);
                     adt.notifyItemRemoved(chosenPosition);
 
-                    db.delete(MyOpenHelper.TABLE_NAME, "_id=?", new String[]{Long.toString(removedMessage.getId())});
+                    db.delete(MovieOpenHelper.TABLE_NAME, "_id=?", new String[]{Long.toString(removedMessage.getId())});
 
                     Snackbar.make(send,"You deleted message #" + chosenPosition, Snackbar.LENGTH_SHORT)
                             .setAction("Undo",clk -> {
@@ -135,7 +135,7 @@ public class MessageListFragment extends Fragment {
                                 messages.add(chosenPosition,removedMessage);
                                 adt.notifyItemInserted(chosenPosition);
 
-                                db.execSQL("Insert into " + MyOpenHelper.TABLE_NAME + " values('" + removedMessage.getId() +
+                                db.execSQL("Insert into " + MovieOpenHelper.TABLE_NAME + " values('" + removedMessage.getId() +
                                         "','" + removedMessage.getMessage() +
                                         "','" + removedMessage.getSentOrReceive() +
                                         "','" + removedMessage.getTimeSent() + "');");

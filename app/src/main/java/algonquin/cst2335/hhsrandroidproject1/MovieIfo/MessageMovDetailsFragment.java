@@ -14,11 +14,11 @@ import algonquin.cst2335.hhsrandroidproject1.R;
  * This class inherits Fragment and displays detailed information
  */
 
-public class MessageDetailsFragment extends Fragment {
-    MessageListFragment.ChatMessage chosenMessage;
+public class MessageMovDetailsFragment extends Fragment {
+    MessageMovListFragment.ChatMessage chosenMessage;
     int chosenPosition;
 
-    public MessageDetailsFragment(MessageListFragment.ChatMessage message,int position ){
+    public MessageMovDetailsFragment(MessageMovListFragment.ChatMessage message, int position ){
         chosenMessage = message;
         chosenPosition = position;
     }

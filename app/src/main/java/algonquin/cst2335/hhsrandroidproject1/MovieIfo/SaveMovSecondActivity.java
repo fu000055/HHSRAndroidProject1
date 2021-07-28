@@ -13,7 +13,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import algonquin.cst2335.hhsrandroidproject1.R;
 
-public class SaveSecondActivity extends AppCompatActivity {
+public class SaveMovSecondActivity extends AppCompatActivity {
 
     /**
      *
@@ -22,7 +22,7 @@ public class SaveSecondActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_save_second);
+        setContentView(R.layout.movie_save_second);
         Intent fromPrevious = getIntent();
         String theaterName = fromPrevious.getStringExtra("TheaterName");
 

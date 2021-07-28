@@ -10,7 +10,7 @@ import algonquin.cst2335.hhsrandroidproject1.R;
 
 public class MovieInfoRecord extends AppCompatActivity {
     boolean isTablet = false;
-    MessageListFragment chatFragment;
+    MessageMovListFragment chatFragment;
 
     /**
      *
@@ -24,7 +24,7 @@ public class MovieInfoRecord extends AppCompatActivity {
 
         isTablet = findViewById(R.id.detailsRoom) != null;
 
-        chatFragment = new MessageListFragment();
+        chatFragment = new MessageMovListFragment();
         FragmentManager fMgr = getSupportFragmentManager();
         FragmentTransaction tx = fMgr.beginTransaction();
         tx.add(R.id.fragmentRoom,chatFragment);
@@ -32,9 +32,9 @@ public class MovieInfoRecord extends AppCompatActivity {
     }
 
 
-    public void userClickedMessage(MessageListFragment.ChatMessage chatMessage, int position) {
+    public void userClickedMessage(MessageMovListFragment.ChatMessage chatMessage, int position) {
 
-        MessageDetailsFragment mdFragment = new MessageDetailsFragment(chatMessage,position);
+        MessageMovDetailsFragment mdFragment = new MessageMovDetailsFragment(chatMessage,position);
 
         if(isTablet){
             getSupportFragmentManager().beginTransaction().replace(R.id.detailsRoom,mdFragment).commit();
@@ -44,7 +44,7 @@ public class MovieInfoRecord extends AppCompatActivity {
         }
     }
 
-    public void notifyMessageDeleted(MessageListFragment.ChatMessage chosenMessage, int chosenPosition) {
+    public void notifyMessageDeleted(MessageMovListFragment.ChatMessage chosenMessage, int chosenPosition) {
 
         chatFragment.notifyMessageDeleted(chosenMessage,chosenPosition);
 

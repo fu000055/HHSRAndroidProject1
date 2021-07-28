@@ -53,7 +53,7 @@ public class SavedMovies extends AppCompatActivity {
            // editor.putInt("Age", 35);
            // editor.apply();
 
-            Intent nextPage = new Intent(SavedMovies.this,SaveSecondActivity.class);
+            Intent nextPage = new Intent(SavedMovies.this, SaveMovSecondActivity.class);
             nextPage.putExtra("TheaterName", et.getText().toString());
             startActivity(nextPage);
         });
