@@ -1,6 +1,11 @@
 package algonquin.cst2335.hhsrandroidproject1;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+
+import algonquin.cst2335.hhsrandroidproject1.chargingStation.ChargingStation;
+import algonquin.cst2335.hhsrandroidproject1.chargingStation.ChargingStationListFragment;
+
 import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
@@ -12,6 +17,7 @@ import android.widget.ImageView;
 
 import algonquin.cst2335.hhsrandroidproject1.oct.OCTranspoBusRouteActivity;
 
+
 public class MainActivity extends AppCompatActivity {
     private static String TAG = "MainActivity";
 
@@ -19,6 +25,12 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
+        ImageView chargingStation = findViewById(R.id.charging_station);
+        chargingStation.setOnClickListener(clk ->{
+                Intent goToCharingStation = new Intent(this, ChargingStation.class);
+                startActivity(goToCharingStation);
 
 
 
@@ -29,6 +41,7 @@ public class MainActivity extends AppCompatActivity {
 
             Intent nextPageOCT = new Intent(MainActivity.this, OCTranspoBusRouteActivity.class);
             startActivity(nextPageOCT);
+
 
         });
 
