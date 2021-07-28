@@ -203,7 +203,7 @@ public class StationDetail extends AppCompatActivity {
                 String stationNumber = fromOct.getStringExtra("StationNumber");
                 nextPageRoute.putExtra("StationNumber", stationNumber);
                 position = getAbsoluteAdapterPosition();
-                nextPageRoute.putExtra("routeNo", routes.get(position).routeNo);
+                nextPageRoute.putExtra("RouteNo", routes.get(position).routeNo);
                 startActivity(nextPageRoute);
 
             });
