@@ -4,8 +4,6 @@
     <string name="car_charging">Car Charging Station</string>
     <string name="movie_info">Movie Information</string>
     <string name="soccer_game">Soccer Games Api</string>
-
-  
     <string name="latitudeInput">Enter latitude</string>
     <string name="latitude">Latitude: </string>
     <string name="longitude">Longitude: </string>
@@ -17,6 +15,10 @@
     <string name="add">Add To Favourites</string>
     <string name="listOfFavourites">See List Of Favourite Stations</string>
     <string name="deleteButton">Delete</string>
+    <string name="charging_introduction">Author: Hui Lyu Version: 1.0</string>
+    <string name="open">Open</string>
+    <string name="close">Close</string>
+
     <string name="oct_header">OC Transpo</string>
     <string name="search_stop">Please enter the bus stop number </string>
     <string name="oct_search_bar">SEARCH</string>
