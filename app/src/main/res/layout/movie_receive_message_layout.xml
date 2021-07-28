@@ -10,7 +10,7 @@
         android:id="@+id/imageView3"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:src="@drawable/favorites_icon"
+        android:src="@drawable/actors_ic_recent_icon"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

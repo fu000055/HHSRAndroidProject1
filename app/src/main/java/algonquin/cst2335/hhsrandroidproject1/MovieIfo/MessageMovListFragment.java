@@ -48,12 +48,12 @@ public class MessageMovListFragment extends Fragment {
 
         View chatLayout = inflater.inflate(R.layout.movie_info_record,container,false);
 
-        send = chatLayout.findViewById(R.id.sendbutton);
+        send = chatLayout.findViewById(R.id.addMoviebutton);
 
         chatlist = chatLayout.findViewById(R.id.myrecycler);
         EditText messageTyped =chatLayout.findViewById(R.id.messageEdit);
-        Button sentBtn = chatLayout.findViewById(R.id.sendbutton);
-        Button receiveBtn = chatLayout.findViewById(R.id.receivebutton);
+        Button sentBtn = chatLayout.findViewById(R.id.addMoviebutton);
+        Button receiveBtn = chatLayout.findViewById(R.id.addActorbutton);
 
 
         MovieOpenHelper opener = new MovieOpenHelper(getContext());

@@ -18,14 +18,16 @@
 
     <string name="open">Opne</string>
     <string name="close">Close</string>
-    <string name="getMovie">get movie information</string>
+    <string name="getMovie">Get Movie Information</string>
     <string name="LoginMovie">LoginMovie</string>
     <string name="FavoritesMovie">FavoritesMovies</string>
-    <string name="DetailMovie">DetailMovie</string>
-    <string name="delBtnMovie">delete</string>
+
+    <string name="delBtnMovie">Delete</string>
     <string name="CloseMovie">Close</string>
-    <string name="questionMovie">question</string>
-    <string name="FeedbackMovie">Feedback</string>
+
+
+    <string name="addMovieInfo">Add Movie</string>
+    <string name="addActorName">Add Actor Name</string>
 
 
     <!-- TODO: Remove or change this placeholder text -->
