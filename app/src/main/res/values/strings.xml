@@ -5,6 +5,33 @@
     <string name="movie_info">Movie Information</string>
     <string name="soccer_game">Soccer Games Api</string>
 
+
+    <!-- Movie Information App button text -->
+
+
+    <string name="searchTeater">Search Teater</string>
+    <string name="TheaterTel">TheaterTel</string>
+
+
+
+
+    <string name="open">Opne</string>
+    <string name="close">Close</string>
+    <string name="getMovie">Get Movie Information</string>
+    <string name="LoginMovie">LoginMovie</string>
+    <string name="FavoritesMovie">FavoritesMovies</string>
+
+    <string name="delBtnMovie">Delete</string>
+    <string name="CloseMovie">Close</string>
+
+
+    <string name="addMovieInfo">Add Movie</string>
+    <string name="addActorName">Add Actor</string>
+    <string name="newMovieBtn">New Movies</string>
+
+
+    <!-- TODO: Remove or change this placeholder text -->
+
   
     <string name="open">Open</string>
     <string name="close">Close</string>
@@ -63,6 +90,7 @@
         Click on the list of histories. You can quickly enter the familiar station."</string>
     <string name="oct_help_alert_title">Help</string>
     <string name="oct_help_alert_cancel">Cancel</string>
+
 
 
 </resources>
