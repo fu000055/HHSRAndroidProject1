@@ -10,7 +10,6 @@
 
     <!-- Movie_database_app  button text -->
     <string name="LoginMovie">登录电影</string>
-    <string name="Help">帮助</string>
     <string name="FavoritesMovie">收藏电影</string>
 
     <!-- Movie_saved.xml button text -->
@@ -20,9 +19,9 @@
     <string name="CloseMovie">关闭</string>
     <!-- Movie_info_record.xml button text -->
     <string name="addMovieInfo">添加电影</string>
-    <string name="addActorName">添加演员名字</string>
+    <string name="addActorName">添加演员</string>
     <string name="open">打开</string>
-
+    <string name="newMovieBtn">最新电影</string>
     <string name="close">关闭</string>
     <string name="getMovie">获得电影信息</string>
 

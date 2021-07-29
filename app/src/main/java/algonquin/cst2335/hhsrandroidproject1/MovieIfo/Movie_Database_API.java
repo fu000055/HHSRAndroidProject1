@@ -59,7 +59,7 @@ import algonquin.cst2335.hhsrandroidproject1.R;
 public class Movie_Database_API extends AppCompatActivity {
     private static String TAG = "Movie_Database_API";
     private Button  helpButton;
-    private Button  favoritesButton;
+    private Button  newMoviesButton;
     private ImageButton welBtn;
     private ImageButton advBtn;
 
@@ -160,7 +160,7 @@ public class Movie_Database_API extends AppCompatActivity {
                   runMoviecast(movieName);
                   break;
 
-              case R.id.id_help:
+              case R.id.id_movie_help:
                   AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
                   alertDialogBuilder.setTitle("How to use application movie_DATABASE_API")
                           .setMessage("1>Type movie name\n" +
@@ -404,8 +404,8 @@ public class Movie_Database_API extends AppCompatActivity {
         });*/
 
         //favorites movies information button
-        favoritesButton =findViewById(R.id.favoritesButton);
-        favoritesButton.setOnClickListener(clk ->{
+        newMoviesButton =findViewById(R.id.newMovieButton);
+        newMoviesButton.setOnClickListener(clk ->{
             AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
             alertDialogBuilder.setTitle("Favorite movie")
                     .setMessage( "Favorite movie Application created by Simon Ao")

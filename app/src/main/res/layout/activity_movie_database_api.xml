@@ -143,10 +143,10 @@
 
     <!--favorites button-->
     <Button
-        android:id="@+id/favoritesButton"
+        android:id="@+id/newMovieButton"
         android:layout_width="96dp"
         android:layout_height="36dp"
-        android:text="@string/FavoritesMovie"
+        android:text="@string/newMovieBtn"
         android:textSize="10sp" />
 
 
