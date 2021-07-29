@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <androidx.appcompat.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        android:id="@+id/toolbar"/>
+
+    <androidx.drawerlayout.widget.DrawerLayout
+        android:id="@+id/myDrawerLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/Soccer_Game_RecylerView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/searchbox"
+        android:background="#ECEFF1"
+        android:scrollbars="vertical"/>
+
+
+    <EditText
+        android:id="@+id/searchbox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="12dp"
+        android:hint="Search the news here"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toStartOf="@+id/searchbtn"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/searchbtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="12dp"
+        android:text="@string/soccer_news_search"
+        android:background="#FFFFFF"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/searchbox"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!--Button
+        android:id="@+id/favBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="4dp"
+        android:text="@string/soccer_news_favourite"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/searchbtn"
+        app:layout_constraintTop_toTopOf="parent" /-->
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+        <com.google.android.material.navigation.NavigationView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:id="@+id/popout_menu"
+
+            android:layout_gravity="start"
+            android:fitsSystemWindows="true"
+
+            app:headerLayout="@layout/soccer_game_popout_header"
+            app:menu="@menu/soccer_game_main_activity_actions" />
+
+    </androidx.drawerlayout.widget.DrawerLayout>
+</LinearLayout>
+
+

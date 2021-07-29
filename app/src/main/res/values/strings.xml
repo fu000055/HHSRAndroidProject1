@@ -5,6 +5,7 @@
     <string name="movie_info">Movie Information</string>
     <string name="soccer_game">Soccer Games Api</string>
 
+
     <!-- Movie Information App button text -->
 
 
@@ -30,5 +31,66 @@
 
 
     <!-- TODO: Remove or change this placeholder text -->
+
+  
+    <string name="open">Open</string>
+    <string name="close">Close</string>
+
+    <string name="help">HELP</string>
+    <string name="soccer_games_help">
+        "Author: Minghui Liao \nVersion Number: 1.0 \nInstructions: \n1- For searching news: Firstly, input the keyword, and then press \"SEARCH\" button \n"
+            "2 - For news details: Click an article from the list to view more details \n"
+            "3 - For saving news: Press "SAVE TO FAVOURITE" to save the news. In the list view, press 'FAVOURITE' to view you list of saved news \n"
+            "4 - For removing news, click the news you want to remove and then press "REMOVE FROM FAVOURITE" \n'"
+    </string>
+
+    <string name="soccer_games_information">
+        "Activity's Titile: Soccer Games\nAuthor: Minghui Liao \nVersion Number: 1.0 "
+    </string>
+    <string name="soccer_news_save_to_favourite">SAVE TO FAVOURITE</string>
+    <string name="soccer_news_load_to_browser">LOAD IN BROWSER</string>
+    <string name="soccer_news_favourite">FAVOURITE</string>
+    <string name="soccer_news_feeds">FEEDS</string>
+    <string name="soccer_news_search">SEARCH</string>
+    <string name="soccer_news_remove_from_favourite">REMOVE FROM FAVOURITE</string>
+
+
+  
+    <string name="latitudeInput">Enter latitude</string>
+    <string name="latitude">Latitude: </string>
+    <string name="longitude">Longitude: </string>
+    <string name="longitudeInput">Enter longitude</string>
+    <string name="searchButton">Search</string>
+    <string name="title">Location Title</string>
+    <string name="phone">Contact Telephone Number</string>
+    <string name="loadMap">Load Directions In Google Maps</string>
+    <string name="add">Add To Favourites</string>
+    <string name="listOfFavourites">See List Of Favourite Stations</string>
+    <string name="deleteButton">Delete</string>
+    <string name="oct_header">OC Transpo</string>
+    <string name="search_stop">Please enter the bus stop number </string>
+    <string name="oct_search_bar">SEARCH</string>
+    <string name="oct_help_bar">HELP</string>
+    <string name="returnButtonOCt">Return</string>
+    <string name="favouritesButtonOct">Favourites</string>
+    <string name="oct_returnButtonStation">Return</string>
+    <string name="oct_favouritesTitle">Favorites</string>
+    <string name="oct_favouritesRerun">Return</string>
+    <string name="oct_navigation_title"> OC Transpo App</string>
+    <string name="oct_open">Open</string>
+    <string name="oct_close">Close</string>
+    <string name="oct_author"> Rong Fu</string>
+    <string name="oct_version"> Version 1.0</string>
+    <string name="id_favorites_oct">Favourites</string>
+    <string name="id_search_oct">Search</string>
+    <string name="id_main_from_oct">Home Page</string>
+    <string name="oct_help_alert">"Enter the bus station code, then click 'Search button',
+        you will find all the line information that the bus station contains.
+        Click 'Return' button to return to previous page.
+        Click on the list of histories. You can quickly enter the familiar station."</string>
+    <string name="oct_help_alert_title">Help</string>
+    <string name="oct_help_alert_cancel">Cancel</string>
+
+
 
 </resources>

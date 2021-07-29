@@ -1,10 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">HHSRAndroidProject1</string>
+    <string name="app_name">HHSR应用</string>
     <string name="bus">公交信息</string>
     <string name="car_charging">汽车充电站</string>
     <string name="movie_info">电影信息</string>
     <string name="soccer_game">足球比赛</string>
+    <string name="open">开</string>
+    <string name="close">关闭</string>
+    <string name="soccer_games_help">\"指南： 1 - 搜索新闻： 输入关键词，然后点击“搜索”按钮  2 - 查看新闻详情： 从列表中点击你想看的新闻，可以看到详细的新闻。 3 - 收藏新闻： 点击 “收藏到最爱” 收藏你想要的新闻，然后点击“收藏” 查看收藏列表。4 - 移除新闻： 点击“从收藏列表中移除”.</string>
+    <string name="soccer_games_information">足球新闻  作者： 廖明慧   版本号： 1.0</string>
+    <string name="soccer_news_save_to_favourite">收藏到最爱</string>
+    <string name="soccer_news_load_to_browser">在浏览器打开</string>
+    <string name="soccer_news_favourite">收藏</string>
+    <string name="soccer_news_search">搜索</string>
+    <string name="soccer_news_remove_from_favourite">从收藏列表中移除</string>
+    <string name="soccer_news_feeds">全部新闻</string>
+    <string name="help">帮助</string>
+
+    <string name="latitudeInput">输入经度</string>
+    <string name="latitude">经度: </string>
+    <string name="longitude">纬度: </string>
+    <string name="longitudeInput">输入纬度</string>
+    <string name="searchButton">搜索</string>
+    <string name="title">地点</string>
+    <string name="phone">电话</string>
+    <string name="loadMap">谷歌地图</string>
+    <string name="add">添加到喜欢列表</string>
+    <string name="listOfFavourites">See List Of Favourite Stations</string>
+    <string name="deleteButton">删除</string>
+
+
+    <string name="oct_header">渥太华公车系统</string>
+    <string name="search_stop">请输入站牌号码</string>
+    <string name="oct_search_bar">搜索</string>
+    <string name="oct_help_bar">帮助</string>
+    <string name="returnButtonOCt">返回上一页</string>
+    <string name="favouritesButtonOct">收藏夹</string>
+    <string name="oct_returnButtonStation">返回上一页</string>
+    <string name="oct_favouritesTitle">我的收藏</string>
+    <string name="oct_favouritesRerun">返回</string>
+    <string name="oct_navigation_title"> 渥太华公车系统应用</string>
+    <string name="oct_open">打开</string>
+    <string name="oct_close">关闭</string>
+    <string name="oct_author"> 付容</string>
+    <string name="oct_version"> 版本 1.0</string>
+    <string name="id_favorites_oct">收藏夹</string>
+    <string name="id_search_oct">查找线路</string>
+    <string name="id_main_from_oct">主页</string>
+    <string name="oct_help_alert">"输入汽车站号码："</string>
+    <string name="oct_help_alert_title">帮助</string>
+    <string name="oct_help_alert_cancel">取消</string>
 
 
 
