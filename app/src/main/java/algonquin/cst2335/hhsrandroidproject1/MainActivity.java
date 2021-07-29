@@ -5,14 +5,19 @@ import androidx.appcompat.app.AppCompatActivity;
 
 
 
+
 import algonquin.cst2335.hhsrandroidproject1.chargingStation.ChargingStation;
 import algonquin.cst2335.hhsrandroidproject1.chargingStation.ChargingStationListFragment;
 
 
 import androidx.appcompat.widget.Toolbar;
 
+
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.ImageView;
+
+import algonquin.cst2335.hhsrandroidproject1.MovieIfo.Movie_Database_API;
 
 import android.util.Log;
 
@@ -32,6 +37,16 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
+        ImageView simon = findViewById(R.id.movie_icon);
+        simon.setOnClickListener(V ->{
+            Intent goToMovie = new Intent(MainActivity.this, Movie_Database_API.class);
+            startActivity(goToMovie);
+        });
+
+
+
 
 
         main_menu = findViewById(R.id.main_menu);
@@ -110,6 +125,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         return true; 
+
     }
 
     @Override
