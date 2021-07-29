@@ -22,6 +22,7 @@ import android.widget.ImageView;
 import algonquin.cst2335.hhsrandroidproject1.soccergamesapi.SoccerGameActivity;
 import algonquin.cst2335.hhsrandroidproject1.oct.OCTranspoBusRouteActivity;
 
+
 public class MainActivity extends AppCompatActivity {
    private static String TAG = "MainActivity";
    Toolbar main_menu;
@@ -46,10 +47,11 @@ public class MainActivity extends AppCompatActivity {
 
 
         ImageView chargingStation = findViewById(R.id.charging_station);
-        chargingStation.setOnClickListener(clk ->{
-                Intent goToCharingStation = new Intent(this, ChargingStation.class);
-                startActivity(goToCharingStation);
+        chargingStation.setOnClickListener(clk -> {
+                    Intent goToCharingStation = new Intent(this, ChargingStation.class);
+                    startActivity(goToCharingStation);
 
+        });
 
 
         //SharedPreferences prefs = getSharedPreferences("MyData", Context.MODE_PRIVATE);
@@ -63,8 +65,8 @@ public class MainActivity extends AppCompatActivity {
 
         });
 
-       }
-   
+    }
+
     public void startBusActivity() {
         Intent soccerGame = new Intent(this, SoccerGameActivity.class);
         startActivity(soccerGame);

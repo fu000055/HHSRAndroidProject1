@@ -3,6 +3,7 @@ package algonquin.cst2335.hhsrandroidproject1.soccergamesapi;
 import java.util.Date;
 
 /**
+ * This class is the article information.
  * @author Minghui Liao
  * @version 1.0
  */

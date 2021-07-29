@@ -334,11 +334,11 @@ public class SoccerGameListFragment extends Fragment {
 
     /**
      * This function requests articleInfos from url.
-     * @param urlString
-     * @return
-     * @throws IOException
-     * @throws SAXException
-     * @throws ParserConfigurationException
+     * @param urlString The url string.
+     * @return Return the list of articles.
+     * @throws IOException Signals that an I/O exception of some sort has occurred.
+     * @throws SAXException Basic error or warning information from either the XML parser or the application.
+     * @throws ParserConfigurationException Indicates a serious configuration error.
      */
     private List<ArticleInfo> requestArticleInfosFromUrl(String urlString)
             throws IOException, SAXException, ParserConfigurationException {
@@ -347,10 +347,6 @@ public class SoccerGameListFragment extends Fragment {
 
         URL url = new URL(urlString);
         HttpURLConnection conn = (HttpURLConnection) url.openConnection();
-//        conn.setReadTimeout(10000);
-//        conn.setConnectTimeout(15000);
-//        conn.setRequestMethod("GET");
-//        conn.setDoInput(true);
         conn.connect();
         if (conn.getResponseCode() != 200) {
             // If failing to connect, return empty articleInfos
@@ -380,8 +376,8 @@ public class SoccerGameListFragment extends Fragment {
 
     /**
      * This funtion gets ArticleInfo from each <item>.
-     * @param node
-     * @return
+     * @param node, an <item> in the list
+     * @return ArticleInfo object parsed from the <item>
      */
     private ArticleInfo getArticleInfo(Node node) {
         Element element = (Element)node;
