@@ -1,12 +1,17 @@
 package algonquin.cst2335.hhsrandroidproject1.soccergamesapi;
 
+import android.annotation.TargetApi;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.WebResourceRequest;
 import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -74,6 +79,30 @@ public class SoccerGameDetailsFragment extends Fragment {
 //            intent.putExtra("url", articleInfo.articleUrl);
 //            startActivity(intent);
             WebView webView = (WebView)detailsView.findViewById(R.id.webview);
+//            webView.setWebViewClient(new WebViewClient() {
+//
+//                @Override
+//                public boolean shouldOverrideUrlLoading(WebView view, String url) {
+//                    if( url.startsWith("http:") || url.startsWith("https:") ) {
+//                        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+//                        startActivity(intent);
+//                        return true;
+//                    }
+//                    return false;
+//                }
+//                @Override
+//                public void onPageStarted(WebView view, String url, Bitmap favicon) {
+//                    super.onPageStarted(view, url, favicon);
+//                }
+//
+//                @TargetApi(Build.VERSION_CODES.N)
+//                @Override
+//                public boolean shouldOverrideUrlLoading(WebView view, WebResourceRequest request) {
+//                    view.loadUrl(request.getUrl().toString());
+//                    return true;
+//                }
+//
+//            });
             webView.loadUrl(articleInfo.articleUrl);
         });
 
@@ -105,7 +134,7 @@ public class SoccerGameDetailsFragment extends Fragment {
             if (this.isSaved) {
                 // If the article saved in favorite list, remove it from the list
                 SoccerGameActivity parentActivity = (SoccerGameActivity) getContext();
-                parentActivity.notifyNewsRemoved(articleInfo, chosenPosition);
+                parentActivity.notifyNewsRemoved(articleInfo);
                 // Change the save state
                 this.isSaved = false;
                 // Update the test of the button
@@ -113,7 +142,7 @@ public class SoccerGameDetailsFragment extends Fragment {
             } else {
                 // If the article not in favorite list, save it from the list
                 SoccerGameActivity parentActivity = (SoccerGameActivity) getContext();
-                parentActivity.notifyNewsSaved(articleInfo, chosenPosition);
+                parentActivity.notifyNewsSaved(articleInfo);
                 // Change the save state
                 this.isSaved = true;
                 // Update the test of the button

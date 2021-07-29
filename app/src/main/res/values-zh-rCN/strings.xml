@@ -5,8 +5,7 @@
     <string name="car_charging">汽车充电站</string>
     <string name="movie_info">电影信息</string>
     <string name="soccer_game">足球比赛</string>
-    <string name="open">开</string>
-    <string name="close">关闭</string>
+
     <string name="soccer_games_help">\"指南： 1 - 搜索新闻： 输入关键词，然后点击“搜索”按钮  2 - 查看新闻详情： 从列表中点击你想看的新闻，可以看到详细的新闻。 3 - 收藏新闻： 点击 “收藏到最爱” 收藏你想要的新闻，然后点击“收藏” 查看收藏列表。4 - 移除新闻： 点击“从收藏列表中移除”.</string>
     <string name="soccer_games_information">足球新闻  作者： 廖明慧   版本号： 1.0</string>
     <string name="soccer_news_save_to_favourite">收藏到最爱</string>
