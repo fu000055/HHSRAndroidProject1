@@ -368,14 +368,14 @@ public class Movie_Database_API extends AppCompatActivity {
 
 
         //welcome page show information
-        welBtn = findViewById(R.id.welcomImageButton);
+     /*   welBtn = findViewById(R.id.welcomImageButton);
         welBtn.setOnClickListener((click)->{
             AlertDialog dialog = new AlertDialog.Builder(Movie_Database_API.this)
                     .setTitle("Getting Movie information").setMessage("Welcome to the movie App")
                     .setView(new ProgressBar(Movie_Database_API.this))
                     .show();
 
-        });
+        });*/
 
 
         //Verify that the user is an adult
@@ -521,7 +521,7 @@ public class Movie_Database_API extends AppCompatActivity {
             super(itemView);
             itemView.setOnClickListener(clk -> {
                 androidx.appcompat.app.AlertDialog.Builder builder = new androidx.appcompat.app.AlertDialog.Builder(Movie_Database_API.this);
-                builder.setMessage("Do you want to delete the message: " + messageText.getText())
+                builder.setMessage("Do you want to delete the movie: " + messageText.getText())
                         .setTitle("Question")
                         .setNegativeButton("No",(dialog, cl) ->{ })
                         .setPositiveButton("Yes",(dialog, cl) ->{
@@ -529,7 +529,7 @@ public class Movie_Database_API extends AppCompatActivity {
                             ChatMessage removedMessage = messages.get(position);
                             messages.remove(position);
                             adt.notifyItemRemoved(position);
-                            Snackbar.make(messageText, "You deleted message #" + position, Snackbar.LENGTH_LONG)
+                            Snackbar.make(messageText, "You deleted movie #" + position, Snackbar.LENGTH_LONG)
                                     .setAction("Undo", clk2 -> {
                                         messages.add(position, removedMessage);
                                         adt.notifyItemInserted(position);

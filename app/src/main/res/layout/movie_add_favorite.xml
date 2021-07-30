@@ -19,7 +19,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="4dp"
         android:text="movie name goes here"
-        android:textSize="10sp"
+        android:textSize="12sp"
         app:layout_constraintStart_toEndOf="@+id/imageView7"
         app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
