@@ -64,6 +64,9 @@
     <string name="add">Add To Favourites</string>
     <string name="listOfFavourites">See List Of Favourite Stations</string>
     <string name="deleteButton">Delete</string>
+    <string name="home">Home</string>
+    <string name="charging_introduction">Charging Station\nAuthor: Hui Lyu \nVersion Number: 1.0 </string>
+
     <string name="oct_header">OC Transpo</string>
     <string name="search_stop">Please enter the bus stop number </string>
     <string name="oct_search_bar">SEARCH</string>
