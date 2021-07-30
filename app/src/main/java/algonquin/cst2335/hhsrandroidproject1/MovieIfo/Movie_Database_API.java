@@ -7,10 +7,12 @@ import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -24,8 +26,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.navigation.NavigationView;
+import com.google.android.material.snackbar.Snackbar;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -41,6 +46,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
 import java.util.stream.Collectors;
@@ -57,6 +63,15 @@ import algonquin.cst2335.hhsrandroidproject1.R;
  */
 
 public class Movie_Database_API extends AppCompatActivity {
+    RecyclerView chatList;
+    ArrayList<ChatMessage> messages = new ArrayList<>();
+    MyChatAdapter adt =new MyChatAdapter();
+
+
+
+
+
+
     private static String TAG = "Movie_Database_API";
     private Button  helpButton;
     private Button  newMoviesButton;
@@ -297,6 +312,27 @@ public class Movie_Database_API extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_movie_database_api);
 
+        chatList = findViewById(R.id.myrecycler);
+        chatList.setAdapter(adt);
+        chatList.setLayoutManager(new LinearLayoutManager(this));
+        //Button addMovieBtn = findViewById(R.id.addMoviebutton);
+
+
+
+
+        /*addMovieBtn.setOnClickListener(clk ->{
+            ChatMessage thisMessage = new ChatMessage( messageTyped.getText().toString(),1);
+            messages.add( thisMessage );
+            messageTyped.setText("");
+            adt.notifyItemInserted(messages.size()-1);
+        });*/
+
+
+
+
+
+
+
        // tv = findViewById(R.id.movieTextView);
         movieNameBtn = findViewById(R.id.movieIfoBtn);
         movieNameText = findViewById(R.id.inputMovieName);
@@ -318,6 +354,16 @@ public class Movie_Database_API extends AppCompatActivity {
             onOptionsItemSelected(item);
             drawer.closeDrawer(GravityCompat.START);
             return false;
+
+
+
+
+
+
+
+
+
+
         });
 
 
@@ -403,8 +449,23 @@ public class Movie_Database_API extends AppCompatActivity {
 
         });*/
 
+
         //favorites movies information button
-        newMoviesButton =findViewById(R.id.newMovieButton);
+        newMoviesButton =findViewById(R.id.addMovieButton);
+        newMoviesButton.setOnClickListener(clk ->{
+            ChatMessage thisMessage = new ChatMessage( movieNameText.getText().toString(),1);
+            messages.add( thisMessage );
+            movieNameText.setText("");
+            adt.notifyItemInserted(messages.size()-1);
+
+        });
+
+
+
+
+       /*
+        //favorites movies information button
+        newMoviesButton =findViewById(R.id.addMovieButton);
         newMoviesButton.setOnClickListener(clk ->{
             AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
             alertDialogBuilder.setTitle("Favorite movie")
@@ -413,7 +474,7 @@ public class Movie_Database_API extends AppCompatActivity {
                     })
                     .create().show();
 
-        });
+        });*/
 
         }
 
@@ -446,6 +507,83 @@ public class Movie_Database_API extends AppCompatActivity {
 
 
     }
+
+
+
+
+
+    private class MyRowViews extends RecyclerView.ViewHolder{
+        // this should the widgets on a row, only have a TextView for message
+        TextView messageText;
+        int position = -1;
+
+        public MyRowViews(View itemView) {// itemView is a constraintLayout, that has <TextView> as sub-item>
+            super(itemView);
+            itemView.setOnClickListener(clk -> {
+                androidx.appcompat.app.AlertDialog.Builder builder = new androidx.appcompat.app.AlertDialog.Builder(Movie_Database_API.this);
+                builder.setMessage("Do you want to delete the message: " + messageText.getText())
+                        .setTitle("Question")
+                        .setNegativeButton("No",(dialog, cl) ->{ })
+                        .setPositiveButton("Yes",(dialog, cl) ->{
+                            // position = getAbsoluteAdapterPosition();
+                            ChatMessage removedMessage = messages.get(position);
+                            messages.remove(position);
+                            adt.notifyItemRemoved(position);
+                            Snackbar.make(messageText, "You deleted message #" + position, Snackbar.LENGTH_LONG)
+                                    .setAction("Undo", clk2 -> {
+                                        messages.add(position, removedMessage);
+                                        adt.notifyItemInserted(position);
+                                    })
+                                    .show();
+
+                        })
+                        .create().show();
+            });
+            messageText = itemView.findViewById(R.id.movie_add_favorite);
+        }
+        public  void setPosition(int p){position = p;}
+    }
+    private class MyChatAdapter extends RecyclerView.Adapter{
+        @Override
+        public int getItemViewType(int position) {
+            return messages.get(position).sendOrReceive;
+        }
+        @Override
+        public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+
+            LayoutInflater inflater = getLayoutInflater();// LayoutInflater is for loading XML layouts
+            int layoutID;
+            layoutID = R.layout.movie_add_favorite;
+            View loadedRow = inflater.inflate(layoutID, parent, false);
+            return new MyRowViews(loadedRow);// will initialize the TextView
+
+        }
+        @Override // says ViewHolder, but it's acually MyRowViews object
+        public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {// position is which row we're building
+
+            MyRowViews thisRowLayout = (MyRowViews)holder;
+            thisRowLayout.messageText.setText(messages.get(position).getMessage());
+            thisRowLayout.setPosition(position);
+        }
+        @Override
+        public int getItemCount() {
+            return messages.size();
+        }// how many items to show? // row layout is match_parent
+    }
+
+    private class ChatMessage{// data model for a message in a row
+        String message;
+        int sendOrReceive;
+
+        public ChatMessage(String message, int sendOrReceive) {
+            this.message = message;
+            this.sendOrReceive = sendOrReceive;
+        }
+        public String getMessage() {
+            return message;
+        }
+    }
+
 
 
 

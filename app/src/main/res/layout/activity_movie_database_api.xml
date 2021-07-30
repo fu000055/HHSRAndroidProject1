@@ -134,7 +134,7 @@
     <ImageView
         android:id="@+id/poster"
         android:layout_width="match_parent"
-        android:layout_height="190dp"
+        android:layout_height="74dp"
         android:visibility="invisible" />
 
 
@@ -142,9 +142,15 @@
     <!--help button-->
 
     <!--favorites button-->
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/myrecycler"
+        android:layout_width="match_parent"
+        android:layout_height="103dp" />
+
     <Button
-        android:id="@+id/newMovieButton"
-        android:layout_width="96dp"
+        android:id="@+id/addMovieButton"
+        android:layout_width="124dp"
         android:layout_height="36dp"
         android:text="@string/newMovieBtn"
         android:textSize="10sp" />
