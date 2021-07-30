@@ -181,9 +181,9 @@ public class Movie_Database_API extends AppCompatActivity {
                           .setMessage("1>Type movie name\n" +
                                   "2>Click on movie to view movies\n" +
                                   "3>Click on movie to search\n" +
-                                  "4>Click Save while in movie to save\n" +
+                                  "4>Click Add while in movie to save\n" +
                                   "5>Click on My Movies to see saved\n" +
-                                  "6>Click Delete button inside Movie \n" +
+                                  "6>Click movie name delete\n" +
                                   "to delete it from saved Movies\n" +
                                   "\n" +
                                   "Application created by Simon Ao")

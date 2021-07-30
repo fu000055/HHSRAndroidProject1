@@ -80,7 +80,7 @@
 
     <Button
         android:id="@+id/loginBtn"
-        android:layout_width="158dp"
+        android:layout_width="125dp"
         android:layout_height="30dp"
         android:background="@color/black"
         android:rotation="0"
@@ -147,7 +147,7 @@
 
     <Button
         android:id="@+id/addMovieButton"
-        android:layout_width="158dp"
+        android:layout_width="wrap_content"
         android:layout_height="36dp"
         android:text="@string/newMovieBtn"
         android:textSize="8sp" />
