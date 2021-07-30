@@ -4,6 +4,7 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,28 +17,56 @@ import android.widget.Toast;
 import androidx.fragment.app.Fragment;
 
 import java.util.Date;
+import java.util.Locale;
 
 import algonquin.cst2335.hhsrandroidproject1.R;
-
+/**
+ * @author Hui Lyu
+ * @version 1.0
+ */
 public class ChargingStationDetailsFragment extends Fragment {
-
+    /**
+     * chosen station objects
+     */
     ChargingStationPOJO chosenStation;
-
+    /**
+     * which car charging station choose by a user
+     */
     int chosenPosition;
-
+    /**
+     * SQLiteDatabase instance
+     */
     SQLiteDatabase db;
 
+    /**
+     * Constructor to create ChargingStationDetailsFragment
+     * @param chosenStation car charging station object
+     * @param chosenPosition the position in the station list
+     */
     public ChargingStationDetailsFragment(ChargingStationPOJO chosenStation, int chosenPosition) {
         this.chosenStation = chosenStation;
         this.chosenPosition = chosenPosition;
     }
 
+    /**
+     * Constructor to create ChargingStationDetailsFragment
+     * @param contentLayoutId
+     * @param chosenStation car charging station object
+     * @param chosenPosition the position in the station list
+     */
     public ChargingStationDetailsFragment(int contentLayoutId, ChargingStationPOJO chosenStation, int chosenPosition) {
         super(contentLayoutId);
         this.chosenStation = chosenStation;
         this.chosenPosition = chosenPosition;
     }
-
+    /**
+     * Called to have the fragment instantiate its user interface view.
+     *
+     * @param inflater           The LayoutInflater object that can be used to inflate any views in the fragment,
+     * @param container          If non-null, this is the parent view that the fragment's UI should be attached to. The fragment should not add the view itself, but this can be used to generate the LayoutParams of the view.
+     * @param savedInstanceState If non-null, this fragment is being re-constructed from a previous saved state as given here.
+     * @return Return the View for the fragment's UI, or null.
+     */
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
@@ -48,10 +77,10 @@ public class ChargingStationDetailsFragment extends Fragment {
         TextView longitude = detailsView.findViewById(R.id.textLongitude);
         TextView phone = detailsView.findViewById(R.id.phone);
 
-        locationTitle.setText("Location Title is: " + chosenStation.getTitle());
-        latitude.setText("Latitude is: " + chosenStation.getLatitude() );
-        longitude.setText("Longitude is: " + chosenStation.getLongitude());
-        phone.setText("Contact Number is:" + chosenStation.getPhone());
+        locationTitle.setText(locationTitle.getText() +": "+ chosenStation.getTitle());
+        latitude.setText(latitude.getText() + ": "+ chosenStation.getLatitude() );
+        longitude.setText(longitude.getText() +": " + chosenStation.getLongitude());
+        phone.setText(phone.getText()+": " + chosenStation.getPhone());
 
         ChargingOpenHelper opener = new ChargingOpenHelper(getContext());
         db = opener.getWritableDatabase();
@@ -59,14 +88,6 @@ public class ChargingStationDetailsFragment extends Fragment {
         closeView.setOnClickListener( closeClicked -> {
             getParentFragmentManager().beginTransaction().remove( this ).commit();
         });
-
-//        Button deleteButton = detailsView.findViewById(R.id.delete);
-//        deleteButton.setOnClickListener(deleteClicked -> {
-//            ChargingStation parentActivity = (ChargingStation )getContext();
-//            parentActivity.notifyMessageDeleted(chosenStation, chosenPosition);
-//
-//            getParentFragmentManager().beginTransaction().remove( this ).commit();
-//        });
 
         ImageView favourite = detailsView.findViewById(R.id.favourite);
         favourite.setOnClickListener(favouriteClicked -> {
@@ -90,6 +111,15 @@ public class ChargingStationDetailsFragment extends Fragment {
         seeFavouriteStationsBtn.setOnClickListener(clk -> {
             Intent intent = new Intent(getActivity(), ChargingStationFavouriteStation.class);
             startActivity(intent);
+        });
+
+        Button loadMap = detailsView.findViewById(R.id.loadMap);
+        loadMap.setOnClickListener(loadMapClk -> {
+            String uri = String.format(Locale.ENGLISH, "http://maps.google.com/maps?q=loc:%f,%f", chosenStation.getLatitude(), chosenStation.getLongitude());
+            Uri intentUri = Uri.parse(uri);
+            Intent mapIntent = new Intent(Intent.ACTION_VIEW, intentUri);
+            mapIntent.setPackage("com.google.android.apps.maps");
+            startActivity(mapIntent);
         });
 
         return detailsView;

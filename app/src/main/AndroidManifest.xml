@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="algonquin.cst2335.hhsrandroidproject1">
-
     <uses-permission android:name="android.permission.INTERNET"/>
 
     <application
@@ -15,7 +14,6 @@
         <activity android:name=".oct.OCTranspoBusRouteActivity" />
         <activity android:name=".oct.StationDetail" />
         <activity android:name=".oct.Favourites" />
-
 
         <activity android:name=".MainActivity">
             <intent-filter>
@@ -43,8 +41,6 @@
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
-
-
 
     </application>
 
