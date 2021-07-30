@@ -77,7 +77,7 @@
 
     <Button
         android:id="@+id/loginBtn"
-        android:layout_width="96dp"
+        android:layout_width="110dp"
         android:layout_height="30dp"
         android:background="@color/black"
         android:rotation="0"
@@ -88,6 +88,13 @@
         android:textSize="10sp" />
 
           <!--Movie information detail title,year,rating,runtime,main actor,plot,poster-->
+    <Button
+        android:id="@+id/addMovieButton"
+        android:layout_width="110dp"
+        android:layout_height="36dp"
+        android:text="@string/newMovieBtn"
+        android:textSize="8sp" />
+
     <TextView
         android:id="@+id/title"
         android:layout_width="match_parent"
@@ -134,7 +141,7 @@
     <ImageView
         android:id="@+id/poster"
         android:layout_width="match_parent"
-        android:layout_height="74dp"
+        android:layout_height="121dp"
         android:visibility="invisible" />
 
 
@@ -146,14 +153,7 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/myrecycler"
         android:layout_width="match_parent"
-        android:layout_height="103dp" />
-
-    <Button
-        android:id="@+id/addMovieButton"
-        android:layout_width="124dp"
-        android:layout_height="36dp"
-        android:text="@string/newMovieBtn"
-        android:textSize="10sp" />
+        android:layout_height="111dp" />
 
 
     <!--detail button-->
