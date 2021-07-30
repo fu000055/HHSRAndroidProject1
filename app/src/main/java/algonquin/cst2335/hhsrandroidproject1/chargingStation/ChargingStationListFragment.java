@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.AsyncTask;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -20,6 +21,7 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -38,32 +40,61 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.BufferedInputStream;
+import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
+import java.util.stream.Collectors;
 
 import algonquin.cst2335.hhsrandroidproject1.MainActivity;
 import algonquin.cst2335.hhsrandroidproject1.R;
 
+/**
+ * @author Hui Lyu
+ * @version 1.0
+ */
 public class ChargingStationListFragment extends Fragment {
-
+    /**
+     * Field from the screen accepts latitude from a user
+     */
     private EditText latitude;
-
+    /**
+     * Field from the screen accepts longitude from a user
+     */
     private EditText longitude;
-
+    /**
+     * search button
+     */
     private Button search;
-
+    /**
+     * shared preferences instance
+     */
     private SharedPreferences sharedPref;
-
+    /**
+     * list of car charging stations
+     */
     ArrayList<ChargingStationPOJO> stationList = new ArrayList<>();
-
+    /**
+     * SQLiteDatabase instance
+     */
     SQLiteDatabase db;
-
+    /**
+     * ChargingStationAdapter instance
+     */
     ChargingStationAdapter adt;
 
+    /**
+     * Called to have the fragment instantiate its user interface view.
+     *
+     * @param inflater           The LayoutInflater object that can be used to inflate any views in the fragment,
+     * @param container          If non-null, this is the parent view that the fragment's UI should be attached to. The fragment should not add the view itself, but this can be used to generate the LayoutParams of the view.
+     * @param savedInstanceState If non-null, this fragment is being re-constructed from a previous saved state as given here.
+     * @return Return the View for the fragment's UI, or null.
+     */
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View StationLayout = inflater.inflate(R.layout.charging_station_list, container, false);
@@ -81,7 +112,7 @@ public class ChargingStationListFragment extends Fragment {
         longitude.setText(sharedPref.getString("Longitude", ""));
         search.setOnClickListener(clk -> {
             String url = "https://api.openchargemap.io/v3/poi/?key=aa49870e-45ee-4c7d-aa07-bad1b3e0e07a&output=json&countrycode=CA&latitude="
-                    + latitude.getText().toString() + "&longitude=" + longitude.getText().toString() + "&maxresults=5";
+                    + latitude.getText().toString() + "&longitude=" + longitude.getText().toString() + "&maxresults=8";
             DownloadFilesTask downloadFileTask = new DownloadFilesTask();
             downloadFileTask.execute(url);
 
@@ -92,10 +123,9 @@ public class ChargingStationListFragment extends Fragment {
             //startActivity( nextPage );
 
         });
-
+        setHasOptionsMenu(true);
         Toolbar myToolbar = StationLayout.findViewById(R.id.toolbar);
         ((AppCompatActivity) getActivity()).setSupportActionBar(myToolbar);
-//        setSupportActionBar(myToolbar);
         DrawerLayout drawer = StationLayout.findViewById(R.id.drawer_layout);
 
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(getActivity(), drawer, myToolbar, R.string.open, R.string.close);
@@ -111,6 +141,12 @@ public class ChargingStationListFragment extends Fragment {
         return StationLayout;
     }
 
+    /**
+     * This hook is called whenever an item in options menu is selected.
+     *
+     * @param item The menu item that was selected. This value cannot be null.
+     * @return Return false to allow normal menu processing to proceed, true to consume it here.
+     */
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
 
@@ -119,7 +155,8 @@ public class ChargingStationListFragment extends Fragment {
 //
 //                break;
             case R.id.car_charging_home:
-                startChargingStationActivity();
+                Intent chargingStation = new Intent(getContext(), ChargingStation.class);
+                startActivity(chargingStation);
                 break;
 //            case R.id.movie_home:
 //
@@ -138,63 +175,24 @@ public class ChargingStationListFragment extends Fragment {
                         .show();
                 break;
             case R.id.home:
-                HomeActivity();
+                Intent home = new Intent(getContext(), MainActivity.class);
+                startActivity(home);
                 break;
         }
         return super.onOptionsItemSelected(item);
     }
 
+    /**
+     * Initialize the contents of the Activity's standard options menu.
+     *
+     * @param menu     The options menu in which you place your items.
+     * @param inflater The MenuInflater object.
+     */
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         menu.clear();
         inflater.inflate(R.menu.charging_station_activity_actions, menu);
-
-        //super.onCreateOptionsMenu(menu, inflater);
     }
-    public void startChargingStationActivity() {
-        Intent chargingStation = new Intent(getContext(), ChargingStation.class);
-        startActivity(chargingStation);
-    }
-
-    public void HomeActivity() {
-        Intent home = new Intent(getContext(), MainActivity.class);
-        startActivity(home);
-    }
-
-
-    public void notifyStationDeleted(ChargingStationPOJO chosenStation, int chosenPosition) {
-        AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
-        builder.setMessage("are you sure you want to delete this station: " + chosenStation.getTitle())
-                .setTitle("Danger!")
-                .setNegativeButton("Cancel", (dialog, cl) -> {
-                })
-                .setPositiveButton("Delete", (dialog, cl) -> {
-
-                    //position = getAbsoluteAdapterPosition();
-
-                    ChargingStationPOJO removedStation = stationList.get(chosenPosition);
-                    stationList.remove(chosenPosition);
-                    adt.notifyItemRemoved(chosenPosition);
-
-                    db.delete(ChargingOpenHelper.TABLE_NAME, "_id=?", new String[]{Long.toString(removedStation.getId())});
-
-
-                    Snackbar.make(search, "You deleted message #" + chosenPosition, Snackbar.LENGTH_LONG)
-                            .setAction("Undo", clk -> {
-
-                                stationList.add(chosenPosition, removedStation);
-                                adt.notifyItemInserted(chosenPosition);
-                                db.execSQL("Insert into " + ChargingOpenHelper.TABLE_NAME + " values('" + removedStation.getId() +
-                                        "','" + removedStation.getTitle() +
-                                        "','" + removedStation.getLatitude() +
-                                        "','" + removedStation.getLongitude() +
-                                        "','" + removedStation.getPhone() + "');");
-                            })
-                            .show();
-                })
-                .create().show();
-    }
-
 
     /**
      * Class connects to the server, reads and process the data
@@ -204,7 +202,6 @@ public class ChargingStationListFragment extends Fragment {
          * dialog to show a progression of downloading to the user
          */
         private ProgressDialog p;
-        //AlertDialog dialog;
 
         /**
          * Method shows a progression of downloading data from the server to the user
@@ -225,6 +222,7 @@ public class ChargingStationListFragment extends Fragment {
          * @param urls link to the server
          * @return data about car charging stations
          */
+        @RequiresApi(api = Build.VERSION_CODES.N)
         protected String doInBackground(String... urls) {
 
             HttpURLConnection urlConnection = null;
@@ -233,32 +231,15 @@ public class ChargingStationListFragment extends Fragment {
                 URL link = new URL(urls[0]);
                 urlConnection = (HttpURLConnection) link.openConnection();
                 InputStream in = new BufferedInputStream(urlConnection.getInputStream());
-                InputStreamReader reader = new InputStreamReader(in);
-                int data = reader.read();
-                while (data != -1) {
-                    result += (char) data;
-                    data = reader.read();
-                }
+                result = (new BufferedReader(
+                        new InputStreamReader(in, StandardCharsets.UTF_8)))
+                        .lines()
+                        .collect(Collectors.joining("\n"));
+
                 return result;
             } catch (IOException e) {
                 e.printStackTrace();
-            }
-//            try {
-
-//                InputStream in = new BufferedInputStream(urlConnection.getInputStream());
-//                InputStreamReader reader = new InputStreamReader(in);
-
-//                int data = reader.read();
-//                while (data != -1) {
-//                    result += (char) data;
-//                    data = reader.read();
-//                }
-            //    return result;
-//            }
-//            catch (IOException e) {
-//                e.printStackTrace();
-//            }
-            finally {
+            } finally {
                 if (urlConnection != null) {
                     urlConnection.disconnect();
                 }
@@ -295,11 +276,7 @@ public class ChargingStationListFragment extends Fragment {
             } catch (JSONException e) {
                 e.printStackTrace();
             }
-            // ChargingStationAdapter adapter = new ChargingStationAdapter(getApplicationContext(), stationList, false);
-            // theList.setAdapter(adapter);
         }
 
     }
-
-
 }

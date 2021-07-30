@@ -17,7 +17,6 @@ import android.widget.ImageView;
 
 import algonquin.cst2335.hhsrandroidproject1.oct.OCTranspoBusRouteActivity;
 
-
 public class MainActivity extends AppCompatActivity {
     private static String TAG = "MainActivity";
 
@@ -28,11 +27,10 @@ public class MainActivity extends AppCompatActivity {
 
 
         ImageView chargingStation = findViewById(R.id.charging_station);
-        chargingStation.setOnClickListener(clk ->{
-                Intent goToCharingStation = new Intent(this, ChargingStation.class);
-                startActivity(goToCharingStation);
-
-
+        chargingStation.setOnClickListener(clkStation -> {
+            Intent goToCharingStation = new Intent(this, ChargingStation.class);
+            startActivity(goToCharingStation);
+        });
 
         //SharedPreferences prefs = getSharedPreferences("MyData", Context.MODE_PRIVATE);
 
@@ -47,33 +45,34 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+
     @Override
     protected void onStart() {
         super.onStart();
-        Log.w(TAG,"In onStart() - The application is now visible on screen");
+        Log.w(TAG, "In onStart() - The application is now visible on screen");
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        Log.w(TAG,"In onResume() - The application is now responding to user input");
+        Log.w(TAG, "In onResume() - The application is now responding to user input");
     }
 
     @Override
     protected void onPause() {
         super.onPause();
-        Log.w(TAG,"In onPause() - The application no longer responds to user input");
+        Log.w(TAG, "In onPause() - The application no longer responds to user input");
     }
 
     @Override
     protected void onStop() {
         super.onStop();
-        Log.w(TAG,"In onStop() - The application is no longer visible");
+        Log.w(TAG, "In onStop() - The application is no longer visible");
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        Log.w(TAG,"In onDestroy() - Any memory used by the application is freed");
+        Log.w(TAG, "In onDestroy() - Any memory used by the application is freed");
     }
 }

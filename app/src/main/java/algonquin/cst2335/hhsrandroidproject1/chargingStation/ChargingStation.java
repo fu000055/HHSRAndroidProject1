@@ -3,35 +3,37 @@ package algonquin.cst2335.hhsrandroidproject1.chargingStation;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
-import android.view.View;
-import android.widget.Button;
-import android.widget.ImageButton;
-import android.widget.ImageView;
 
-import androidx.appcompat.app.ActionBarDrawerToggle;
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.view.menu.MenuView;
-import androidx.appcompat.widget.Toolbar;
-import androidx.core.view.GravityCompat;
-import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
-import com.google.android.material.navigation.NavigationView;
-
-import algonquin.cst2335.hhsrandroidproject1.MainActivity;
 import algonquin.cst2335.hhsrandroidproject1.R;
 
-
+/**
+ * @author Hui Lyu
+ * @version 1.0
+ */
 public class ChargingStation extends AppCompatActivity {
+
+    /**
+     * a flag that the device is a tablet or a phone
+     */
     boolean isTablet = false;
+    /**
+     * car charging station fragment
+     */
     ChargingStationListFragment stationFragment;
+    /**
+     * shared preferences instance
+     */
     private SharedPreferences sharedPref;
 
+    /**
+     * Method loads layout, reacts to user's action
+     *
+     * @param savedInstanceState reference to a Bundle object that is passed into the onCreate method
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,30 +49,26 @@ public class ChargingStation extends AppCompatActivity {
 
     }
 
+    /**
+     * method to go the fragment for showing the detail of the car charging information
+     *
+     * @param station  car charging station objects
+     * @param position which station the user clicked
+     */
     public void userClickedStation(ChargingStationPOJO station, int position) {
 
         ChargingStationDetailsFragment detailsFragment = new ChargingStationDetailsFragment(station, position);
 
-        if(isTablet)
-        {
+        if (isTablet) {
             //A tablet has a second Fragment with id detailsRoom to load a second fragment
             getSupportFragmentManager().beginTransaction().replace(R.id.detailsRoom, detailsFragment).commit();
-        }else //on a phone
+        } else //on a phone
         {
             // The chat List is already loaded in the FrameLayout with id fragmentRoom, now load a second fragment over top of the list:
             getSupportFragmentManager().beginTransaction().add(R.id.fragmentRoom, detailsFragment).commit();
         }
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.charging_station_activity_actions, menu);
-        return true;
-    }
-    public void notifyStationDeleted(ChargingStationPOJO chosenStation, int chosenPosition) {
-        stationFragment.notifyStationDeleted(chosenStation, chosenPosition);
-    }
     @Override
     protected void onStart() {
         super.onStart();

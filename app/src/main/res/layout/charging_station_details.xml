@@ -84,7 +84,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="40dp"
-        android:text="FAVOURITE STATIONS"
+        android:text="@string/listOfFavourites"
         app:layout_constraintBottom_toBottomOf="parent"
         tools:layout_editor_absoluteX="136dp" />
 

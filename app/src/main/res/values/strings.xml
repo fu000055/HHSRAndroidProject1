@@ -18,7 +18,8 @@
     <string name="charging_introduction">Author: Hui Lyu Version: 1.0</string>
     <string name="open">Open</string>
     <string name="close">Close</string>
-
+    <string name="home">home</string>
+    <string name="help"></string>
     <string name="oct_header">OC Transpo</string>
     <string name="search_stop">Please enter the bus stop number </string>
     <string name="oct_search_bar">SEARCH</string>

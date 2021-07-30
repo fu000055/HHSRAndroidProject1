@@ -5,7 +5,7 @@
         <item
             android:id="@+id/home"
             android:icon="@drawable/home"
-            android:title="home"
+            android:title="@string/home"
             app:showAsAction="always" />
         <item
             android:id="@+id/car_charging_home"
@@ -30,7 +30,7 @@
         <item
             android:id="@+id/help"
             android:icon="@drawable/help"
-            android:title="help"
+            android:title="@string/help"
             app:showAsAction="always" />
     </group>
 </menu>
