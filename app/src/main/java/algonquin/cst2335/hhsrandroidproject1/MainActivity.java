@@ -1,5 +1,6 @@
 package algonquin.cst2335.hhsrandroidproject1;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 
@@ -10,15 +11,22 @@ import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.ImageView;
+
+import algonquin.cst2335.hhsrandroidproject1.MovieIfo.Movie_Database_API;
+
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ImageView;
-
+import algonquin.cst2335.hhsrandroidproject1.soccergamesapi.SoccerGameActivity;
 import algonquin.cst2335.hhsrandroidproject1.oct.OCTranspoBusRouteActivity;
 
+
 public class MainActivity extends AppCompatActivity {
-    private static String TAG = "MainActivity";
+   private static String TAG = "MainActivity";
+   Toolbar main_menu;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,34 +53,33 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-
     @Override
     protected void onStart() {
         super.onStart();
-        Log.w(TAG, "In onStart() - The application is now visible on screen");
+        Log.w(TAG,"In onStart() - The application is now visible on screen");
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        Log.w(TAG, "In onResume() - The application is now responding to user input");
+        Log.w(TAG,"In onResume() - The application is now responding to user input");
     }
 
     @Override
     protected void onPause() {
         super.onPause();
-        Log.w(TAG, "In onPause() - The application no longer responds to user input");
+        Log.w(TAG,"In onPause() - The application no longer responds to user input");
     }
 
     @Override
     protected void onStop() {
         super.onStop();
-        Log.w(TAG, "In onStop() - The application is no longer visible");
+        Log.w(TAG,"In onStop() - The application is no longer visible");
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        Log.w(TAG, "In onDestroy() - Any memory used by the application is freed");
+        Log.w(TAG,"In onDestroy() - Any memory used by the application is freed");
     }
 }

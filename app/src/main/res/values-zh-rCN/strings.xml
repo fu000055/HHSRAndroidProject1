@@ -6,6 +6,16 @@
     <string name="movie_info">电影信息</string>
     <string name="soccer_game">足球比赛</string>
 
+    <string name="soccer_games_help">\"指南： 1 - 搜索新闻： 输入关键词，然后点击“搜索”按钮  2 - 查看新闻详情： 从列表中点击你想看的新闻，可以看到详细的新闻。 3 - 收藏新闻： 点击 “收藏到最爱” 收藏你想要的新闻，然后点击“收藏” 查看收藏列表。4 - 移除新闻： 点击“从收藏列表中移除”.</string>
+    <string name="soccer_games_information">足球新闻  作者： 廖明慧   版本号： 1.0</string>
+    <string name="soccer_news_save_to_favourite">收藏到最爱</string>
+    <string name="soccer_news_load_to_browser">在浏览器打开</string>
+    <string name="soccer_news_favourite">收藏</string>
+    <string name="soccer_news_search">搜索</string>
+    <string name="soccer_news_remove_from_favourite">从收藏列表中移除</string>
+    <string name="soccer_news_feeds">全部新闻</string>
+    <string name="help">帮助</string>
+
     <string name="latitudeInput">输入经度</string>
     <string name="latitude">经度: </string>
     <string name="longitude">纬度: </string>
@@ -43,5 +53,25 @@
     <string name="oct_help_alert">"输入汽车站号码："</string>
     <string name="oct_help_alert_title">帮助</string>
     <string name="oct_help_alert_cancel">取消</string>
+
+
+
+    <!-- Movie_database_app  button text -->
+    <string name="LoginMovie">登录电影</string>
+    <string name="FavoritesMovie">收藏电影</string>
+
+    <!-- Movie_saved.xml button text -->
+    <string name="searchTeater">搜索影院</string>
+    <string name="TheaterTel">影院电话</string>
+    <string name="delBtnMovie">删除</string>
+    <string name="CloseMovie">关闭</string>
+    <!-- Movie_info_record.xml button text -->
+    <string name="addMovieInfo">添加电影</string>
+    <string name="addActorName">添加演员</string>
+    <string name="open">打开</string>
+    <string name="newMovieBtn">最新电影</string>
+    <string name="close">关闭</string>
+    <string name="getMovie">获得电影信息</string>
+
 
 </resources>
