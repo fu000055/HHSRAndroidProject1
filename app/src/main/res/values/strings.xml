@@ -15,8 +15,7 @@
 
 
 
-    <string name="open">Opne</string>
-    <string name="close">Close</string>
+
     <string name="getMovie">Get Movie Information</string>
     <string name="LoginMovie">LoginMovie</string>
     <string name="FavoritesMovie">FavoritesMovies</string>

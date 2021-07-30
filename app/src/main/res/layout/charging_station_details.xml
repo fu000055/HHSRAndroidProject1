@@ -77,7 +77,7 @@
         android:layout_marginBottom="128dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@drawable/favourite" />
+        app:srcCompat="@drawable/favorites_icon" />
 
     <Button
         android:id="@+id/favouriteStationBtn"
