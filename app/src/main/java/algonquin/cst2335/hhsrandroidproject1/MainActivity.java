@@ -4,10 +4,14 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 
+
+
 import algonquin.cst2335.hhsrandroidproject1.chargingStation.ChargingStation;
 import algonquin.cst2335.hhsrandroidproject1.chargingStation.ChargingStationListFragment;
 
+
 import androidx.appcompat.widget.Toolbar;
+
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -16,6 +20,7 @@ import android.widget.ImageView;
 import algonquin.cst2335.hhsrandroidproject1.MovieIfo.Movie_Database_API;
 
 import android.util.Log;
+
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ImageView;
@@ -24,8 +29,8 @@ import algonquin.cst2335.hhsrandroidproject1.oct.OCTranspoBusRouteActivity;
 
 
 public class MainActivity extends AppCompatActivity {
-   private static String TAG = "MainActivity";
-   Toolbar main_menu;
+    private static String TAG = "MainActivity";
+    Toolbar main_menu;
 
 
     @Override
@@ -34,22 +39,87 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
 
+        ImageView simon = findViewById(R.id.movie_icon);
+        simon.setOnClickListener(V ->{
+            Intent goToMovie = new Intent(MainActivity.this, Movie_Database_API.class);
+            startActivity(goToMovie);
+        });
+
+        main_menu = findViewById(R.id.main_menu);
+        setSupportActionBar(main_menu);
+
+        ImageView soccer_game = findViewById(R.id.soccer_icon);
+        soccer_game.setOnClickListener( v -> {
+            Intent soccerGame = new Intent(MainActivity.this, SoccerGameActivity.class);
+            startActivity(soccerGame);
+        });
+
         ImageView chargingStation = findViewById(R.id.charging_station);
-        chargingStation.setOnClickListener(clkStation -> {
+        chargingStation.setOnClickListener(clk -> {
             Intent goToCharingStation = new Intent(this, ChargingStation.class);
             startActivity(goToCharingStation);
+
         });
 
         //SharedPreferences prefs = getSharedPreferences("MyData", Context.MODE_PRIVATE);
 
         ImageView otcImage = findViewById(R.id.bus_icon);
         otcImage.setOnClickListener(clk -> {
-
             Intent nextPageOCT = new Intent(MainActivity.this, OCTranspoBusRouteActivity.class);
             startActivity(nextPageOCT);
-
-
         });
+
+    }
+
+    public void startBusActivity() {
+        Intent soccerGame = new Intent(this, OCTranspoBusRouteActivity.class);
+        startActivity(soccerGame);
+    }
+
+    public void startSoccerNewsActivity() {
+        Intent soccerGame = new Intent(this, SoccerGameActivity.class);
+        startActivity(soccerGame);
+    }
+
+    public void startCarCharingActivity() {
+        Intent carCharging = new Intent(this, ChargingStation.class);
+        startActivity(carCharging);
+    }
+
+
+    private void startMovieActivity() {
+        Intent carCharging = new Intent(this, Movie_Database_API.class);
+        startActivity(carCharging);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.main_menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem menuItem) {
+        switch (menuItem.getItemId()) {
+            case R.id.soccer_games:
+                startSoccerNewsActivity();
+                break;
+            case R.id.electric_car_charging:
+                startCarCharingActivity();
+                break;
+
+            case R.id.octranspo:
+                startBusActivity();
+                break;
+
+            case R.id.movie:
+                startMovieActivity();
+                break;
+        }
+
+
+        return true;
 
     }
 
