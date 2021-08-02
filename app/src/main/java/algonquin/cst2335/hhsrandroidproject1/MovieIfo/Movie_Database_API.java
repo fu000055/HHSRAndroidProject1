@@ -453,9 +453,37 @@ public class Movie_Database_API extends AppCompatActivity {
         //favorites movies information button
         newMoviesButton =findViewById(R.id.addMovieButton);
         newMoviesButton.setOnClickListener(clk ->{
-            ChatMessage thisMessage = new ChatMessage( movieNameText.getText().toString(),1);
-            messages.add( thisMessage );
-            movieNameText.setText("");
+            ChatMessage titleMessage = new ChatMessage( titleView.getText().toString(),1);
+            messages.add( titleMessage );
+            titleView.setText("");
+
+            ChatMessage yearMessage = new ChatMessage( yearView.getText().toString(),1);
+            messages.add( yearMessage );
+            yearView.setText("");
+
+            ChatMessage ratingMessage = new ChatMessage( ratingView.getText().toString(),1);
+            messages.add( ratingMessage );
+            ratingView.setText("");
+
+            ChatMessage runtimeMessage = new ChatMessage( runtimeView.getText().toString(),1);
+            messages.add( runtimeMessage );
+            runtimeView.setText("");
+
+            ChatMessage actorMessage = new ChatMessage( actorsView.getText().toString(),1);
+            messages.add( actorMessage );
+            actorsView.setText("");
+
+            ChatMessage plotMessage = new ChatMessage( plotView.getText().toString(),1);
+            messages.add( plotMessage );
+            plotView.setText("");
+
+
+
+
+
+
+
+
             adt.notifyItemInserted(messages.size()-1);
 
         });
