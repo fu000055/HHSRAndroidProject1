@@ -69,6 +69,7 @@
     <string name="newMovieBtn">最新电影</string>
 
     <string name="getMovie">获得电影信息</string>
-
+    <string name="open">打开</string>
+    <string name="close">关闭</string>
 
 </resources>
