@@ -111,6 +111,7 @@ public class ChargingStationListFragment extends Fragment {
         latitude.setText(sharedPref.getString("Latitude", ""));
         longitude.setText(sharedPref.getString("Longitude", ""));
         search.setOnClickListener(clk -> {
+        stationList.clear();
             String url = "https://api.openchargemap.io/v3/poi/?key=aa49870e-45ee-4c7d-aa07-bad1b3e0e07a&output=json&countrycode=CA&latitude="
                     + latitude.getText().toString() + "&longitude=" + longitude.getText().toString() + "&maxresults=8";
             DownloadFilesTask downloadFileTask = new DownloadFilesTask();
@@ -158,9 +159,10 @@ public class ChargingStationListFragment extends Fragment {
                 Intent chargingStation = new Intent(getContext(), ChargingStation.class);
                 startActivity(chargingStation);
                 break;
-//            case R.id.movie_home:
-//
-//                break;
+            case R.id.favourite:
+                Intent favouriteStation = new Intent(getContext(), ChargingStationFavouriteStation.class);
+                startActivity(favouriteStation);
+                break;
 //            case R.id.soccer_home:
 
 //                break;
@@ -224,9 +226,9 @@ public class ChargingStationListFragment extends Fragment {
          */
         @RequiresApi(api = Build.VERSION_CODES.N)
         protected String doInBackground(String... urls) {
-
-            HttpURLConnection urlConnection = null;
             String result = "";
+            HttpURLConnection urlConnection = null;
+
             try {
                 URL link = new URL(urls[0]);
                 urlConnection = (HttpURLConnection) link.openConnection();

@@ -12,6 +12,7 @@
             android:id="@+id/intro"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="25dp"
             android:text="@string/charging_introduction" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
