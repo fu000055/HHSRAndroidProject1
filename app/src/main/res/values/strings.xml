@@ -89,5 +89,7 @@
         Click on the list of histories. You can quickly enter the familiar station."</string>
     <string name="oct_help_alert_title">Help</string>
     <string name="oct_help_alert_cancel">Cancel</string>
+    <string name="open">movieOpen</string>
+    <string name="close">movieOpen</string>
 
 </resources>
