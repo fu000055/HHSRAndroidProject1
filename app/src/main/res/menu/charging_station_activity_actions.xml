@@ -12,11 +12,11 @@
             android:icon="@drawable/charging_station"
             android:title="charging home"
             app:showAsAction="always" />
-<!--        <item-->
-<!--            android:id="@+id/bus_home"-->
-<!--            android:icon="@drawable/bus_icon"-->
-<!--            android:title="Item"-->
-<!--            app:showAsAction="always" />-->
+        <item
+            android:id="@+id/favourite"
+            android:icon="@drawable/soccer_favourite"
+            android:title="Item"
+            app:showAsAction="always" />
 <!--        <item-->
 <!--            android:id="@+id/soccer_home"-->
 <!--            android:icon="@drawable/soccer_court_icon"-->
