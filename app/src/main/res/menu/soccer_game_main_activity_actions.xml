@@ -8,6 +8,21 @@
         android:title="@string/app_name"
         app:showAsAction="always" />
     <item
+        android:id="@+id/oct_menu"
+        android:icon="@drawable/bus_icon"
+        android:title="@string/bus"
+        app:showAsAction="always"/>
+    <item
+        android:id="@+id/car_charging_menu"
+        android:icon="@drawable/charging_station"
+        android:title="@string/car_charging"
+        app:showAsAction="always"/>
+    <item
+        android:id="@+id/movie_menu"
+        android:icon="@drawable/movie_icon"
+        android:title="@string/movie_info"
+        app:showAsAction="always"/>
+    <item
         android:id="@+id/id_soccer_games"
         android:icon="@drawable/soccer_icon"
         android:title="@string/soccer_game"

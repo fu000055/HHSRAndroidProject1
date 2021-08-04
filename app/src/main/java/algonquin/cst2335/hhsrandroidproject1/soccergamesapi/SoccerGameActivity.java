@@ -123,19 +123,17 @@ public class SoccerGameActivity extends AppCompatActivity {
     /**
      * This function calls the notifyNewsSaved function from SoccerGameListFragment
      * @param chosenMessage The item you want to save
-     * @param chosenPosition The item position
      */
-    public void notifyNewsSaved(ArticleInfo chosenMessage, int chosenPosition) {
-        soccerGameFragment.notifyNewsSaved(chosenMessage, chosenPosition);
+    public void notifyNewsSaved(ArticleInfo chosenMessage) {
+        soccerGameFragment.notifyNewsSaved(chosenMessage);
     }
 
     /**
      * This function calls the notifyNewsRemoved function from SoccerGameListFragment
      * @param chosenMessage The item you want to remove
-     * @param chosenPosition The item position
      */
-    public void notifyNewsRemoved(ArticleInfo chosenMessage, int chosenPosition) {
-        soccerGameFragment.notifyNewsRemoved(chosenMessage, chosenPosition);
+    public void notifyNewsRemoved(ArticleInfo chosenMessage) {
+        soccerGameFragment.notifyNewsRemoved(chosenMessage);
     }
 
 }

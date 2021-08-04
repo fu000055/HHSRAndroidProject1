@@ -52,7 +52,10 @@ import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 
 import algonquin.cst2335.hhsrandroidproject1.MainActivity;
+import algonquin.cst2335.hhsrandroidproject1.MovieIfo.Movie_Database_API;
 import algonquin.cst2335.hhsrandroidproject1.R;
+import algonquin.cst2335.hhsrandroidproject1.chargingStation.ChargingStation;
+import algonquin.cst2335.hhsrandroidproject1.oct.OCTranspoBusRouteActivity;
 
 /**
  * @author Minghui Liao
@@ -88,11 +91,11 @@ public class SoccerGameListFragment extends Fragment {
 
 
     /**
-     * This function passes a layoutflater object.
-     * @param inflater
-     * @param container
-     * @param savedInstanceState
-     * @return
+     * Called to have the fragment instantiate its user interface view.
+     * @param inflater The LayoutInflater object that can be used to inflate any views in the fragment,
+     * @param container  If non-null, this is the parent view that the fragment's UI should be attached to. The fragment should not add the view itself, but this can be used to generate the LayoutParams of the view.
+     * @param savedInstanceState  If non-null, this fragment is being re-constructed from a previous saved state as given here.
+     * @return Return the View for the fragment's UI, or null.
      */
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -168,7 +171,7 @@ public class SoccerGameListFragment extends Fragment {
         searchbox.setText(searchKeyword);
 
 
-        // Toast message shows the searching keyword
+
         searchbtn.setOnClickListener(clk -> {
             Context context = getActivity().getApplicationContext();
             String keyword = searchbox.getText().toString();
@@ -180,6 +183,7 @@ public class SoccerGameListFragment extends Fragment {
             editor.putString("SearchKeyword",keyword);
             editor.apply();
 
+            // Toast message shows the searching keyword
             Toast toast = Toast.makeText(context, text, duration);
             toast.show();
             adt.setKeyword(keyword.toLowerCase());
@@ -191,7 +195,7 @@ public class SoccerGameListFragment extends Fragment {
     }
 
     /**
-     * This hook is called whenever an item in your options menu is selected.
+     * This hook is called whenever an item in options menu is selected.
      * @param item The menu item that was selected. This value cannot be null.
      * @return Return false to allow normal menu processing to proceed, true to consume it here.
      */
@@ -202,6 +206,18 @@ public class SoccerGameListFragment extends Fragment {
             case R.id.index:
                 Intent indexIntent = new Intent(getActivity(), MainActivity.class);
                 startActivity(indexIntent);
+                break;
+            case R.id.oct_menu:
+                Intent oct = new Intent(getActivity(), OCTranspoBusRouteActivity.class);
+                startActivity(oct);
+                break;
+            case R.id.car_charging_menu:
+                Intent carCharging = new Intent(getActivity(), ChargingStation.class);
+                startActivity(carCharging);
+                break;
+            case R.id.movie_menu:
+                Intent movie = new Intent(getActivity(), Movie_Database_API.class);
+                startActivity(movie);
                 break;
             case R.id.id_soccer_games:
 //                Fragment fragment = getActivity().getSupportFragmentManager().findFragmentById(R.id.fragmentRoom);
@@ -249,10 +265,10 @@ public class SoccerGameListFragment extends Fragment {
 
     /**
      * This method shows a alert dialog of removing articles
+     * and removes article from database if user clicks the "Remove" button.
      * @param chosenArticle The chosen article.
-     * @param chosenPosition The chosen position.
      */
-    public void notifyNewsRemoved(ArticleInfo chosenArticle, int chosenPosition) {
+    public void notifyNewsRemoved(ArticleInfo chosenArticle) {
         // AlertDialog displays alert message to confirm if the article will be remove
         AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
         builder.setMessage("are you sure you want to remove the news from favorite: " + chosenArticle.title)
@@ -261,12 +277,8 @@ public class SoccerGameListFragment extends Fragment {
                 })
                 .setPositiveButton("Remove", (dialog, cl) -> {
 
-                    //position = getAbsoluteAdapterPosition();
-
-                    ArticleInfo savedArticle = articleInfos.get(chosenPosition);
-
                     // Delete the saved articleInfos from database
-                    db.delete(MyOpenHelper.TABLE_NAME, "ArticleUrl=?", new String[]{savedArticle.articleUrl});
+                    db.delete(MyOpenHelper.TABLE_NAME, "ArticleUrl=?", new String[]{chosenArticle.articleUrl});
                     // Remove the saved articleInfos from HashSet
                     savedArticleUrls.remove(chosenArticle.articleUrl);
 
@@ -287,10 +299,10 @@ public class SoccerGameListFragment extends Fragment {
 
     /**
      * This method shows a alert dialog of saving articles
+     * and saves article to database if user clicks the "Save" button.
      * @param chosenArticle The chosen article.
-     * @param chosenPosition The chosen position.
      */
-    public void notifyNewsSaved(ArticleInfo chosenArticle, int chosenPosition) {
+    public void notifyNewsSaved(ArticleInfo chosenArticle) {
         // AlertDialog displays message if you want to save this articles
         AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
         builder.setMessage("are you sure you want to save the news to favorite: " + chosenArticle.title)
@@ -299,33 +311,29 @@ public class SoccerGameListFragment extends Fragment {
                 })
                 .setPositiveButton("Save", (dialog, cl) -> {
 
-                    //position = getAbsoluteAdapterPosition();
-
-                    ArticleInfo savedArticle = articleInfos.get(chosenPosition);
-
                     // Add the saved articleInfos from HashSet
-                    savedArticleUrls.add(savedArticle.articleUrl);
+                    savedArticleUrls.add(chosenArticle.articleUrl);
                     // Update the list
                     adt.performFilter();
 
                     // Replace the single quote marks of title and description
-                    String escapedTitle = savedArticle.title.replace("'", "''");
-                    String escapedDescription = savedArticle.description.replace("'", "''");
+                    String escapedTitle = chosenArticle.title.replace("'", "''");
+                    String escapedDescription = chosenArticle.description.replace("'", "''");
 
                     // Insert the saved articleInfos from database
                     db.execSQL("Insert into " + MyOpenHelper.TABLE_NAME + " values('" +
-                            escapedTitle + "','" + savedArticle.date + "','" +
-                            escapedDescription + "','" + savedArticle.articleUrl + "','" +
-                            savedArticle.imgUrl + "');");
+                            escapedTitle + "','" + chosenArticle.date + "','" +
+                            escapedDescription + "','" + chosenArticle.articleUrl + "','" +
+                            chosenArticle.imgUrl + "');");
 
 
                     // Snackbar to ask users that whether users want to undo the action
                     Snackbar.make(searchbtn, "You saved article " + chosenArticle.title, Snackbar.LENGTH_LONG)
                             .setAction("Undo", clk -> {
 
-                                savedArticleUrls.remove(savedArticle.articleUrl);
+                                savedArticleUrls.remove(chosenArticle.articleUrl);
                                 adt.performFilter();
-                                db.delete(MyOpenHelper.TABLE_NAME, "title=?", new String[]{savedArticle.title});
+                                db.delete(MyOpenHelper.TABLE_NAME, "title=?", new String[]{chosenArticle.title});
                             })
                             .show();
                 })
@@ -334,11 +342,11 @@ public class SoccerGameListFragment extends Fragment {
 
     /**
      * This function requests articleInfos from url.
-     * @param urlString
-     * @return
-     * @throws IOException
-     * @throws SAXException
-     * @throws ParserConfigurationException
+     * @param urlString The url string.
+     * @return Return the list of articles.
+     * @throws IOException Signals that an I/O exception of some sort has occurred.
+     * @throws SAXException Basic error or warning information from either the XML parser or the application.
+     * @throws ParserConfigurationException Indicates a serious configuration error.
      */
     private List<ArticleInfo> requestArticleInfosFromUrl(String urlString)
             throws IOException, SAXException, ParserConfigurationException {
@@ -347,10 +355,6 @@ public class SoccerGameListFragment extends Fragment {
 
         URL url = new URL(urlString);
         HttpURLConnection conn = (HttpURLConnection) url.openConnection();
-//        conn.setReadTimeout(10000);
-//        conn.setConnectTimeout(15000);
-//        conn.setRequestMethod("GET");
-//        conn.setDoInput(true);
         conn.connect();
         if (conn.getResponseCode() != 200) {
             // If failing to connect, return empty articleInfos
@@ -380,8 +384,8 @@ public class SoccerGameListFragment extends Fragment {
 
     /**
      * This funtion gets ArticleInfo from each <item>.
-     * @param node
-     * @return
+     * @param node, an <item> in the list
+     * @return ArticleInfo object parsed from the <item>
      */
     private ArticleInfo getArticleInfo(Node node) {
         Element element = (Element)node;
@@ -454,8 +458,17 @@ public class SoccerGameListFragment extends Fragment {
         @Override
         protected void onPostExecute(List<ArticleInfo> result) {
             // Append the existing articleInfos after new downloaded articleInfos
-            result.addAll(articleInfos);
-            articleInfos = result;
+            List<ArticleInfo> mergedList = new ArrayList<>();
+            for (ArticleInfo articleInfo: result) {
+                // If the new downloaded articleInfos not in existing
+                // articleInfos, add it
+                if (savedArticleUrls.contains(articleInfo.articleUrl) == false) {
+                    mergedList.add(articleInfo);
+                }
+            }
+            // Append the existing articleInfos
+            mergedList.addAll(articleInfos);
+            articleInfos = mergedList;
             //Log.e("Debug:", Integer.toString(articleInfos.size()));
             if (adt != null) {
                 adt = new SoccerGameAdapter(getContext(), articleInfos, savedArticleUrls);

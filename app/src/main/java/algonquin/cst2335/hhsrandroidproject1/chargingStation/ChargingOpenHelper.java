@@ -2,13 +2,13 @@ package algonquin.cst2335.hhsrandroidproject1.chargingStation;
 
 import android.app.Activity;
 import android.content.Context;
-import android.database.DatabaseErrorHandler;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-
+/**
+ * @author Hui Lyu
+ * @version 1.0
+ */
 public class ChargingOpenHelper extends SQLiteOpenHelper {
 
     /**
@@ -44,18 +44,35 @@ public class ChargingOpenHelper extends SQLiteOpenHelper {
      */
     public static final String COL_PHONE = "PHONE";
 
+    /**
+     * Constructor to create a database open helper
+     *
+     * @param context activity
+     */
     public ChargingOpenHelper(Context context) {
         super(context, DATABASE_NAME, null, VERSION_NUM);
     }
 
+    /**
+     * Methods creates a table
+     *
+     * @param db database
+     */
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL("CREATE TABLE " + TABLE_NAME + "( "
-                + COL_ID +" INTEGER PRIMARY KEY AUTOINCREMENT,"
+                + COL_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
                 + COL_TITLE + " TEXT, " + COL_LATITUDE + " REAL, "
                 + COL_LONGITUDE + " REAL, " + COL_PHONE + " TEXT)");
     }
 
+    /**
+     * Methods upgrades a database
+     *
+     * @param db         database
+     * @param oldVersion old version number
+     * @param newVersion new version number
+     */
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME);

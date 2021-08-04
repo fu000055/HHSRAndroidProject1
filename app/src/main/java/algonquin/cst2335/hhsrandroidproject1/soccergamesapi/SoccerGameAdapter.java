@@ -40,11 +40,11 @@ public class SoccerGameAdapter extends RecyclerView.Adapter<SoccerGameAdapter.So
     Filter filter = new Filter() {
         /**
          * Perform filter according to isFavoriteList and keyword.
-         * @param constraint
+         * @param keyword The search keyword.
          * @return Return the filter Results.
          */
         @Override
-        protected FilterResults performFiltering(CharSequence constraint) {
+        protected FilterResults performFiltering(CharSequence keyword) {
             final List<ArticleInfo> list = oriArticleInfos;
             FilterResults results = new FilterResults();
             int count = list.size();
@@ -53,9 +53,9 @@ public class SoccerGameAdapter extends RecyclerView.Adapter<SoccerGameAdapter.So
             for (int i = 0; i < count; i++) {
                 ArticleInfo articleInfo = list.get(i);
                 // If keyword is not null, check if title or description contains keyword
-                if (constraint != null &&
-                        !(articleInfo.title.toLowerCase().contains(constraint)
-                        || articleInfo.description.toLowerCase().contains(constraint))) {
+                if (keyword != null &&
+                        !(articleInfo.title.toLowerCase().contains(keyword)
+                        || articleInfo.description.toLowerCase().contains(keyword))) {
                     continue;
                 }
 
@@ -85,9 +85,9 @@ public class SoccerGameAdapter extends RecyclerView.Adapter<SoccerGameAdapter.So
 
     /**
      * This creates an adapter with specified characteristics.
-     * @param ct
-     * @param articleInfos
-     * @param savedArticleUrls
+     * @param ct The context of the current Activity
+     * @param articleInfos The list of ArticleInfo
+     * @param savedArticleUrls The set of urls of saved/favorite articles
      */
     public SoccerGameAdapter(Context ct, List<ArticleInfo> articleInfos, Set<String> savedArticleUrls) {
         context = ct;
@@ -105,7 +105,7 @@ public class SoccerGameAdapter extends RecyclerView.Adapter<SoccerGameAdapter.So
 
     /**
      * This method is to set the favourite list.
-     * @param favoriteList
+     * @param favoriteList The favourite list of articles.
      */
     public void setFavoriteList(boolean favoriteList) {
         this.isFavoriteList = favoriteList;
@@ -113,7 +113,7 @@ public class SoccerGameAdapter extends RecyclerView.Adapter<SoccerGameAdapter.So
 
     /**
      * This method is to set the keyword.
-     * @param keyword
+     * @param keyword The search keyword.
      */
     public void setKeyword(CharSequence keyword) {
         this.keyword = keyword;
