@@ -25,10 +25,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.snackbar.Snackbar;
+import algonquin.cst2335.hhsrandroidproject1.R;
 
 import java.util.ArrayList;
-
-import algonquin.cst2335.hhsrandroidproject1.R;
 
 public class Favourites extends AppCompatActivity {
     RecyclerView favouritesView;

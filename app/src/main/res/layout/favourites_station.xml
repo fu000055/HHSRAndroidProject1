@@ -13,7 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="20dp"
-        android:text="Delete"
+        android:text="@string/deleteButton"
         app:layout_constraintBottom_toBottomOf="parent"
         tools:layout_editor_absoluteX="103dp" />
 

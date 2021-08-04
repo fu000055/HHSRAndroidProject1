@@ -31,9 +31,6 @@
 
     <!-- TODO: Remove or change this placeholder text -->
 
-  
-    <string name="open">Open</string>
-    <string name="close">Close</string>
 
     <string name="help">HELP</string>
     <string name="soccer_games_help">
@@ -54,7 +51,7 @@
     <string name="soccer_news_remove_from_favourite">REMOVE FROM FAVOURITE</string>
 
 
-  
+
     <string name="latitudeInput">Enter latitude</string>
     <string name="latitude">Latitude: </string>
     <string name="longitude">Longitude: </string>
@@ -66,6 +63,9 @@
     <string name="add">Add To Favourites</string>
     <string name="listOfFavourites">See List Of Favourite Stations</string>
     <string name="deleteButton">Delete</string>
+    <string name="home">Home</string>
+    <string name="charging_introduction">Charging Station\nAuthor: Hui Lyu \nVersion Number: 1.0 </string>
+
     <string name="oct_header">OC Transpo</string>
     <string name="search_stop">Please enter the bus stop number </string>
     <string name="oct_search_bar">SEARCH</string>
@@ -89,7 +89,5 @@
         Click on the list of histories. You can quickly enter the familiar station."</string>
     <string name="oct_help_alert_title">Help</string>
     <string name="oct_help_alert_cancel">Cancel</string>
-
-
 
 </resources>

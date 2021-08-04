@@ -11,7 +11,7 @@ import android.database.sqlite.SQLiteOpenHelper;
  */
 public class MyOpenHelper extends SQLiteOpenHelper {
     /**This sets the database name as "TheDatabase".*/
-    public static final String name = "TheDatabase";
+    public static final String name = "TheSoccerGameDatabase";
     /**Represent the data column of the database*/
     public static final int version = 1;
     /**The name of the article table*/
