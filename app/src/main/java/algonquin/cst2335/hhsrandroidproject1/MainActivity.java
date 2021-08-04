@@ -56,15 +56,26 @@ public class MainActivity extends AppCompatActivity {
 
         ImageView chargingStation = findViewById(R.id.charging_station);
         chargingStation.setOnClickListener(clk -> {
+
+                    Intent goToCharingStation = new Intent(this, ChargingStation.class);
+                    startActivity(goToCharingStation);
+                });
+
             Intent goToCharingStation = new Intent(this, ChargingStation.class);
             startActivity(goToCharingStation);
 
         });
 
+
         //SharedPreferences prefs = getSharedPreferences("MyData", Context.MODE_PRIVATE);
 
         ImageView otcImage = findViewById(R.id.bus_icon);
+
+        otcImage.setOnClickListener(clk ->{
+
+
         otcImage.setOnClickListener(clk -> {
+
             Intent nextPageOCT = new Intent(MainActivity.this, OCTranspoBusRouteActivity.class);
             startActivity(nextPageOCT);
         });

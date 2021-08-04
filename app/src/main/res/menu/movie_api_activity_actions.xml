@@ -16,7 +16,7 @@
 
     <item
         android:id="@+id/id_home"
-        android:icon="@drawable/homepages_icon"
+        android:icon="@drawable/movie_homepage_house_icon"
         android:title="Main page port"
         app:showAsAction="always" />
 

@@ -15,10 +15,9 @@
 
 
 
-    <string name="open">Opne</string>
-    <string name="close">Close</string>
+
     <string name="getMovie">Get Movie Information</string>
-    <string name="LoginMovie">LoginMovie</string>
+    <string name="LoginMovie">Login Movie</string>
     <string name="FavoritesMovie">FavoritesMovies</string>
 
     <string name="delBtnMovie">Delete</string>
@@ -27,7 +26,7 @@
 
     <string name="addMovieInfo">Add Movie</string>
     <string name="addActorName">Add Actor</string>
-    <string name="newMovieBtn">New Movies</string>
+    <string name="newMovieBtn">Add Favorite Movies</string>
 
 
     <!-- TODO: Remove or change this placeholder text -->
