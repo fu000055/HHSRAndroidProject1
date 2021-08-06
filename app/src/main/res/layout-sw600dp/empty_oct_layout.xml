@@ -5,9 +5,13 @@
     android:layout_height="match_parent"
     android:orientation="horizontal">
     <FrameLayout
+        android:layout_width="300dp"
+        android:layout_height="match_parent"
+        android:background="#90A5A7"
+        android:id="@+id/oct_fragmentRoom"/>
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#B2EBF2"
-        android:id="@+id/oct_fragmentRoom"/>
-
+        android:background="#F0DFA7"
+        android:id="@+id/oct_secondary"/>
 </LinearLayout>

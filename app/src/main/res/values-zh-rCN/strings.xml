@@ -50,6 +50,12 @@
     <string name="oct_help_alert">"输入汽车站号码："</string>
     <string name="oct_help_alert_title">帮助</string>
     <string name="oct_help_alert_cancel">取消</string>
+    <string name="route_close_btn">关闭</string>
+    <string name="id_soccer">足球</string>
+    <string name="id_charging">充电站</string>
+    <string name="id_movie">电影</string>
+    <string name="id_help_oct">帮助</string>
+
 
 
 

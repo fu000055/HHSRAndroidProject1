@@ -13,42 +13,40 @@
 <!--            android:title="Increase Font Size"-->
 <!--            app:showAsAction="always" />-->
 
-<!--        <item-->
-<!--            android:id="@+id/id_decrease"-->
-<!--            android:icon="@drawable/decrease"-->
-<!--            android:title="Decrease Font Size"-->
-<!--            app:showAsAction="always" />-->
-<!--        <item-->
-<!--            android:id="@+id/id_search_oct"-->
-<!--            android:icon="@android:drawable/ic_menu_search"-->
-<!--            android:orderInCategory="2"-->
-<!--            android:title="@string/id_search_oct"-->
-<!--            app:showAsAction="always" />-->
-
         <item
-            android:id="@+id/id_favorites_oct"
-            android:icon="@android:drawable/btn_star_big_on"
-            android:orderInCategory="1"
-            android:title="@string/id_favorites_oct"
-            app:showAsAction="always" />
-
-        <item
-            android:id="@+id/id_soccer"
+            android:id="@+id/id_soccer_oct"
             android:icon="@drawable/football_soccer_icon"
             android:orderInCategory="3"
             android:title="@string/id_soccer"
             app:showAsAction="always" />
         <item
-            android:id="@+id/id_charging"
+            android:id="@+id/id_charging_oct"
             android:icon="@drawable/charging_station"
             android:orderInCategory="3"
             android:title="@string/id_charging"
             app:showAsAction="always" />
         <item
-            android:id="@+id/id_movie"
+            android:id="@+id/id_movie_oct"
             android:icon="@drawable/movie_icon"
             android:orderInCategory="3"
             android:title="@string/id_movie"
+            app:showAsAction="always" />
+        <item
+            android:id="@+id/id_search_oct"
+            android:icon="@android:drawable/ic_menu_search"
+            android:orderInCategory="2"
+            android:title="@string/id_search_oct"
+            app:showAsAction="always" />
+        <item
+            android:id="@+id/id_help_oct"
+            android:icon="@android:drawable/ic_menu_info_details"
+            android:title="@string/id_help_oct"
+            app:showAsAction="always" />
+        <item
+            android:id="@+id/id_main_from_oct"
+            android:icon="@drawable/home_icon"
+            android:orderInCategory="1"
+            android:title="@string/id_favorites_oct"
             app:showAsAction="always" />
 
 
