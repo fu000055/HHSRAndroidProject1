@@ -24,7 +24,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+<androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -32,9 +32,7 @@
         android:id="@+id/oct_header"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/archivo_black"
         android:text="@string/oct_header"
-        android:textColor="#656565"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -45,61 +43,61 @@
         android:layout_height="45dp"
         android:layout_marginTop="16dp"
         android:ems="10"
-        android:textColor="@color/oct_text"
         android:hint="@string/search_stop"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/oct_header" />
 
+
     <Button
         android:id="@+id/search_bar"
-        android:layout_width="403dp"
-        android:layout_height="53dp"
+        android:layout_width="947dp"
+        android:layout_height="63dp"
         android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:text="@string/oct_search_bar"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/search_edit_text" />
 
-
     <Button
         android:id="@+id/help_bar"
-        android:layout_width="133dp"
-        android:layout_height="48dp"
-        android:layout_marginTop="24dp"
+        android:layout_width="428dp"
+        android:layout_height="58dp"
+        android:layout_marginTop="28dp"
         android:text="@string/oct_help_bar"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.6"
-        app:layout_constraintStart_toEndOf="@+id/favouritesButton"
+        app:layout_constraintEnd_toEndOf="@+id/search_bar"
         app:layout_constraintTop_toBottomOf="@+id/search_bar" />
 
     <Button
         android:id="@+id/returnButtonOCt"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="8dp"
+        android:layout_width="238dp"
+        android:layout_height="75dp"
+        android:layout_marginEnd="156dp"
+        android:layout_marginBottom="320dp"
         android:text="@string/returnButtonOCt"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
     <Button
         android:id="@+id/favouritesButton"
-        android:layout_width="258dp"
-        android:layout_height="48dp"
+        android:layout_width="458dp"
+        android:layout_height="58dp"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="24dp"
         android:text="@string/favouritesButtonOct"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/search_bar"
         app:rippleColor="#AB47BC" />
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
         <com.google.android.material.navigation.NavigationView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:id="@+id/popup_menu_oct_home"
+            android:id="@+id/popup_menu_oct"
             android:layout_gravity = "start"
             android:fitsSystemWindows="true"
             app:headerLayout="@layout/popout_header_oct"

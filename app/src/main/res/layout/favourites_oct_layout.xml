@@ -19,7 +19,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.drawerlayout.widget.DrawerLayout
-        android:id="@+id/drawer_layout"
+        android:id="@+id/favourite_drawer_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 <androidx.constraintlayout.widget.ConstraintLayout
@@ -39,9 +39,13 @@
         android:id="@+id/favouritesTitle"
         android:layout_width="305dp"
         android:layout_height="37dp"
+        android:layout_marginTop="4dp"
         android:fontFamily="@font/archivo_black"
+        android:gravity="center"
         android:text="@string/oct_favouritesTitle"
+        android:textSize="18dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/imageView"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -49,6 +53,7 @@
         android:id="@+id/imageView"
         android:layout_width="44dp"
         android:layout_height="41dp"
+        android:layout_marginStart="16dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/history15_icon" />
@@ -70,10 +75,10 @@
         <com.google.android.material.navigation.NavigationView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:id="@+id/popup_menu_oct"
+            android:id="@+id/popup_menu_oct_f"
             android:layout_gravity = "start"
             android:fitsSystemWindows="true"
             app:headerLayout="@layout/popout_header_oct"
-            app:menu="@menu/oct_main_menu"/>
+            app:menu="@menu/oct_favourites_page_menu"/>
     </androidx.drawerlayout.widget.DrawerLayout>
 </LinearLayout>

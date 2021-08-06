@@ -30,61 +30,90 @@ import java.util.ArrayList;
 import algonquin.cst2335.hhsrandroidproject1.MainActivity;
 import algonquin.cst2335.hhsrandroidproject1.R;
 
+/**
+ * This class is used to loading the main activity for OC Transpo App.
+ * @author Rong Fu
+ * @version 1.0
+ */
 public class OCTranspoBusRouteActivity extends AppCompatActivity {
-    StationDetail myStationDetail = new StationDetail();
-    ArrayList<String> favoriteList = new ArrayList<>();
+//    StationDetail myStationDetail = new StationDetail();
+//    ArrayList<String> favoriteList = new ArrayList<>();
     SQLiteDatabase db;
-    Toolbar mytoolbar;
+    //Toolbar mytoolbar;
 
-    public void runMain() {
-        Intent mainPage = new Intent(this, MainActivity.class);
-        startActivity(mainPage);
-    }
-    public void runSearch() {
-        Intent searchPage = new Intent(this, OCTranspoBusRouteActivity.class);
-        startActivity(searchPage);
-    }
-    public void runFavourite() {
-        Intent favoritesPage = new Intent(this, Favourites.class);
-        startActivity(favoritesPage);
-    }
+    /**
+     * Initialize the contents of the Activity's standard options menu.
+     * @param menu The options menu in which you place your items.
+     * @return calling super from the parent class.
+     */
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.oct_main_menu, menu);
         return super.onCreateOptionsMenu(menu);
     }
+    /**
+     * This function is called whenever an item in options menu is selected.
+     * @param item The menu item that was selected. This value cannot be null.
+     * @return Return false to allow normal menu processing to proceed, true to consume it here.
+     */
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId())
         {
             case R.id.id_favorites_oct:
-                runFavourite();
+                Intent favoritesPage = new Intent(this, Favourites.class);
+                startActivity(favoritesPage);;
                 break;
             case R.id.id_search_oct:
-                runSearch();
+                Intent searchPage = new Intent(this, OCTranspoBusRouteActivity.class);
+                startActivity(searchPage);
                 break;
-            case R.id.id_main_from_oct:
-                runMain();
 
+//            case R.id.car_charging_menu:
+//                Intent carCharging = new Intent(this, ChargingStation.class);
+//                startActivity(carCharging);
+//                break;
+//            case R.id.movie_menu:
+//                Intent movie = new Intent(this, Movie_Database_API.class);
+//                startActivity(movie);
+//                break;
+//            case R.id.id_soccer_games:
+//                Intent soccerGame = new Intent(this, SoccerGameActivity.class);
+//                startActivity(soccerGame);
+//                break;
+            case R.id.id_main_from_oct:
+                Intent soccerGame = new Intent(this,MainActivity.class);
+                startActivity(soccerGame);
+                break;
+            case R.id.id_help_oct:
+                AlertDialog.Builder builder = new AlertDialog.Builder(OCTranspoBusRouteActivity.this);
+                builder.setMessage(R.string.oct_help_alert )
+                        .setTitle(R.string.oct_help_alert_title)
+                        .setPositiveButton(R.string.oct_help_alert_cancel,(dialog, cl) ->{
+
+                        }).create().show();
         }
         return super.onOptionsItemSelected(item);
     }
-
+    /**
+     * This function uses to call the activity first stats up.
+     * @param savedInstanceState A Bundle object containing the activity's previously saved state.
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.oct_home_layout);
 
-        mytoolbar = findViewById(R.id.toolbar);
+        Toolbar mytoolbar = findViewById(R.id.toolbar);
         setSupportActionBar(mytoolbar);
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
-        ImageView star = findViewById(R.id.imageView);
+        //ImageView star = findViewById(R.id.imageView);
         //Generate Open and Close strings
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this,drawer,mytoolbar,R.string.oct_open,R.string.oct_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
-        NavigationView navigationView = findViewById(R.id.popup_menu_oct);
+        NavigationView navigationView = findViewById(R.id.popup_menu_oct_home);
         navigationView.setNavigationItemSelectedListener((item) -> {
             onOptionsItemSelected(item);//call the function for the other Toolbar
             drawer.closeDrawer(GravityCompat.START);
@@ -92,7 +121,7 @@ public class OCTranspoBusRouteActivity extends AppCompatActivity {
 
         });
 
-        Intent fromPreOCT = getIntent();
+        //Intent fromPreOCT = getIntent();
         // save message
         SharedPreferences prefs = getSharedPreferences("MyData", Context.MODE_PRIVATE);
         String searchStop = prefs.getString("StationNumber","");

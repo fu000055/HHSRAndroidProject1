@@ -4,6 +4,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
@@ -28,20 +29,49 @@ import java.util.stream.Collectors;
 
 import algonquin.cst2335.hhsrandroidproject1.R;
 
+/** This class displays route trip details.
+ * @author Rong Fu
+ * @version 1.0
+ */
 public class RouteFragment extends Fragment{
     private String stringURL;
     String routeDirection_routeLabel;
     String direction;
     String routeNumber;
     ArrayList<Trip> tripArrayList = new ArrayList<>();
+    StationFragment.Route chosenRoute;
+    int chosenPosition;
+
+    /**
+     * Constructor
+     * @param route route
+     * @param position position in the list
+     */
+    public RouteFragment(StationFragment.Route route, int position){
+        chosenRoute = route;
+        chosenPosition = position;
+    }
+
+    /**
+     * Called to have the fragment instantiate its user interface view.
+     * @param inflater The LayoutInflater object that can be used to inflate any views in the fragment,
+     * @param container  If non-null, this is the parent view that the fragment's UI should be attached to. The fragment should not add the view itself, but this can be used to generate the LayoutParams of the view.
+     * @param savedInstanceState  If non-null, this fragment is being re-constructed from a previous saved state as given here.
+     * @return Return the View for the fragment's UI, or null.
+     */
     @Override
     public View onCreateView( LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
        View routeLayout = inflater.inflate(R.layout.route_detail_layout,container,false);
 
         TextView titleText = routeLayout.findViewById(R.id.routeHeader);
         TextView stopDescriptionText = routeLayout.findViewById(R.id.routeDetailInfo);
-        String stationNumber = getActivity().getIntent().getStringExtra("StationNumber");//"3017";
-        String routeNo = getActivity().getIntent().getStringExtra("RouteNo");//"75";
+        String stationNumber = getArguments().getString("StationNumber");//getActivity().getIntent().getStringExtra("StationNumber");//"3017";
+        String routeNo = getArguments().getString("RouteNo");//getActivity().getIntent().getStringExtra("RouteNo");//"75";
+
+        Button routeCloseBtn= routeLayout.findViewById(R.id.route_close_btn);
+        routeCloseBtn.setOnClickListener(closeClk -> {
+            getParentFragmentManager().beginTransaction().remove(this).commit();
+        });
 
         Executor newThread = Executors.newSingleThreadExecutor();
         // create a stop list in the stop recyclerView list
@@ -107,6 +137,11 @@ public class RouteFragment extends Fragment{
         return routeLayout;
     }
 
+    /**
+     * Used to generate a long String including all trips' details
+     * @param tripArrayList A list of all trips
+     * @return A String to present all trips' info
+     */
     public String getTripsText(ArrayList<Trip> tripArrayList) {
         StringBuilder sb = new StringBuilder();
         int count = 0;
@@ -128,6 +163,10 @@ public class RouteFragment extends Fragment{
         }
         return sb.toString();
     }
+
+    /**
+     * Trip Class encapsulates details of one trip
+     */
     private class Trip {
         String trip_longitude ;
         String trip_latitude ;
