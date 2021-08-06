@@ -89,18 +89,18 @@ public class StationFragment extends Fragment {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId())
         {
-//            case R.id.car_charging_menu:
-//                Intent carCharging = new Intent(getActivity(), ChargingStation.class);
-//                startActivity(carCharging);
-//                break;
-//            case R.id.movie_menu:
-//                Intent movie = new Intent(getActivity(), Movie_Database_API.class);
-//                startActivity(movie);
-//                break;
-//            case R.id.id_soccer_games:
-//                Intent soccerGame = new Intent(getActivity(), SoccerGameActivity.class);
-//                startActivity(soccerGame);
-//                break;
+            case R.id.car_charging_menu:
+                Intent carCharging = new Intent(getActivity(), ChargingStation.class);
+                startActivity(carCharging);
+                break;
+            case R.id.movie_menu:
+                Intent movie = new Intent(getActivity(), Movie_Database_API.class);
+                startActivity(movie);
+                break;
+            case R.id.id_soccer_games:
+                Intent soccerGame = new Intent(getActivity(), SoccerGameActivity.class);
+                startActivity(soccerGame);
+                break;
             case R.id.id_favorites_oct:
                 Intent favoritesPage = new Intent(getActivity(), Favourites.class);
                 startActivity(favoritesPage);;

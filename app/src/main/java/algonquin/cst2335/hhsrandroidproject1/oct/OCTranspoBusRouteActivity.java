@@ -69,18 +69,18 @@ public class OCTranspoBusRouteActivity extends AppCompatActivity {
                 startActivity(searchPage);
                 break;
 
-//            case R.id.car_charging_menu:
-//                Intent carCharging = new Intent(this, ChargingStation.class);
-//                startActivity(carCharging);
-//                break;
-//            case R.id.movie_menu:
-//                Intent movie = new Intent(this, Movie_Database_API.class);
-//                startActivity(movie);
-//                break;
-//            case R.id.id_soccer_games:
-//                Intent soccerGame = new Intent(this, SoccerGameActivity.class);
-//                startActivity(soccerGame);
-//                break;
+            case R.id.car_charging_menu:
+                Intent carCharging = new Intent(this, ChargingStation.class);
+                startActivity(carCharging);
+                break;
+            case R.id.movie_menu:
+                Intent movie = new Intent(this, Movie_Database_API.class);
+                startActivity(movie);
+                break;
+            case R.id.id_soccer_games:
+                Intent soccerGame = new Intent(this, SoccerGameActivity.class);
+                startActivity(soccerGame);
+                break;
             case R.id.id_main_from_oct:
                 Intent soccerGame = new Intent(this,MainActivity.class);
                 startActivity(soccerGame);
