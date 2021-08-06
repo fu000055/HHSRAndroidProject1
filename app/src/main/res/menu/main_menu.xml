@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <group android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/octranspo"
+
+            android:icon="@drawable/bus_icon"
+            android:orderInCategory="1"
+            android:title="@string/bus"
+            app:showAsAction="always" />
+
+        <item
+            android:id="@+id/electric_car_charging"
+
+            android:icon="@drawable/charging_station"
+            android:orderInCategory="2"
+            android:title="@string/car_charging"
+            app:showAsAction="always" />
+        <item
+            android:id="@+id/movie"
+
+            android:icon="@drawable/movie_icon"
+            android:orderInCategory="3"
+            android:title="@string/movie_info"
+
+            app:showAsAction="always" />
+
+        <item
+            android:id="@+id/soccer_games"
+
+            android:icon="@drawable/soccer_icon"
+            android:orderInCategory="4"
+            android:title="@string/soccer_game"
+            app:showAsAction="always" />
+    </group>
+</menu>

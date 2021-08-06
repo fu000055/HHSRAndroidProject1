@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/hide_view"
+        android:icon="@drawable/clear"
+        android:title="Clear movie"
+        app:showAsAction="always" />
+
+    <item
+        android:id="@+id/id_favorite"
+        android:icon="@drawable/favorite_star_icon"
+        android:title="Favorite Movies"
+        app:showAsAction="always" />
+
+    <item
+        android:id="@+id/id_home"
+        android:icon="@drawable/movie_homepage_house_icon"
+        android:title="Main page port"
+        app:showAsAction="always" />
+
+    <item
+        android:id="@+id/id_movie_help"
+        android:icon="@drawable/help_information_icon"
+        android:title="HELP"
+        app:showAsAction="always" />
+
+
+</menu>

@@ -8,23 +8,41 @@
         android:icon="@drawable/app_icon"
         android:label="@string/app_name"
         android:supportsRtl="true"
+
         android:theme="@style/Theme.HHSRAndroidProject1">
 
         <activity android:name=".oct.OCTranspoBusRouteActivity" />
         <activity android:name=".oct.StationDetail" />
         <activity android:name=".oct.Favourites" />
         <activity android:name=".oct.RouteDetail"/>
+
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
+
+                <action android:name="android.intent.action.VIEW" />
             </intent-filter>
         </activity>
+
+
+        <activity android:name=".MovieIfo.Movie_Database_API"/>
+        <activity android:name=".MovieIfo.MovieInfoRecord"/>
+        <activity android:name=".MovieIfo.SaveMovSecondActivity"/>
+        <activity android:name=".MovieIfo.SavedMovies"/>
+
+
+        <activity android:name=".soccergamesapi.SoccerGameActivity" />
+
+        <activity android:name=".chargingStation.ChargingStation"/>
+        <activity android:name=".chargingStation.ChargingStationFavouriteStation"/>
+
 
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
+
     </application>
 
 </manifest>

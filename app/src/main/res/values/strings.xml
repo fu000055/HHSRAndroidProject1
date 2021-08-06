@@ -4,6 +4,68 @@
     <string name="car_charging">Car Charging Station</string>
     <string name="movie_info">Movie Information</string>
     <string name="soccer_game">Soccer Games Api</string>
+
+
+    <!-- Movie Information App button text -->
+
+
+    <string name="searchTeater">Search Teater</string>
+    <string name="TheaterTel">TheaterTel</string>
+
+
+
+
+
+    <string name="getMovie">Get Movie Information</string>
+    <string name="LoginMovie">Login Movie</string>
+    <string name="FavoritesMovie">FavoritesMovies</string>
+
+    <string name="delBtnMovie">Delete</string>
+    <string name="CloseMovie">Close</string>
+
+
+    <string name="addMovieInfo">Add Movie</string>
+    <string name="addActorName">Add Actor</string>
+    <string name="newMovieBtn">Add Favorite Movies</string>
+
+
+    <!-- TODO: Remove or change this placeholder text -->
+
+
+    <string name="help">HELP</string>
+    <string name="soccer_games_help">
+        "Author: Minghui Liao \nVersion Number: 1.0 \nInstructions: \n1- For searching news: Firstly, input the keyword, and then press \"SEARCH\" button \n"
+            "2 - For news details: Click an article from the list to view more details \n"
+            "3 - For saving news: Press "SAVE TO FAVOURITE" to save the news. In the list view, press 'FAVOURITE' to view you list of saved news \n"
+            "4 - For removing news, click the news you want to remove and then press "REMOVE FROM FAVOURITE" \n'"
+    </string>
+
+    <string name="soccer_games_information">
+        "Activity's Titile: Soccer Games\nAuthor: Minghui Liao \nVersion Number: 1.0 "
+    </string>
+    <string name="soccer_news_save_to_favourite">SAVE TO FAVOURITE</string>
+    <string name="soccer_news_load_to_browser">LOAD IN BROWSER</string>
+    <string name="soccer_news_favourite">FAVOURITE</string>
+    <string name="soccer_news_feeds">FEEDS</string>
+    <string name="soccer_news_search">SEARCH</string>
+    <string name="soccer_news_remove_from_favourite">REMOVE FROM FAVOURITE</string>
+
+
+
+    <string name="latitudeInput">Enter latitude</string>
+    <string name="latitude">Latitude: </string>
+    <string name="longitude">Longitude: </string>
+    <string name="longitudeInput">Enter longitude</string>
+    <string name="searchButton">Search</string>
+    <string name="title">Location Title</string>
+    <string name="phone">Contact Telephone Number</string>
+    <string name="loadMap">Load Directions In Google Maps</string>
+    <string name="add">Add To Favourites</string>
+    <string name="listOfFavourites">See List Of Favourite Stations</string>
+    <string name="deleteButton">Delete</string>
+    <string name="home">Home</string>
+    <string name="charging_introduction">Charging Station\nAuthor: Hui Lyu \nVersion Number: 1.0 </string>
+
     <string name="oct_header">OC Transpo</string>
     <string name="search_stop">Please enter the bus stop number </string>
     <string name="oct_search_bar">SEARCH</string>
@@ -27,10 +89,15 @@
      Click on the list of histories. You can quickly enter the familiar station."</string>
     <string name="oct_help_alert_title">Help</string>
     <string name="oct_help_alert_cancel">Cancel</string>
+  
     <string name="route_close_btn">CLOSE</string>
     <string name="id_soccer">Soccer</string>
     <string name="id_charging">Charging</string>
     <string name="id_movie">Movie</string>
     <string name="id_help_oct">Help</string>
+
+    <string name="open">open</string>
+    <string name="close">close</string>
+
 
 </resources>

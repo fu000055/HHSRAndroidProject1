@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/index"
+        android:icon="@drawable/home"
+        android:title="@string/app_name"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/oct_menu"
+        android:icon="@drawable/bus_icon"
+        android:title="@string/bus"
+        app:showAsAction="always"/>
+    <item
+        android:id="@+id/car_charging_menu"
+        android:icon="@drawable/charging_station"
+        android:title="@string/car_charging"
+        app:showAsAction="always"/>
+    <item
+        android:id="@+id/movie_menu"
+        android:icon="@drawable/movie_icon"
+        android:title="@string/movie_info"
+        app:showAsAction="always"/>
+    <item
+        android:id="@+id/id_soccer_games"
+        android:icon="@drawable/soccer_icon"
+        android:title="@string/soccer_game"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/soccer_game_fav_menu"
+        android:icon="@drawable/soccer_favourite"
+        android:title="@string/soccer_news_favourite"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/help"
+        android:icon="@drawable/help"
+        android:title="@string/help"
+        app:showAsAction="always" />
+</menu>
