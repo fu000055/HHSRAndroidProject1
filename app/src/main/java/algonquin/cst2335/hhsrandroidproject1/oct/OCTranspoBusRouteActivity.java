@@ -25,10 +25,11 @@ import android.widget.Toast;
 
 import com.google.android.material.navigation.NavigationView;
 
-import java.util.ArrayList;
-
 import algonquin.cst2335.hhsrandroidproject1.MainActivity;
+import algonquin.cst2335.hhsrandroidproject1.MovieIfo.Movie_Database_API;
 import algonquin.cst2335.hhsrandroidproject1.R;
+import algonquin.cst2335.hhsrandroidproject1.chargingStation.ChargingStation;
+import algonquin.cst2335.hhsrandroidproject1.soccergamesapi.SoccerGameActivity;
 
 /**
  * This class is used to loading the main activity for OC Transpo App.
@@ -64,26 +65,26 @@ public class OCTranspoBusRouteActivity extends AppCompatActivity {
                 Intent favoritesPage = new Intent(this, Favourites.class);
                 startActivity(favoritesPage);;
                 break;
-            case R.id.id_search_oct:
-                Intent searchPage = new Intent(this, OCTranspoBusRouteActivity.class);
-                startActivity(searchPage);
-                break;
+//            case R.id.id_search_oct:
+//                Intent searchPage = new Intent(this, OCTranspoBusRouteActivity.class);
+//                startActivity(searchPage);
+//                break;
 
-            case R.id.car_charging_menu:
+            case R.id.id_charging2:
                 Intent carCharging = new Intent(this, ChargingStation.class);
                 startActivity(carCharging);
                 break;
-            case R.id.movie_menu:
+            case R.id.id_movie2:
                 Intent movie = new Intent(this, Movie_Database_API.class);
                 startActivity(movie);
                 break;
-            case R.id.id_soccer_games:
+            case R.id.id_soccer2:
                 Intent soccerGame = new Intent(this, SoccerGameActivity.class);
                 startActivity(soccerGame);
                 break;
-            case R.id.id_main_from_oct:
-                Intent soccerGame = new Intent(this,MainActivity.class);
-                startActivity(soccerGame);
+            case R.id.id_main_from_oct2:
+                Intent homePage = new Intent(this,MainActivity.class);
+                startActivity(homePage);
                 break;
             case R.id.id_help_oct:
                 AlertDialog.Builder builder = new AlertDialog.Builder(OCTranspoBusRouteActivity.this);

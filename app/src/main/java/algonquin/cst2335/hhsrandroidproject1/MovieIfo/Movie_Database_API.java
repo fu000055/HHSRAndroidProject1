@@ -69,9 +69,6 @@ public class Movie_Database_API extends AppCompatActivity {
 
 
 
-
-
-
     private static String TAG = "Movie_Database_API";
     private Button  helpButton;
     private Button  newMoviesButton;

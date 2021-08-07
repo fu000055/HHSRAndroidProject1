@@ -25,12 +25,16 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.snackbar.Snackbar;
+
+import algonquin.cst2335.hhsrandroidproject1.MovieIfo.Movie_Database_API;
 import algonquin.cst2335.hhsrandroidproject1.R;
 
 import java.util.ArrayList;
 
 import algonquin.cst2335.hhsrandroidproject1.MainActivity;
 import algonquin.cst2335.hhsrandroidproject1.R;
+import algonquin.cst2335.hhsrandroidproject1.chargingStation.ChargingStation;
+import algonquin.cst2335.hhsrandroidproject1.soccergamesapi.SoccerGameActivity;
 
 /** This class holds the histories that user searched.
  * @author Rong Fu
@@ -68,28 +72,28 @@ public class Favourites extends AppCompatActivity {
 //                Intent favoritesPage = new Intent(this, Favourites.class);
 //                startActivity(favoritesPage);;
 //                break;
-            case R.id.id_search_oct:
+            case R.id.id_search_oct1:
                 Intent searchPage = new Intent(this, OCTranspoBusRouteActivity.class);
                 startActivity(searchPage);
                 break;
 
-            case R.id.car_charging_menu:
+            case R.id.id_charging_oct1:
                 Intent carCharging = new Intent(this, ChargingStation.class);
                 startActivity(carCharging);
                 break;
-            case R.id.movie_menu:
+            case R.id.id_movie_oct1:
                 Intent movie = new Intent(this, Movie_Database_API.class);
                 startActivity(movie);
                 break;
-            case R.id.id_soccer_games:
+            case R.id.id_soccer_oct1:
                 Intent soccerGame = new Intent(this, SoccerGameActivity.class);
                 startActivity(soccerGame);
                 break;
-            case R.id.id_main_from_oct:
-                Intent soccerGame = new Intent(this,MainActivity.class);
-                startActivity(soccerGame);
+            case R.id.id_main_from_oct1:
+                Intent homePage = new Intent(this,MainActivity.class);
+                startActivity(homePage);
                 break;
-            case R.id.id_help_oct:
+            case R.id.id_help_oct1:
                 AlertDialog.Builder builder = new AlertDialog.Builder(Favourites.this);
                 builder.setMessage(R.string.oct_help_alert )
                         .setTitle(R.string.oct_help_alert_title)
