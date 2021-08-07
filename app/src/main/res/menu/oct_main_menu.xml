@@ -33,22 +33,28 @@
             app:showAsAction="always" />
 
         <item
-            android:id="@+id/id_soccer"
+            android:id="@+id/id_soccer2"
             android:icon="@drawable/football_soccer_icon"
             android:orderInCategory="3"
             android:title="@string/id_soccer"
             app:showAsAction="always" />
         <item
-            android:id="@+id/id_charging"
+            android:id="@+id/id_charging2"
             android:icon="@drawable/charging_station"
             android:orderInCategory="3"
             android:title="@string/id_charging"
             app:showAsAction="always" />
         <item
-            android:id="@+id/id_movie"
+            android:id="@+id/id_movie2"
             android:icon="@drawable/movie_icon"
             android:orderInCategory="3"
             android:title="@string/id_movie"
+            app:showAsAction="always" />
+        <item
+            android:id="@+id/id_main_from_oct2"
+            android:icon="@drawable/home_icon"
+            android:orderInCategory="1"
+            android:title="@string/id_favorites_oct"
             app:showAsAction="always" />
 
 

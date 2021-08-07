@@ -43,7 +43,10 @@ import java.util.concurrent.Executors;
 import java.util.stream.Collectors;
 
 import algonquin.cst2335.hhsrandroidproject1.MainActivity;
+import algonquin.cst2335.hhsrandroidproject1.MovieIfo.Movie_Database_API;
 import algonquin.cst2335.hhsrandroidproject1.R;
+import algonquin.cst2335.hhsrandroidproject1.chargingStation.ChargingStation;
+import algonquin.cst2335.hhsrandroidproject1.soccergamesapi.SoccerGameActivity;
 
 /** This class displays all routes passing a specified station.
  * @author Rong Fu
@@ -89,15 +92,15 @@ public class StationFragment extends Fragment {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId())
         {
-            case R.id.car_charging_menu:
+            case R.id.id_charging_oct:
                 Intent carCharging = new Intent(getActivity(), ChargingStation.class);
                 startActivity(carCharging);
                 break;
-            case R.id.movie_menu:
+            case R.id.id_movie_oct:
                 Intent movie = new Intent(getActivity(), Movie_Database_API.class);
                 startActivity(movie);
                 break;
-            case R.id.id_soccer_games:
+            case R.id.id_soccer_oct:
                 Intent soccerGame = new Intent(getActivity(), SoccerGameActivity.class);
                 startActivity(soccerGame);
                 break;

@@ -14,36 +14,36 @@
 <!--            app:showAsAction="always" />-->
 
         <item
-            android:id="@+id/id_soccer_oct"
+            android:id="@+id/id_soccer_oct1"
             android:icon="@drawable/football_soccer_icon"
             android:orderInCategory="3"
             android:title="@string/id_soccer"
             app:showAsAction="always" />
         <item
-            android:id="@+id/id_charging_oct"
+            android:id="@+id/id_charging_oct1"
             android:icon="@drawable/charging_station"
             android:orderInCategory="3"
             android:title="@string/id_charging"
             app:showAsAction="always" />
         <item
-            android:id="@+id/id_movie_oct"
+            android:id="@+id/id_movie_oct1"
             android:icon="@drawable/movie_icon"
             android:orderInCategory="3"
             android:title="@string/id_movie"
             app:showAsAction="always" />
         <item
-            android:id="@+id/id_search_oct"
+            android:id="@+id/id_search_oct1"
             android:icon="@android:drawable/ic_menu_search"
             android:orderInCategory="2"
             android:title="@string/id_search_oct"
             app:showAsAction="always" />
         <item
-            android:id="@+id/id_help_oct"
+            android:id="@+id/id_help_oct1"
             android:icon="@android:drawable/ic_menu_info_details"
             android:title="@string/id_help_oct"
             app:showAsAction="always" />
         <item
-            android:id="@+id/id_main_from_oct"
+            android:id="@+id/id_main_from_oct1"
             android:icon="@drawable/home_icon"
             android:orderInCategory="1"
             android:title="@string/id_favorites_oct"
